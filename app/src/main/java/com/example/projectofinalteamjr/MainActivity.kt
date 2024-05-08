@@ -9,6 +9,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.projectofinalteamjr.api.Curso
 import com.example.projectofinalteamjr.api.Cursos
 import com.example.projectofinalteamjr.api.CursosActions
+import com.example.projectofinalteamjr.api.Modulo
 import com.example.projectofinalteamjr.api.ModulosActions
 import com.example.projectofinalteamjr.api.MyApi
 import com.example.projectofinalteamjr.databinding.ActivityMainBinding
@@ -29,8 +30,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        val modulo = Modulo(
+            Nome = "Engenharia de Software",
+            Descricao = "Módulo de Engenharia de Software",
+            Horas = 45,
+            Regime_modulo = "Presencial"
+        )
+
         val moduloApiAction = ModulosActions()
         moduloApiAction.getApiModulos()
+        moduloApiAction.sendRequestModulos(modulo)
 
        /* // Rotina de criação de um curso novo
 
