@@ -32,6 +32,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+
+        // Rotina de criação de um curso novo
+
         val curso = Curso(
             Nome = "Introduction to Programming Test3",
             Descricao = "Learn the basics of programming Test3",
@@ -39,8 +42,13 @@ class MainActivity : AppCompatActivity() {
         )
 
         val cursoAction = CursosActions() // Cria um novo objeto do tipo cursoAction
-        cursoAction.getApiCursos() // chama a função desse novo objeto para buscar os cursos
         cursoAction.sendRequestCursos(curso) //chama a função desse novo objeto para enviar um novo curso para a DB
+
+        // .............................................................................
+
+        // Rotina para buscar os cursos
+
+        cursoAction.getApiCursos() // chama a função desse novo objeto para buscar os cursos
 
     }
    /* private fun sendRequestCursos(curso: Curso) {
