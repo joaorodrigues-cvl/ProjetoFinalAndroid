@@ -16,5 +16,16 @@ interface MyApi {
         @Body cursoNovo: Curso
     ): Call<Curso>
 
+    @GET("modulos")
+    fun getModulos(): Call<List<Modulos>>
+
+    @Headers("Content-Type: application/json")
+    @POST("modulos/create")
+    fun criarModulo(
+        @Body moduloNovo: Modulo
+    ): Call<Modulo>
+
+
+
 }
 

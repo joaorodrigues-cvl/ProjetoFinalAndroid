@@ -9,6 +9,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.projectofinalteamjr.api.Curso
 import com.example.projectofinalteamjr.api.Cursos
 import com.example.projectofinalteamjr.api.CursosActions
+import com.example.projectofinalteamjr.api.ModulosActions
 import com.example.projectofinalteamjr.api.MyApi
 import com.example.projectofinalteamjr.databinding.ActivityMainBinding
 import okhttp3.OkHttpClient
@@ -20,10 +21,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity : AppCompatActivity() {
 
-    private val BASE_URL = "http://10.0.2.2:8000/api/"
-    private val TAG: String = "CHECK_RESPONSE"
-    private val TAG2: String = "Metodo Post"
-
     private val binding by lazy{
         ActivityMainBinding.inflate(layoutInflater)
     }
@@ -32,8 +29,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        val moduloApiAction = ModulosActions()
+        moduloApiAction.getApiModulos()
 
-        // Rotina de criação de um curso novo
+       /* // Rotina de criação de um curso novo
 
         val curso = Curso(
             Nome = "Test3",
@@ -48,7 +47,7 @@ class MainActivity : AppCompatActivity() {
 
         // Rotina para buscar os cursos
 
-        cursoAction.getApiCursos() // chama a função desse novo objeto para buscar os cursos
+        cursoAction.getApiCursos() // chama a função desse novo objeto para buscar os cursos*/
 
     }
 }
