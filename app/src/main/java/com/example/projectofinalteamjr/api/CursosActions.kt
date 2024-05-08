@@ -1,16 +1,6 @@
-package com.example.projectofinalteamjr
+package com.example.projectofinalteamjr.api
 
-import android.os.Bundle
 import android.util.Log
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.projectofinalteamjr.api.Curso
-import com.example.projectofinalteamjr.api.Cursos
-import com.example.projectofinalteamjr.api.CursosActions
-import com.example.projectofinalteamjr.api.MyApi
-import com.example.projectofinalteamjr.databinding.ActivityMainBinding
 import okhttp3.OkHttpClient
 import retrofit2.Call
 import retrofit2.Callback
@@ -18,33 +8,14 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class MainActivity : AppCompatActivity() {
 
-    private val BASE_URL = "http://10.0.2.2:8000/api/"
-    private val TAG: String = "CHECK_RESPONSE"
-    private val TAG2: String = "Metodo Post"
+private val BASE_URL = "http://10.0.2.2:8000/api/"
+private val TAG: String = "CHECK_RESPONSE"
+private val TAG2: String = "Metodo Post"
+class CursosActions {
 
-    private val binding by lazy{
-        ActivityMainBinding.inflate(layoutInflater)
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(binding.root)
-
-        val curso = Curso(
-            Nome = "Introduction to Programming Test3",
-            Descricao = "Learn the basics of programming Test3",
-            TotalHoras = 40
-        )
-
-        val cursoAction = CursosActions() // Cria um novo objeto do tipo cursoAction
-        cursoAction.getApiCursos() // chama a função desse novo objeto para buscar os cursos
-        cursoAction.sendRequestCursos(curso) //chama a função desse novo objeto para enviar um novo curso para a DB
-
-    }
-   /* private fun sendRequestCursos(curso: Curso) {
-        val client = OkHttpClient.Builder().build()   // adicionado para funcionar..
+    public fun sendRequestCursos(curso: Curso) {
+        val client = OkHttpClient.Builder().build()   // adicionado para funcioanr..
         val builder = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
@@ -72,7 +43,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun getApiCursos() {
+    public fun getApiCursos() {
         val api = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
@@ -98,5 +69,7 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
-    }*/
+    }
+
 }
+
