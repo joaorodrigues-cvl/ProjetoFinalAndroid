@@ -20,10 +20,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity : AppCompatActivity() {
 
-    private val BASE_URL = "http://10.0.2.2:8000/api/"
-    private val TAG: String = "CHECK_RESPONSE"
-    private val TAG2: String = "Metodo Post"
-
     private val binding by lazy{
         ActivityMainBinding.inflate(layoutInflater)
     }
