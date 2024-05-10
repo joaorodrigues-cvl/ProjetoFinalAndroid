@@ -9,9 +9,11 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.projectofinalteamjr.api.Curso
 import com.example.projectofinalteamjr.api.Cursos
 import com.example.projectofinalteamjr.api.CursosActions
+import com.example.projectofinalteamjr.api.CursosCallback
 import com.example.projectofinalteamjr.api.Modulo
 import com.example.projectofinalteamjr.api.ModulosActions
 import com.example.projectofinalteamjr.api.MyApi
+import com.example.projectofinalteamjr.api.cursosList
 import com.example.projectofinalteamjr.databinding.ActivityMainBinding
 import okhttp3.OkHttpClient
 import retrofit2.Call
@@ -26,11 +28,27 @@ class MainActivity : AppCompatActivity() {
         ActivityMainBinding.inflate(layoutInflater)
     }
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        val modulo = Modulo(
+
+        val cursosApiActions = CursosActions()
+       cursosApiActions.getApiCursos()
+
+        for (curso in cursosList!!){
+            Log.i("repostaMain", "onCreate: ${curso.Nome} ")
+        }
+
+
+
+
+
+
+
+
+     /*   val modulo = Modulo(
             Nome = "Engenharia de Software",
             Descricao = "Módulo de Engenharia de Software",
             Horas = 45,
@@ -39,7 +57,7 @@ class MainActivity : AppCompatActivity() {
 
         val moduloApiAction = ModulosActions()
         moduloApiAction.getApiModulos()
-        moduloApiAction.sendRequestModulos(modulo)
+        moduloApiAction.sendRequestModulos(modulo)*/
 
        /* // Rotina de criação de um curso novo
 
