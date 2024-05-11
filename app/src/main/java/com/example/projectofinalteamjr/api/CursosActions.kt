@@ -68,10 +68,13 @@ class CursosActions {
                     output?.let {
                         for (curso in it) {
                             cursosList!!.add(curso)
-                            //Log.i(TAG,"Curso name: ${curso.Nome}")
+
                             // Process each curso object
                             // You can access properties like curso.Nome here
                         }
+                        Log.i("Lista","Curso name: ${
+                            cursosList?.get(0)?.Nome
+                        }")
 
                     }
                 } else {

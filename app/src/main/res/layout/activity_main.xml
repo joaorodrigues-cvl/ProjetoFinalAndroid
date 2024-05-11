@@ -9,14 +9,14 @@
     android:orientation="vertical"
     android:gravity="center_horizontal">
 
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/getCursos"
+        android:text="Cursos"
+        android:layout_marginTop="50dp">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/vw"
-        android:layout_width="409dp"
-        android:layout_height="354dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        />
+    </Button>
 
-</LinearLayout>
+
+    </LinearLayout>
