@@ -3,6 +3,7 @@ package com.example.projectofinalteamjr
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -85,7 +86,9 @@ class MainActivity : AppCompatActivity() {
 
                         // Fazer Toast
 
-                        Log.i(TAG, "Unsuccessful response: ${response.code()}")
+                        Toast.makeText(applicationContext, "Não foi possivel realizar a operação", Toast.LENGTH_LONG).show()
+
+                        //Log.i(TAG, "Unsuccessful response: ${response.code()}")
                     }
                 }
 
@@ -93,7 +96,9 @@ class MainActivity : AppCompatActivity() {
 
                     // Fazer Toast
 
-                    Log.i(TAG, "onFailure: ${t.message}")
+                    Toast.makeText(applicationContext, "Falha ao tentar aceder o servidor", Toast.LENGTH_LONG).show()
+
+                    //Log.i(TAG, "onFailure: ${t.message}")
                 }
 
             })
