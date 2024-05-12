@@ -93,5 +93,10 @@ class MenuAdminActivity : AppCompatActivity() {
 
         }
 
+        binding.buttonLogout.setOnClickListener {
+            val iLogout: Intent = Intent(this@MenuAdminActivity, MainActivity::class.java)
+            startActivity(iLogout)
+        }
+
     }
 }

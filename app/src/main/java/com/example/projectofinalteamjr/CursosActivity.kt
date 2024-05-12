@@ -1,6 +1,7 @@
 package com.example.projectofinalteamjr
 
 import android.R
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -32,12 +33,17 @@ class CursosActivity : AppCompatActivity() {
         var listaHorasCursos = i.getIntegerArrayListExtra("listaHorasCursos")
 
         val arrayAdapterNomesCursos = ArrayAdapter(this, R.layout.simple_list_item_1, listaNomesCursos!!)
-        val arrayAdapterDescricaoCursos = ArrayAdapter(this, R.layout.simple_list_item_1, listaDescricaoCursos!!)
-        val arrayAdapterHorasCursos = ArrayAdapter(this, R.layout.simple_list_item_1, listaHorasCursos!!)
+        //val arrayAdapterDescricaoCursos = ArrayAdapter(this, R.layout.simple_list_item_1, listaDescricaoCursos!!)
+        //val arrayAdapterHorasCursos = ArrayAdapter(this, R.layout.simple_list_item_1, listaHorasCursos!!)
 
         binding.nomeCursosID.adapter = arrayAdapterNomesCursos
-        binding.decricaoCursosID.adapter = arrayAdapterDescricaoCursos
-        binding.horasCursosID.adapter = arrayAdapterHorasCursos
+        //binding.decricaoCursosID.adapter = arrayAdapterDescricaoCursos
+        //binding.horasCursosID.adapter = arrayAdapterHorasCursos
+
+        binding.buttonBack.setOnClickListener {
+            val iBack: Intent = Intent(this@CursosActivity,MenuAdminActivity::class.java)
+            startActivity(iBack)
+        }
 
     }
 
