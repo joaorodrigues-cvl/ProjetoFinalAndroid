@@ -51,19 +51,15 @@
     <Button
         android:id="@+id/button_submit"
         android:layout_width="121dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_gravity="center"
+        android:gravity="center"
         android:text="Submit"
-        android:layout_marginTop="20sp"/>
+        android:fontFamily="@font/montserrat"
+        android:textSize="20sp"
+        android:layout_marginTop="60sp"
+        android:background="@drawable/quadrado_azul"/>
 
-
-    <Button
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/getCursos"
-        android:text="Cursos"
-        android:layout_marginTop="50dp"
-        android:layout_gravity="center"/>
 
 
     </LinearLayout>
