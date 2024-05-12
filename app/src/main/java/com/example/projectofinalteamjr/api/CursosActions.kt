@@ -12,6 +12,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 private val BASE_URL = "http://10.0.2.2:8000/api/"
 private val TAG: String = "CHECK_RESPONSE"
 private val TAG2: String = "Metodo Post"
+
+public var cursosList: ArrayList<Cursos>? = ArrayList()
+
 class CursosActions {
 
     public fun sendRequestCursos(curso: Curso) {
@@ -28,16 +31,19 @@ class CursosActions {
             override fun onResponse(call: Call<Curso>, response: Response<Curso>) {
                 // Handle successful response
                 if (response.isSuccessful) {
-                    val cursoCriado = response.body()
-                    Log.i(TAG2, "onResponse: Curso criado ${cursoCriado?.Nome}")
+                    return
+//                    val cursoCriado = response.body()
+//                    Log.i(TAG2, "onResponse: Curso criado ${cursoCriado?.Nome}")
                 } else {
-                    Log.i(TAG2, "onResponse: Error ${response.message()}")
+                    return
+//                    Log.i(TAG2, "onResponse: Error ${response.message()}")
                 }
             }
 
             override fun onFailure(call: Call<Curso>, t: Throwable) {
                 // Handle failure
-                Log.i(TAG2, "onFailure: Network request failed: ${t.message}")
+                return
+//                Log.i(TAG2, "onFailure: Network request failed: ${t.message}")
             }
         })
     }
@@ -47,24 +53,36 @@ class CursosActions {
         val api = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
-            .build()
-            .create(MyApi::class.java)
+            .build();
 
-        api.getCursos().enqueue(object : Callback<List<Cursos>> {
+        val myApi=api.create(MyApi::class.java);
+
+        myApi.getCursos().enqueue(object : Callback<ArrayList<Cursos>> {
             override fun onResponse(
-                call: Call<List<Cursos>>,
-                response: Response<List<Cursos>>
+                call: Call<ArrayList<Cursos>>,
+                response: Response<ArrayList<Cursos>>
             ) {
                 if (response.isSuccessful) {
-                    response.body()?.let {
+
+                    var output = response.body() // Store the list
+                    output?.let {
                         for (curso in it) {
-                            Log.i(TAG, "onResponse: ${curso.Nome}")
+                            cursosList!!.add(curso)
+
+                            // Process each curso object
+                            // You can access properties like curso.Nome here
                         }
+                        Log.i("Lista","Curso name: ${
+                            cursosList?.get(0)?.Nome
+                        }")
+
                     }
+                } else {
+                    Log.i(TAG, "Unsuccessful response: ${response.code()}")
                 }
             }
 
-            override fun onFailure(call: Call<List<Cursos>>, t: Throwable) {
+            override fun onFailure(call: Call<ArrayList<Cursos>>, t: Throwable) {
                 Log.i(TAG, "onFailure: ${t.message}")
             }
 
