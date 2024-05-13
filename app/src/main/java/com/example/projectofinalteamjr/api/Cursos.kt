@@ -9,4 +9,4 @@ data class Cursos (
 
 // Construtor
 
-data class Curso(val Nome: String, val Descricao: String, val TotalHoras: Int)
+
