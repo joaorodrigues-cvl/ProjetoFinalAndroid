@@ -8,7 +8,7 @@ import retrofit2.http.POST
 
 interface MyApi {
     @GET("cursos")
-    fun getCursos(): Call<List<Cursos>>
+    fun getCursos(): Call<ArrayList<Cursos>>
 
     @Headers("Content-Type: application/json")
     @POST("cursos/create")
@@ -16,4 +16,16 @@ interface MyApi {
         @Body cursoNovo: Curso
     ): Call<Curso>
 
+    @GET("modulos")
+    fun getModulos(): Call<List<Modulos>>
+
+    @Headers("Content-Type: application/json")
+    @POST("modulos/create")
+    fun criarModulo(
+        @Body moduloNovo: Modulo
+    ): Call<Modulo>
+
+
+
 }
+

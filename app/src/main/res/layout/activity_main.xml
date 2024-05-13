@@ -6,105 +6,60 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:layout_gravity="center"
     android:background="#201544"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+    <ImageView
+        android:id="@+id/logoCores"
+        android:layout_width="303dp"
+        android:layout_height="180dp"
+        android:src="@drawable/logo"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-3dp" />
 
-        <ImageView
+    <EditText
+        android:id="@+id/edit_user"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="28dp"
+        android:hint="User"
+        android:inputType="text"
+        android:maxLines="1"
+        android:padding="15dp"
+        android:textSize="18dp"
+        android:background="@drawable/corners"
+        android:layout_marginTop="80dp"
 
-            android:id="@+id/imageView2"
-            android:layout_width="300sp"
-            android:layout_height="100sp"
-            android:paddingTop="20sp"
-            app:srcCompat="@drawable/logo_header_branco" />
-    </LinearLayout>
+        />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:paddingBottom="10dp">
+    <EditText
+        android:id="@+id/edit_password"
+        android:layout_width="300sp"
+        android:layout_height="50sp"
+        android:layout_gravity="center"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:maxLines="1"
+        android:padding="13sp"
+        android:background="@drawable/corners"
+        android:textSize="18sp"
 
-        <TextView
-            android:id="@+id/text_welcome_user"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Bem-vindo Administrador"
-            android:textColor="@color/white"
-            android:layout_gravity="bottom"
-            />
+        />
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_marginTop="40dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <Button
+        android:id="@+id/button_submit"
+        android:layout_width="121dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
         android:gravity="center"
-        android:paddingTop="30dp"
-        android:orientation="vertical">
+        android:text="Submit"
+        android:fontFamily="@font/montserrat"
+        android:textSize="20sp"
+        android:layout_marginTop="60sp"
+        android:background="@drawable/quadrado_azul"/>
 
-        <Button
-            android:id="@+id/btn_cursos"
-            android:layout_width="180dp"
-            android:layout_height="35dp"
-            android:backgroundTint="#FFFFFF"
-            android:textColor="@color/black"
-            android:text="Cursos"
-            android:textSize="12dp"
-            app:cornerRadius="4dp" />
 
-        <Button
-            android:id="@+id/btn_turmas"
-            android:layout_width="180dp"
-            android:layout_height="35dp"
-            android:backgroundTint="#FFFFFF"
-            android:textColor="@color/black"
-            android:text="Turmas"
-            app:cornerRadius="4dp"
-            android:textSize="12dp"/>
-
-        <Button
-            android:id="@+id/btn_modulos"
-            android:layout_width="180dp"
-            android:layout_height="35dp"
-            android:backgroundTint="#FFFFFF"
-            android:textColor="@color/black"
-            android:text="Módulos"
-            app:cornerRadius="4dp"
-            android:textSize="12dp"/>
-        <Button
-            android:id="@+id/btn_faltas"
-            android:layout_width="180dp"
-            android:layout_height="35dp"
-            android:backgroundTint="#FFFFFF"
-            android:textColor="@color/black"
-            android:text="Faltas"
-            app:cornerRadius="4dp"
-            android:textSize="12dp"/>
-        <Button
-            android:id="@+id/btn_notas"
-            android:layout_width="180dp"
-            android:layout_height="35dp"
-            android:backgroundTint="#FFFFFF"
-            android:textColor="@color/black"
-            android:text="Notas"
-            app:cornerRadius="4dp"
-            android:textSize="12dp"/>
-        <Button
-            android:id="@+id/btn_users"
-            android:layout_width="180dp"
-            android:layout_height="35dp"
-            android:backgroundTint="#FFFFFF"
-            android:textColor="@color/black"
-            android:text="Gestão de utilizadores"
-            app:cornerRadius="4dp"
-            android:textSize="12dp"/>
 
     </LinearLayout>
-
-</LinearLayout>

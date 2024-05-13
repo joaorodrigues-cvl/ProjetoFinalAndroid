@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".MenuAdminActivity"
+    android:background="@color/white">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@color/roxo">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:src="@drawable/logo"
+        android:layout_gravity="left"
+        android:layout_marginTop="10dp"
+        android:layout_weight="0.5"/>
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="@integer/material_motion_duration_long_1"/>
+
+    <Button
+        android:id="@+id/buttonLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_gravity="right|center"
+        android:layout_weight="0.5"
+        android:background="@drawable/quadrado_azul"
+        android:text="Logout"
+        android:layout_marginEnd="10dp"/>
+
+</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginTop="20dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Bemvind@"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Administrador"
+            android:fontFamily="@font/montserrat_thin"
+            android:textSize="20sp"
+            android:layout_marginLeft="10sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="40dp"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/getCursos"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@drawable/quadrado_roxo"
+            android:gravity="center"
+            android:text="Cursos"
+            android:fontFamily="@font/montserrat"
+            android:textSize="15sp"
+            android:textColor="@color/white"
+            />
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/quadrado_rosa"
+            android:gravity="center"
+            android:text="Notas"
+            android:fontFamily="@font/montserrat"
+            android:textSize="15sp"
+            android:textColor="@color/white"
+            />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="50dp"
+        android:gravity="center">
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@drawable/quadrado_azul"
+            android:gravity="center"
+            android:text="Utilizador"
+            android:fontFamily="@font/montserrat"
+            android:textSize="15sp"
+            android:textColor="@color/white"/>
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/quadrado_roxo"
+            android:gravity="center"
+            android:text="Módulos"
+            android:fontFamily="@font/montserrat"
+            android:textSize="15sp"
+            android:textColor="@color/white"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="50dp"
+        android:gravity="center">
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@drawable/quadrado_rosa"
+            android:gravity="center"
+            android:text="Faltas"
+            android:fontFamily="@font/montserrat"
+            android:textSize="15sp"
+            android:textColor="@color/white"/>
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/quadrado_azul"
+            android:gravity="center"
+            android:text="Turmas"
+            android:fontFamily="@font/montserrat"
+            android:textSize="15sp"
+            android:textColor="@color/white"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>
