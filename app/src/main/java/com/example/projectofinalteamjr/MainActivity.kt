@@ -29,8 +29,11 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity : AppCompatActivity() {
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> Caroline
     private val binding by lazy{
         ActivityMainBinding.inflate(layoutInflater)
     }
