@@ -121,12 +121,23 @@
             android:textColor="@color/white"/>
 
         <Button
+            android:id="@+id/btn_modulo"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_marginLeft="20dp"
             android:background="@drawable/quadrado_roxo"
             android:gravity="center"
             android:text="Módulos"
+            android:fontFamily="@font/montserrat"
+            android:textSize="15sp"
+            android:textColor="@color/white"/>
+        <Button
+            android:background="@drawable/quadrado_rosa"
+            android:id="@+id/getModulos"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:layout_marginLeft="20dp"
+            android:text="Ver Modulos"
             android:fontFamily="@font/montserrat"
             android:textSize="15sp"
             android:textColor="@color/white"/>

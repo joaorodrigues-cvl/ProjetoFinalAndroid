@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.projectofinalteamjr.api.Cursos
+import com.example.projectofinalteamjr.api.Modulos
 import com.example.projectofinalteamjr.api.MyApi
 import com.example.projectofinalteamjr.databinding.ActivityMenuAdminBinding
 import retrofit2.Call
@@ -93,9 +94,16 @@ class MenuAdminActivity : AppCompatActivity() {
 
         }
 
+
+
         binding.buttonLogout.setOnClickListener {
             val iLogout: Intent = Intent(this@MenuAdminActivity, MainActivity::class.java)
             startActivity(iLogout)
+        }
+
+        binding.btnModulo.setOnClickListener{
+            startActivity(Intent(this, AdicionarModuloActivity::class.java))
+
         }
 
     }

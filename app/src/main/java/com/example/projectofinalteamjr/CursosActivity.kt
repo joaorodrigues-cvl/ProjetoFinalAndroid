@@ -1,6 +1,6 @@
 package com.example.projectofinalteamjr
 
-import android.R
+
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle

@@ -1,12 +1,16 @@
 package com.example.projectofinalteamjr.api
 
 import android.util.Log
+import android.widget.Toast
+import com.example.projectofinalteamjr.AdicionarModuloActivity
 import okhttp3.OkHttpClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+
+
 
 private val BASE_URL = "http://10.0.2.2:8000/api/"
 private val TAG: String = "Metodo Get Modulo"
@@ -21,16 +25,22 @@ class ModulosActions {
             .client(client)
             .build()
             .create(MyApi::class.java)
-        val call = builder.criarModulo(modulo) // cria um novo curso do tipo curso de acordo com os dados anteriores
+
+
+        val call = builder.criarModulo(modulo) // cria um novo modulo do tipo modulo de acordo com os dados anteriores
 
         call.enqueue(object : Callback<Modulo> {
             override fun onResponse(call: Call<Modulo>, response: Response<Modulo>) {
                 // Handle successful response
                 if (response.isSuccessful) {
                     val moduloCriado = response.body()
-                    Log.i(TAG2, "onResponse: Curso criado ${moduloCriado?.Nome}")
+                    Log.i(TAG2, "onResponse: Módulo criado ${moduloCriado?.Nome}")
+
+
+
                 } else {
-                    Log.i(TAG2, "onResponse: Error ${response.message()}")
+                    Log.i(TAG2, "onResponse: Erro ${response.message()}")
+
                 }
             }
 
