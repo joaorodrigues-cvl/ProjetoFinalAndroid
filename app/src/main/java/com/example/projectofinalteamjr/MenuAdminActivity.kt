@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.projectofinalteamjr.api.Cursos
+import com.example.projectofinalteamjr.api.CursosActions
 import com.example.projectofinalteamjr.api.MyApi
 import com.example.projectofinalteamjr.databinding.ActivityMenuAdminBinding
 import retrofit2.Call
@@ -15,9 +16,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class MenuAdminActivity : AppCompatActivity() {
 
-    val BASE_URL = "http://10.0.2.2:8000/api/"
-    val TAG: String = "CHECK_RESPONSE"
-    val TAG2: String = "Metodo Post"
 
     public var cursosNomeList = ArrayList<String>()
     public var cursosDescricaoList = ArrayList<String>()
@@ -34,7 +32,34 @@ class MenuAdminActivity : AppCompatActivity() {
 
         binding.getCursos.setOnClickListener{
 
-            val api = Retrofit.Builder()
+           val cursoAction = CursosActions()
+
+           val listaCursos = cursoAction.getApiCursos()
+            if (listaCursos != null) {
+                for (curso in listaCursos) {
+                    cursosNomeList.add(curso.Nome)
+                    cursosDescricaoList.add(curso.Descricao)
+                    cursosHorasList.add(curso.TotalHoras)
+
+                    // Process each curso object
+                    // You can access properties like curso.Nome here
+                }
+            }
+
+            // Intent:
+
+            val i: Intent = Intent(this@MenuAdminActivity, CursosActivity::class.java)
+            i.putExtra("listaNomesCursos", cursosNomeList)
+            i.putExtra("listaDescricaoCursos", cursosDescricaoList)
+            i.putExtra("listaHorasCursos", cursosHorasList)
+            startActivity(i)
+
+
+
+
+
+
+            /*val api = Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
@@ -87,7 +112,7 @@ class MenuAdminActivity : AppCompatActivity() {
                 }
 
             })
-
+*/
 
 
 

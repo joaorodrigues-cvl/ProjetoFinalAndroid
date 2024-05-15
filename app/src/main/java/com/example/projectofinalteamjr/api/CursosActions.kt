@@ -17,6 +17,13 @@ public var cursosList: ArrayList<Cursos>? = ArrayList()
 
 class CursosActions {
 
+    val retrofit = Retrofit.Builder()
+        .baseUrl(BASE_URL)
+        .addConverterFactory(GsonConverterFactory.create())
+        .build();
+
+    val api=retrofit.create(MyApi::class.java);
+
     public fun sendRequestCursos(curso: Curso) {
         val client = OkHttpClient.Builder().build()   // adicionado para funcioanr..
         val builder = Retrofit.Builder()
@@ -49,44 +56,16 @@ class CursosActions {
     }
 
 
-    public fun getApiCursos() {
-        val api = Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build();
+    public fun getApiCursos():ArrayList<Cursos>? {
 
-        val myApi=api.create(MyApi::class.java);
+        val response = api.getCursos().execute()
+        if (response.isSuccessful) {
+            return response.body()
+        } else {
+            Log.i(TAG, "getApiCursos: ")// Handle non-successful response (e.g., log an error or throw an exception)
+            return null
+        }
 
-        myApi.getCursos().enqueue(object : Callback<ArrayList<Cursos>> {
-            override fun onResponse(
-                call: Call<ArrayList<Cursos>>,
-                response: Response<ArrayList<Cursos>>
-            ) {
-                if (response.isSuccessful) {
-
-                    var output = response.body() // Store the list
-                    output?.let {
-                        for (curso in it) {
-                            cursosList!!.add(curso)
-
-                            // Process each curso object
-                            // You can access properties like curso.Nome here
-                        }
-                        Log.i("Lista","Curso name: ${
-                            cursosList?.get(0)?.Nome
-                        }")
-
-                    }
-                } else {
-                    Log.i(TAG, "Unsuccessful response: ${response.code()}")
-                }
-            }
-
-            override fun onFailure(call: Call<ArrayList<Cursos>>, t: Throwable) {
-                Log.i(TAG, "onFailure: ${t.message}")
-            }
-
-        })
     }
 
 }
