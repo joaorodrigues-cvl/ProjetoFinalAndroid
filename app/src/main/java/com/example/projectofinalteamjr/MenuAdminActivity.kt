@@ -106,5 +106,10 @@ class MenuAdminActivity : AppCompatActivity() {
 
         }
 
+        binding.btnAdicionarCurso.setOnClickListener{
+            startActivity(Intent(this, AdicionarCursoActivity::class.java))
+
+        }
+
     }
 }

@@ -78,13 +78,24 @@
 
         <Button
             android:id="@+id/getCursos"
-            android:layout_width="150dp"
+            android:layout_width="100dp"
             android:layout_height="150dp"
             android:background="@drawable/quadrado_roxo"
             android:gravity="center"
-            android:text="Cursos"
+            android:text="Listar Cursos"
             android:fontFamily="@font/montserrat"
             android:textSize="15sp"
+            android:textColor="@color/white"
+            />
+        <Button
+            android:id="@+id/btnAdicionarCurso"
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:background="@drawable/quadrado_roxo"
+            android:gravity="center"
+            android:text="Adicionar Curso"
+            android:fontFamily="@font/montserrat"
+            android:textSize="12sp"
             android:textColor="@color/white"
             />
 

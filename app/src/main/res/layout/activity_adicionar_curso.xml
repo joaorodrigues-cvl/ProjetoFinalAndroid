@@ -2,12 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/view_cursos"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#201544"
     android:orientation="vertical"
-    tools:context=".AdicionarModuloActivity">
+    tools:context=".MainActivity">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -49,7 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:gravity="center"
-            android:text="Adicionar Módulo"
+            android:text="Adicionar Curso"
             android:textColor="@color/black" />
     </LinearLayout>
 
@@ -58,10 +58,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
-        android:paddingTop="20dp"
-        android:paddingRight="50dp"
-        android:paddingLeft="50dp"
-
+        android:padding="50dp"
         >
 
         <TextView
@@ -72,66 +69,43 @@
 
         <EditText
             android:padding="5dp"
-            android:layout_marginBottom="5dp"
-            android:id="@+id/edit_nome_modulo"
+            android:id="@+id/edit_nome_curso"
             android:layout_width="match_parent"
             android:layout_height="35sp"
             android:background="@drawable/corners"
-            android:hint="Introduza o nome do módulo"
+            android:hint="Introduza o nome do curso"
             />
         <TextView
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity=""
             android:text="Descrição"
             android:textColor="@color/white" />
 
         <EditText
             android:padding="5dp"
-            android:layout_marginBottom="5dp"
-            android:id="@+id/edit_descricao_modulo"
+            android:id="@+id/edit_descricao_curso"
             android:layout_width="match_parent"
             android:gravity="top"
-            android:layout_height="150sp"
+            android:layout_height="200sp"
             android:background="@drawable/corners"
-            android:hint="Introduza a descrição do módulo"
+            android:hint="Introduza a descrição do Curso"
             />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingRight="50dp"
-        android:paddingLeft="50dp">
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Regime"
+            android:text="Total horas"
             android:textColor="@color/white" />
 
         <EditText
             android:padding="5dp"
             android:layout_marginBottom="5dp"
-            android:id="@+id/edit_tipo_regime"
+            android:id="@+id/edit_horas_curso"
             android:layout_width="match_parent"
             android:layout_height="35sp"
             android:background="@drawable/corners"
-            android:hint="Selecionar regime"
-            />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Horas"
-            android:textColor="@color/white" />
-
-        <EditText
-            android:padding="5dp"
-            android:layout_marginBottom="5dp"
-            android:id="@+id/edit_horas_modulo"
-            android:layout_width="match_parent"
-            android:layout_height="35sp"
-            android:background="@drawable/corners"
-            android:hint="Total horas"
+            android:hint="Introduza o total de horas do curso"
             />
     </LinearLayout>
     <LinearLayout
@@ -143,18 +117,13 @@
         >
 
         <Button
-            android:background="@drawable/corners"
-            android:layout_marginRight="80dp"
-            android:layout_marginLeft="80dp"
-            android:id="@+id/btn_gravar_modulo"
+            android:id="@+id/btn_gravar_curso"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#20A000"
-            android:textColor="#FFFFFF"
             android:text="Gravar"
             android:textSize="20dp"
-            android:textAllCaps="false"
-            android:layout_marginTop="20dp"
+            app:cornerRadius="4dp"
             />
     </LinearLayout>
 
