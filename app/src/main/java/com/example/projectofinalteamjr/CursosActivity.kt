@@ -2,20 +2,12 @@ package com.example.projectofinalteamjr
 
 
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import androidx.activity.enableEdgeToEdge
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.projectofinalteamjr.api.Curso
-import com.example.projectofinalteamjr.api.Cursos
 import com.example.projectofinalteamjr.api.cursosList
 import com.example.projectofinalteamjr.databinding.ActivityCursosBinding
-import com.example.projectofinalteamjr.databinding.ActivityMainBinding
-import java.util.ArrayList
 
 class CursosActivity : AppCompatActivity() {
 
@@ -39,6 +31,16 @@ class CursosActivity : AppCompatActivity() {
         binding.nomeCursosID.adapter = arrayAdapterNomesCursos
         //binding.decricaoCursosID.adapter = arrayAdapterDescricaoCursos
         //binding.horasCursosID.adapter = arrayAdapterHorasCursos
+
+        binding.nomeCursosID.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
+            // Obtenha o objeto Curso correspondente ao item selecionado
+            val cursoSelecionado = cursosList?.get(position)
+
+            // Inicie a EditarCursoActivity e passe o objeto Curso como extra
+            val intent = Intent(this, EditarCursoActivity::class.java)
+            intent.putExtra("cursoSelecionado", cursoSelecionado)
+            startActivity(intent)
+        }
 
         binding.buttonBack.setOnClickListener {
             val iBack: Intent = Intent(this@CursosActivity,MenuAdminActivity::class.java)

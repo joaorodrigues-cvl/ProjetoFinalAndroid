@@ -28,6 +28,7 @@ interface MyApi {
         @Body curso: Curso
     ): Call<Curso>
 
+
     @GET("modulos")
     fun getModulos(): Call<List<Modulos>>
 

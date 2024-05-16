@@ -18,15 +18,14 @@ class EditarCursoActivity : AppCompatActivity() {
 
         binding = ActivityEditarCursoBinding.inflate(layoutInflater)
 
-        val cursosNomeList = intent.getSerializableExtra("listaNomesCursos") as ArrayList<String>
-        val cursosDescricaoList = intent.getSerializableExtra("listaDescricaoCursos") as ArrayList<String>
-        val cursosHorasList = intent.getSerializableExtra("listaHorasCursos") as ArrayList<Int>
+        val cursoNome = intent.getStringExtra("cursoNome")
+        val cursoDescricao = intent.getStringExtra("cursoDescricao")
+        val cursoHoras = intent.getIntExtra("cursoHoras", 0)
 
-        if (cursosNomeList.isNotEmpty()) {
-            val cursoIndex = 0 // Set the index of the curso you want to display
-            binding.editNomeCurso.setText(cursosNomeList[cursoIndex])
-            binding.editDescricaoCurso.setText(cursosDescricaoList[cursoIndex])
-            binding.editHorasCurso.setText(cursosHorasList[cursoIndex].toString())
+        if (cursoNome != null) {
+            binding.editNomeCurso.setText(cursoNome)
+            binding.editDescricaoCurso.setText(cursoDescricao ?: "")
+            binding.editHorasCurso.setText(cursoHoras.toString())
         }
 
         binding.btnEditarUrso.setOnClickListener {
