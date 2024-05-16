@@ -40,6 +40,12 @@ class CursosActivity : AppCompatActivity() {
         //binding.decricaoCursosID.adapter = arrayAdapterDescricaoCursos
         //binding.horasCursosID.adapter = arrayAdapterHorasCursos
 
+        binding.nomeCursosID.setOnItemClickListener { parent, view, position, id ->
+            val element = parent.getItemAtPosition(position)
+            val intent = Intent(this, DetalhesCursoActivity::class.java)
+            startActivity(intent)
+        }
+
         binding.buttonBack.setOnClickListener {
             val iBack: Intent = Intent(this@CursosActivity,MenuAdminActivity::class.java)
             startActivity(iBack)
