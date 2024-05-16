@@ -34,7 +34,7 @@ class EditarCursoActivity : AppCompatActivity() {
         binding.editDescricaoCurso.setText(descricaoCurso)
         binding.editHorasCurso.setText(horasCurso.toString())
 
-        binding.btnEditarCurso.setOnClickListener {
+        binding.btnGravarEditCurso.setOnClickListener {
             val nome = binding.editNomeCurso.text.toString()
             val descricao = binding.editDescricaoCurso.text.toString()
             val totalHoras = binding.editHorasCurso.text.toString().toIntOrNull()?: 0
@@ -49,6 +49,10 @@ class EditarCursoActivity : AppCompatActivity() {
                 // Show error message to user
                 Toast.makeText(this, "Por favor, preencha todos os campos", Toast.LENGTH_SHORT).show()
             }
+        }
+        binding.buttonBack.setOnClickListener {
+            val iBack: Intent = Intent(this@EditarCursoActivity,CursosActivity::class.java)
+            startActivity(iBack)
         }
 
     }

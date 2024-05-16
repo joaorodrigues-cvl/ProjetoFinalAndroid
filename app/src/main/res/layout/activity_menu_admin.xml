@@ -20,7 +20,7 @@
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:src="@drawable/logo"
-        android:layout_gravity="left"
+        android:layout_gravity="start"
         android:layout_marginTop="10dp"
         android:layout_weight="0.5"/>
 

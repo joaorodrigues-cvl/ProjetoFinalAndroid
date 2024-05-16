@@ -36,6 +36,11 @@ class AdicionarCursoActivity : AppCompatActivity() {
             }
         }
 
+        binding.buttonBack.setOnClickListener {
+            val iBack: Intent = Intent(this@AdicionarCursoActivity,CursosActivity::class.java)
+            startActivity(iBack)
+        }
+
 
     }
 }
