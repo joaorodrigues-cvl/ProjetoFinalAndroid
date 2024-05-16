@@ -30,7 +30,7 @@ class CursosActivity : AppCompatActivity() {
 
         var listaNomesCursos = i.getStringArrayListExtra("listaNomesCursos")
         var listaDescricaoCursos = i.getStringArrayListExtra("listaDescricaoCursos")
-        var listaHorasCursos = i.getIntegerArrayListExtra("listaHorasCursos")
+        var listaHorasCursos = i.getIntegerArrayListExtra("listaHorasCursos")!!
 
         val arrayAdapterNomesCursos = ArrayAdapter(this, R.layout.simple_list_item_1, listaNomesCursos!!)
         //val arrayAdapterDescricaoCursos = ArrayAdapter(this, R.layout.simple_list_item_1, listaDescricaoCursos!!)
@@ -41,8 +41,15 @@ class CursosActivity : AppCompatActivity() {
         //binding.horasCursosID.adapter = arrayAdapterHorasCursos
 
         binding.nomeCursosID.setOnItemClickListener { parent, view, position, id ->
-            val element = parent.getItemAtPosition(position)
-            val intent = Intent(this, DetalhesCursoActivity::class.java)
+            val element = parent.getItemAtPosition(position) as String?
+            val descricao = listaDescricaoCursos!!.get(position)
+            val Totalhoras = listaHorasCursos!!.get(position)
+            val id = position+1
+            val intent = Intent(this, EditarCursoActivity::class.java)
+            intent.putExtra("nomeCurso",element)
+            intent.putExtra("descricaoCurso",descricao)
+            intent.putExtra("horasCurso",Totalhoras)
+            intent.putExtra("idCurso",id)
             startActivity(intent)
         }
 

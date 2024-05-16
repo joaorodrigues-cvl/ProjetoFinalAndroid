@@ -49,7 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:gravity="center"
-            android:text="Adicionar Curso"
+            android:text="Editar Curso"
             android:textColor="@color/black" />
     </LinearLayout>
 
@@ -73,7 +73,7 @@
             android:layout_width="match_parent"
             android:layout_height="35sp"
             android:background="@drawable/corners"
-            android:hint="Introduza o nome do curso"
+
             />
         <TextView
             android:layout_marginTop="20dp"
@@ -90,7 +90,7 @@
             android:gravity="top"
             android:layout_height="200sp"
             android:background="@drawable/corners"
-            android:hint="Introduza a descrição do Curso"
+
             />
         <TextView
             android:layout_width="match_parent"
@@ -105,7 +105,7 @@
             android:layout_width="match_parent"
             android:layout_height="35sp"
             android:background="@drawable/corners"
-            android:hint="Introduza o total de horas do curso"
+
             />
     </LinearLayout>
     <LinearLayout
@@ -117,7 +117,7 @@
         >
 
         <Button
-            android:id="@+id/btn_editar_urso"
+            android:id="@+id/btn_editar_curso"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#20A000"
