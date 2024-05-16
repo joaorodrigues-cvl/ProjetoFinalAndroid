@@ -88,6 +88,32 @@ class CursosActions {
 
         })
     }
+    public fun atualizarCurso(id: Int, curso: Curso) {
+        val client = OkHttpClient.Builder().build()
+        val builder = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(client)
+            .build()
+            .create(MyApi::class.java)
+        val call = builder.atualizarCurso(id, curso)
+
+        call.enqueue(object : Callback<Curso> {
+            override fun onResponse(call: Call<Curso>, response: Response<Curso>) {
+                if (response.isSuccessful) {
+                    val cursoAtualizado = response.body()
+                    Log.i(TAG2, "onResponse: Curso atualizado ${cursoAtualizado?.Nome}")
+                } else {
+                    Log.i(TAG2, "onResponse: Error ${response.message()}")
+                }
+            }
+
+            override fun onFailure(call: Call<Curso>, t: Throwable) {
+                Log.i(TAG2, "onFailure: Network request failed: ${t.message}")
+            }
+        })
+    }
+
 
 }
 
