@@ -41,8 +41,9 @@ class CursosActivity : AppCompatActivity() {
         //binding.horasCursosID.adapter = arrayAdapterHorasCursos
 
         binding.nomeCursosID.setOnItemClickListener { parent, view, position, id ->
-            val element = parent.getItemAtPosition(position)
+            val element = parent.getItemAtPosition(position) as String
             val intent = Intent(this, DetalhesCursoActivity::class.java)
+            intent.putExtra("curso", element)
             startActivity(intent)
         }
 

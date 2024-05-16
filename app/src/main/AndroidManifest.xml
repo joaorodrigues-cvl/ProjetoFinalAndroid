@@ -37,9 +37,15 @@
         <activity
             android:name=".MenuAdminActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".DetalhesCursoActivity"
+            android:exported="true"/>
         <activity
             android:name=".SplashScreenActivity"
             android:exported="true">
+
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

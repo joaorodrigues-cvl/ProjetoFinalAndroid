@@ -18,6 +18,12 @@ class DetalhesCursoActivity : AppCompatActivity() {
 
         setContentView(binding.root)
 
+        val i = intent
+
+        val nomeCurso = intent.getStringExtra("curso")!!
+
+        binding.textView3.text=nomeCurso
+
 
 
     }
