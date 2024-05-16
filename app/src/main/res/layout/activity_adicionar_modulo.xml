@@ -116,7 +116,7 @@
             android:layout_width="match_parent"
             android:layout_height="35sp"
             android:background="@drawable/corners"
-            android:hint="Selec. regime"
+            android:hint="Selecionar regime"
             />
         <TextView
             android:layout_width="match_parent"
