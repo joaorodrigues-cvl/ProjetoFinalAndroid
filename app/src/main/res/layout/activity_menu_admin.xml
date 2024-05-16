@@ -150,15 +150,16 @@
             android:textColor="@color/white"/>
 
         <Button
+            android:id="@+id/buttonTurmasID"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_marginLeft="20dp"
             android:background="@drawable/quadrado_azul"
+            android:fontFamily="@font/montserrat"
             android:gravity="center"
             android:text="Turmas"
-            android:fontFamily="@font/montserrat"
-            android:textSize="15sp"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"
+            android:textSize="15sp" />
 
     </LinearLayout>
 

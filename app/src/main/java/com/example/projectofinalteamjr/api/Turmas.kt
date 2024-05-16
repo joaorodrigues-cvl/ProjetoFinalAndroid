@@ -1,8 +1,11 @@
 package com.example.projectofinalteamjr.api
 
+
+
+import java.io.Serializable
 import java.sql.Date
 
-data class Turmas (
+data class Turmas  (
     val turmaID: Int,
     val cursoID: Int,
     val nome: String,
@@ -10,4 +13,4 @@ data class Turmas (
     val datainicio: Date,
     val datafim: Date,
     val Regime: String
-)
+) : Serializable

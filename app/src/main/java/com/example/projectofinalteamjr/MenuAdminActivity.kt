@@ -7,18 +7,25 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.projectofinalteamjr.api.Cursos
 import com.example.projectofinalteamjr.api.Modulos
 import com.example.projectofinalteamjr.api.MyApi
+import com.example.projectofinalteamjr.api.Turmas
 import com.example.projectofinalteamjr.databinding.ActivityMenuAdminBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.io.Serializable
 
 class MenuAdminActivity : AppCompatActivity() {
 
     val BASE_URL = "http://10.0.2.2:8000/api/"
-    val TAG: String = "CHECK_RESPONSE"
-    val TAG2: String = "Metodo Post"
+
+    val api = Retrofit.Builder()
+        .baseUrl(BASE_URL)
+        .addConverterFactory(GsonConverterFactory.create())
+        .build();
+
+    val myApi=api.create(MyApi::class.java);
 
     public var cursosNomeList = ArrayList<String>()
     public var cursosDescricaoList = ArrayList<String>()
@@ -29,18 +36,9 @@ class MenuAdminActivity : AppCompatActivity() {
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(binding.root)
 
-
         binding.getCursos.setOnClickListener{
-
-            val api = Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-            val myApi=api.create(MyApi::class.java);
 
             myApi.getCursos().enqueue(object : Callback<ArrayList<Cursos>> {
                 override fun onResponse(
@@ -86,15 +84,49 @@ class MenuAdminActivity : AppCompatActivity() {
 
                     //Log.i(TAG, "onFailure: ${t.message}")
                 }
-
             })
-
-
-
-
         }
 
 
+        binding.buttonTurmasID.setOnClickListener {
+
+
+            myApi.getTurmas().enqueue(object : Callback<List<Turmas>> {
+                override fun onResponse(
+                    call: Call<List<Turmas>>,
+                    response: Response<List<Turmas>>
+                ) {
+                    if (response.isSuccessful) {
+
+                        var turmas = response.body()!! // Store the list
+
+                        // Intent:
+
+                        val i: Intent = Intent(this@MenuAdminActivity, TurmasActivity::class.java)
+                        i.putExtra("listaTurmas", turmas as Serializable)
+                        startActivity(i)
+                    } else {
+
+                        // Fazer Toast
+
+                        Toast.makeText(applicationContext, "Não foi possivel realizar a operação", Toast.LENGTH_LONG).show()
+
+                        //Log.i(TAG, "Unsuccessful response: ${response.code()}")
+                    }
+                }
+
+                override fun onFailure(call: Call<List<Turmas>>, t: Throwable) {
+
+                    // Fazer Toast
+
+                    Toast.makeText(applicationContext, "Falha ao tentar aceder o servidor", Toast.LENGTH_LONG).show()
+
+                    //Log.i(TAG, "onFailure: ${t.message}")
+                }
+
+            })
+
+        }
 
         binding.buttonLogout.setOnClickListener {
             val iLogout: Intent = Intent(this@MenuAdminActivity, MainActivity::class.java)

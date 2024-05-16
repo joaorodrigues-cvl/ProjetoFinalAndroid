@@ -13,8 +13,6 @@ interface MyApi {
     @GET("cursos")
     fun getCursos(): Call<ArrayList<Cursos>>
 
-
-
     @Headers("Content-Type: application/json")
     @POST("cursos/create")
     fun criarCurso(
@@ -38,7 +36,8 @@ interface MyApi {
         @Body moduloNovo: Modulo
     ): Call<Modulo>
 
-
+    @GET("turmas")
+    fun getTurmas(): Call<List<Turmas>>
 
 }
 
