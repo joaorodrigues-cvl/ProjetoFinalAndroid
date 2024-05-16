@@ -45,7 +45,7 @@ class CursosActivity : AppCompatActivity() {
             val descricao = listaDescricaoCursos!!.get(position)
             val Totalhoras = listaHorasCursos!!.get(position)
             val id = position+1
-            val intent = Intent(this, EditarCursoActivity::class.java)
+            val intent = Intent(this, DetalhesCursoActivity::class.java)
             intent.putExtra("nomeCurso",element)
             intent.putExtra("descricaoCurso",descricao)
             intent.putExtra("horasCurso",Totalhoras)

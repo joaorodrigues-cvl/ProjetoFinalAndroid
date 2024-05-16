@@ -44,15 +44,14 @@ class EditarCursoActivity : AppCompatActivity() {
                 val curso = Curso(nome, descricao, totalHoras)
                 cursosActions.atualizarCurso(idCurso, curso)
 
-                startActivity(Intent(this, MenuAdminActivity::class.java))
+                startActivity(Intent(this, DetalhesCursoActivity::class.java))
             } else {
                 // Show error message to user
                 Toast.makeText(this, "Por favor, preencha todos os campos", Toast.LENGTH_SHORT).show()
             }
         }
         binding.buttonBack.setOnClickListener {
-            val iBack: Intent = Intent(this@EditarCursoActivity,CursosActivity::class.java)
-            startActivity(iBack)
+            finish()
         }
 
     }
