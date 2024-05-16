@@ -17,6 +17,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".TurmasActivity"
+            android:exported="false" />
+        <activity
             android:name=".EditarCursoActivity"
             android:exported="false" />
         <activity
@@ -37,18 +40,12 @@
         <activity
             android:name=".MenuAdminActivity"
             android:exported="false" />
-
         <activity
             android:name=".DetalhesCursoActivity"
-            android:exported="true"/>
-        <activity
-            android:name=".DetalhesCursoActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".SplashScreenActivity"
             android:exported="true">
-
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
