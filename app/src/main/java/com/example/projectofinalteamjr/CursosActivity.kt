@@ -44,7 +44,6 @@ class CursosActivity : AppCompatActivity() {
             val element = parent.getItemAtPosition(position) as String
             val intent = Intent(this, DetalhesCursoActivity::class.java)
             intent.putExtra("curso", element)
-            intent.
             startActivity(intent)
         }
 
