@@ -101,15 +101,6 @@ class MenuAdminActivity : AppCompatActivity() {
             startActivity(iLogout)
         }
 
-        binding.btnModulo.setOnClickListener{
-            startActivity(Intent(this, AdicionarModuloActivity::class.java))
-
-        }
-
-        binding.btnAdicionarCurso.setOnClickListener{
-            startActivity(Intent(this, AdicionarCursoActivity::class.java))
-
-        }
 
     }
 }

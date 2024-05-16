@@ -19,10 +19,10 @@
     <ImageView
         android:layout_width="100dp"
         android:layout_height="50dp"
+        android:src="@drawable/logo"
         android:layout_gravity="left"
         android:layout_marginTop="10dp"
-        android:layout_weight="0.5"
-        android:src="@drawable/logo" />
+        android:layout_weight="0.5"/>
 
     <Space
         android:layout_width="wrap_content"
@@ -78,24 +78,13 @@
 
         <Button
             android:id="@+id/getCursos"
-            android:layout_width="100dp"
+            android:layout_width="150dp"
             android:layout_height="150dp"
             android:background="@drawable/quadrado_roxo"
             android:gravity="center"
-            android:text="Listar Cursos"
+            android:text="Cursos"
             android:fontFamily="@font/montserrat"
             android:textSize="15sp"
-            android:textColor="@color/white"
-            />
-        <Button
-            android:id="@+id/btnAdicionarCurso"
-            android:layout_width="100dp"
-            android:layout_height="150dp"
-            android:background="@drawable/quadrado_roxo"
-            android:gravity="center"
-            android:text="Adicionar Curso"
-            android:fontFamily="@font/montserrat"
-            android:textSize="12sp"
             android:textColor="@color/white"
             />
 
@@ -132,23 +121,12 @@
             android:textColor="@color/white"/>
 
         <Button
-            android:id="@+id/btn_modulo"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_marginLeft="20dp"
             android:background="@drawable/quadrado_roxo"
             android:gravity="center"
             android:text="Módulos"
-            android:fontFamily="@font/montserrat"
-            android:textSize="15sp"
-            android:textColor="@color/white"/>
-        <Button
-            android:background="@drawable/quadrado_rosa"
-            android:id="@+id/getModulos"
-            android:layout_width="wrap_content"
-            android:layout_height="150dp"
-            android:layout_marginLeft="20dp"
-            android:text="Ver Modulos"
             android:fontFamily="@font/montserrat"
             android:textSize="15sp"
             android:textColor="@color/white"/>
