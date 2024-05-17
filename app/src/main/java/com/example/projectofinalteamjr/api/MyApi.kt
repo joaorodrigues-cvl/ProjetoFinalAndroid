@@ -39,5 +39,11 @@ interface MyApi {
     @GET("turmas")
     fun getTurmas(): Call<List<Turmas>>
 
+
+
+    @GET("turmas/{id}")
+    fun detalhesTurma(
+        @Path("id") id: Int
+    ): Call<List<DetalhesTurma>>
 }
 
