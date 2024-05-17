@@ -37,7 +37,7 @@ class AdicionarCursoActivity : AppCompatActivity() {
         }
 
         binding.buttonBack.setOnClickListener {
-            val iBack: Intent = Intent(this@AdicionarCursoActivity,CursosActivity::class.java)
+            val iBack: Intent = Intent(this@AdicionarCursoActivity,MenuAdminActivity::class.java)
             startActivity(iBack)
         }
 
