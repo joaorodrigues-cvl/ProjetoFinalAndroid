@@ -3,28 +3,19 @@ package com.example.projectofinalteamjr
 import android.R
 import android.content.Intent
 import android.graphics.Color
-import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.projectofinalteamjr.api.Curso
-import com.example.projectofinalteamjr.api.Cursos
-import com.example.projectofinalteamjr.api.cursosList
-import com.example.projectofinalteamjr.databinding.ActivityCursosBinding
-import com.example.projectofinalteamjr.databinding.ActivityMainBinding
-import java.util.ArrayList
+import com.example.projectofinalteamjr.api.ModulosActions
+import com.example.projectofinalteamjr.databinding.ActivityModulosBinding
 
-class CursosActivity : AppCompatActivity() {
+class ModulosActivity : AppCompatActivity() {
 
     private val binding by lazy{
-        ActivityCursosBinding.inflate(layoutInflater)
+        ActivityModulosBinding.inflate(layoutInflater)
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,11 +24,12 @@ class CursosActivity : AppCompatActivity() {
         val i = intent
 
 
-        var listaNomesCursos = i.getStringArrayListExtra("listaNomesCursos")
-        var listaDescricaoCursos = i.getStringArrayListExtra("listaDescricaoCursos")
-        var listaHorasCursos = i.getIntegerArrayListExtra("listaHorasCursos")!!
+        var listaNomesModulos = i.getStringArrayListExtra("listaNomesModulos")
+        var listaDescricaoModulos = i.getStringArrayListExtra("listaDescricaoModulos")
+        var listaRegimeModulos = i.getStringArrayListExtra("listaRegimeModulos")
+        var listaHorasModulos = i.getIntegerArrayListExtra("listaHorasModulos")!!
 
-        val arrayAdapterNomesCursos = object : ArrayAdapter<String>(this, R.layout.simple_list_item_1, listaNomesCursos!!) {
+        val arrayAdapterNomesModulos = object : ArrayAdapter<String>(this, R.layout.simple_list_item_1, listaNomesModulos!!) {
             override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
                 val view = super.getView(position, convertView, parent)
                 val textView = view.findViewById<TextView>(android.R.id.text1)
@@ -49,19 +41,21 @@ class CursosActivity : AppCompatActivity() {
         //val arrayAdapterDescricaoCursos = ArrayAdapter(this, R.layout.simple_list_item_1, listaDescricaoCursos!!)
         //val arrayAdapterHorasCursos = ArrayAdapter(this, R.layout.simple_list_item_1, listaHorasCursos!!)
 
-        binding.nomeCursosID.adapter = arrayAdapterNomesCursos
+        binding.nomeModulosID.adapter = arrayAdapterNomesModulos
         //binding.decricaoCursosID.adapter = arrayAdapterDescricaoCursos
         //binding.horasCursosID.adapter = arrayAdapterHorasCursos
 
-        binding.nomeCursosID.setOnItemClickListener { parent, view, position, id ->
+        binding.nomeModulosID.setOnItemClickListener { parent, view, position, id ->
             val element = parent.getItemAtPosition(position) as String?
-            val descricao = listaDescricaoCursos!!.get(position)
-            val Totalhoras = listaHorasCursos!!.get(position)
+            val descricao = listaDescricaoModulos!!.get(position)
+            val regime = listaRegimeModulos!!.get(position)
+            val Totalhoras = listaHorasModulos!!.get(position)
             val id = position+1
-            val intent = Intent(this, DetalhesCursoActivity::class.java)
-            intent.putExtra("nomeCurso",element)
-            intent.putExtra("descricaoCurso",descricao)
-            intent.putExtra("horasCurso",Totalhoras)
+            val intent = Intent(this, DetalhesModuloActivity::class.java)
+            intent.putExtra("nomeModulo",element)
+            intent.putExtra("descricaoModulo",descricao)
+            intent.putExtra("regimeModulo", regime)
+            intent.putExtra("horasModulo",Totalhoras)
             intent.putExtra("idCurso",id)
             startActivity(intent)
 
@@ -71,10 +65,10 @@ class CursosActivity : AppCompatActivity() {
             finish()
         }
 
-        binding.btnAddCurso.setOnClickListener {
+       /* binding.btnAddCurso.setOnClickListener {
             val iBack: Intent = Intent(this@CursosActivity,AdicionarCursoActivity::class.java)
             startActivity(iBack)
-        }
+        }*/
     }
 
 

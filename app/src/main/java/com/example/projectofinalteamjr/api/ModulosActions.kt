@@ -1,7 +1,6 @@
 package com.example.projectofinalteamjr.api
 
 import android.util.Log
-import android.widget.Toast
 import com.example.projectofinalteamjr.AdicionarModuloActivity
 import okhttp3.OkHttpClient
 import retrofit2.Call
@@ -15,7 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 private val BASE_URL = "http://10.0.2.2:8000/api/"
 private val TAG: String = "Metodo Get Modulo"
 private val TAG2: String = "Metodo Post Modulo"
-class ModulosActions {
+class ModulosActions(menuAdminActivity: AdicionarModuloActivity) {
 
     public fun sendRequestModulos(modulo: Modulo) {
         val client = OkHttpClient.Builder().build()   // adicionado para funcioanr..
@@ -79,5 +78,7 @@ class ModulosActions {
 
         })
     }
+
+
 
 }

@@ -17,6 +17,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".ModulosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DetalhesModuloActivity"
+            android:exported="false" />
+        <activity
             android:name=".ListarCursoActivity"
             android:exported="false" />
         <activity
