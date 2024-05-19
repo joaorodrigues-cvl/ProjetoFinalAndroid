@@ -5,6 +5,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.projectofinalteamjr.api.DetalhesTurma
+import com.example.projectofinalteamjr.api.Turma
 import com.example.projectofinalteamjr.api.Turmas
 import com.example.projectofinalteamjr.databinding.ActivityCursosBinding
 import com.example.projectofinalteamjr.databinding.ActivityDetalheTurmaBinding
@@ -20,17 +22,20 @@ class DetalheTurmaActivity : AppCompatActivity() {
 
         val i = intent
 
-        val listaTurmas = i.getSerializableExtra("listaTurmas") as List<Turmas>
+        var turma = i.getSerializableExtra("listaTurmas") as DetalhesTurma
 
-        binding.editNomeTurma.text=listaTurmas[0].nome
 
-        binding.editRegimeTurma.text=listaTurmas[0].regime
+        binding.editNomeTurma.text= turma.Turma.nome
 
-        binding.editLocalizacaoTurma.text=listaTurmas[0].localizacao
+        binding.editRegimeTurma.text=turma.Turma.regime
 
-        binding.editDataInicio.text=listaTurmas[0].datainicio
+        binding.editLocalizacaoTurma.text=turma.Turma.localizacao
 
-        binding.editDataFim.text=listaTurmas[0].datafim
+        binding.editDataInicio.text=turma.Turma.datainicio
+
+        binding.editDataFim.text=turma.Turma.datafim
+
+        binding.editTurmaCurso.text=turma.CursoTurma.cursoNome
 
 
     }

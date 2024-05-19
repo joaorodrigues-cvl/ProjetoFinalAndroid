@@ -56,10 +56,10 @@ class TurmasActivity : AppCompatActivity() {
         binding.nomeTurmasID.adapter=arrayAdapterTurmas
 
         binding.nomeTurmasID.setOnItemClickListener { parent, view, position, id ->
-            myApi.detalhesTurma(position+1).enqueue(object : Callback<List<DetalhesTurma>> {
+            myApi.detalhesTurma(position + 1).enqueue(object : Callback<DetalhesTurma> {
                 override fun onResponse(
-                    call: Call<List<DetalhesTurma>>,
-                    response: Response<List<DetalhesTurma>>
+                    call: Call<DetalhesTurma>,
+                    response: Response<DetalhesTurma>
                 ) {
                     if (response.isSuccessful) {
 
@@ -84,7 +84,7 @@ class TurmasActivity : AppCompatActivity() {
                     }
                 }
 
-                override fun onFailure(call: Call<List<DetalhesTurma>>, t: Throwable) {
+                override fun onFailure(call: Call<DetalhesTurma>, t: Throwable) {
 
                     // Fazer Toast
 
