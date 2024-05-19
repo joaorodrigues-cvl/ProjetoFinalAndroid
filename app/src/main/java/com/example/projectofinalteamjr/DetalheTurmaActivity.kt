@@ -1,6 +1,8 @@
 package com.example.projectofinalteamjr
 
+import android.R
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -24,6 +26,15 @@ class DetalheTurmaActivity : AppCompatActivity() {
 
         var turma = i.getSerializableExtra("listaTurmas") as DetalhesTurma
 
+        val listaNomesFormandos = ArrayList<String>()
+
+        for (formando in turma.Formandos){
+            listaNomesFormandos.add(formando.formandoNome)
+        }
+
+
+        val arrayAdapterFormandosTurma = ArrayAdapter(this, R.layout.simple_list_item_1, listaNomesFormandos)
+
 
         binding.editNomeTurma.text= turma.Turma.nome
 
@@ -36,6 +47,8 @@ class DetalheTurmaActivity : AppCompatActivity() {
         binding.editDataFim.text=turma.Turma.datafim
 
         binding.editTurmaCurso.text=turma.CursoTurma.cursoNome
+
+        binding.editTurmaFormandos.adapter=arrayAdapterFormandosTurma
 
 
     }
