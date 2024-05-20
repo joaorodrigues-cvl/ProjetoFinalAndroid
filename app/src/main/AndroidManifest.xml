@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
     <!-- Permissões de Internet. Não mexer. -->
@@ -20,6 +19,9 @@
             android:name=".DetalheTurmaActivity"
             android:exported="false" />
         <activity
+            android:name=".DetalhesModuloActivity"
+            android:exported="false" />
+        <activity
             android:name=".TurmasActivity"
             android:exported="false" />
         <activity
@@ -27,12 +29,6 @@
             android:exported="false" />
         <activity
             android:name=".AdicionarCursoActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ListarModuloActivity"
-            android:exported="false" />
-        <activity
-            android:name=".VerModuloActivity"
             android:exported="false" />
         <activity
             android:name=".AdicionarModuloActivity"
@@ -57,6 +53,9 @@
         </activity>
         <activity
             android:name=".CursosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ModulosActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
