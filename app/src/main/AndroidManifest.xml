@@ -16,13 +16,10 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".ModulosActivity"
+            android:name=".DetalheTurmaActivity"
             android:exported="false" />
         <activity
-            android:name=".DetalhesModuloActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ListarCursoActivity"
+            android:name=".TurmasActivity"
             android:exported="false" />
         <activity
             android:name=".EditarCursoActivity"
@@ -34,7 +31,7 @@
             android:name=".ListarModuloActivity"
             android:exported="false" />
         <activity
-            android:name=".DetalhesCursoActivity"
+            android:name=".VerModuloActivity"
             android:exported="false" />
         <activity
             android:name=".AdicionarModuloActivity"
@@ -45,6 +42,9 @@
         <activity
             android:name=".MenuAdminActivity"
             android:exported="false" />
+        <activity
+            android:name=".DetalhesCursoActivity"
+            android:exported="true" />
         <activity
             android:name=".SplashScreenActivity"
             android:exported="true">
