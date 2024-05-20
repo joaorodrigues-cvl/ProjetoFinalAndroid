@@ -28,12 +28,6 @@
             android:name=".AdicionarCursoActivity"
             android:exported="false" />
         <activity
-            android:name=".ListarModuloActivity"
-            android:exported="false" />
-        <activity
-            android:name=".VerModuloActivity"
-            android:exported="false" />
-        <activity
             android:name=".AdicionarModuloActivity"
             android:exported="false" />
         <activity
