@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.projectofinalteamjr.databinding.ActivityMenuFormandoBinding
-import com.example.projectofinalteamjr.views.MainActivity
+
 
 class MenuFormandoActivity : AppCompatActivity() {
     private val binding by lazy{

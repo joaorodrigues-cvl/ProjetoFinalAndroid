@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.projectofinalteamjr.api.ModulosActions
 import com.example.projectofinalteamjr.databinding.ActivityModulosBinding
 
 class ModulosActivity : AppCompatActivity() {
