@@ -2,12 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/view_cursos"
+    android:id="@+id/view_add_cursos"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#201544"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".AdicionarCursoActivity">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -58,22 +58,26 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="50dp"
+        android:paddingTop="50dp"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
         >
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Nome"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            />
 
         <EditText
             android:padding="5dp"
             android:id="@+id/edit_nome_curso"
             android:layout_width="match_parent"
             android:layout_height="35sp"
-            android:background="@drawable/corners"
             android:hint="Introduza o nome do curso"
+            android:background="@drawable/corners"
+            android:textSize="14dp"
             />
         <TextView
             android:layout_marginTop="20dp"
@@ -88,9 +92,11 @@
             android:id="@+id/edit_descricao_curso"
             android:layout_width="match_parent"
             android:gravity="top"
-            android:layout_height="200sp"
+            android:layout_height="150sp"
+            android:hint="Descrição do curso"
             android:background="@drawable/corners"
-            android:hint="Introduza a descrição do Curso"
+            android:layout_marginBottom="15dp"
+            android:textSize="14dp"
             />
         <TextView
             android:layout_width="match_parent"
@@ -100,23 +106,26 @@
 
         <EditText
             android:padding="5dp"
-            android:layout_marginBottom="5dp"
             android:id="@+id/edit_horas_curso"
             android:layout_width="match_parent"
             android:layout_height="35sp"
-            android:background="@drawable/corners"
             android:hint="Introduza o total de horas do curso"
+            android:background="@drawable/corners"
+            android:textSize="14dp"
+
             />
     </LinearLayout>
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="50dp"
         android:paddingRight="50dp"
+        android:gravity="center"
         >
 
         <Button
+            android:layout_margin="20dp"
             android:id="@+id/btn_gravar_curso"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -126,7 +135,20 @@
             android:text="Gravar"
             android:textSize="20dp"
             app:cornerRadius="4dp"
+
             />
+        <Button
+            android:id="@+id/buttonBack"
+            android:layout_width="150dp"
+            android:layout_height="45dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/quadrado_azul"
+            android:text="Voltar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="#FFFFFF"/>
     </LinearLayout>
 
 </LinearLayout>

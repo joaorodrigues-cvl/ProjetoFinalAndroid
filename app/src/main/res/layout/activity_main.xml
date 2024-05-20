@@ -58,6 +58,7 @@
         android:fontFamily="@font/montserrat"
         android:textSize="20sp"
         android:layout_marginTop="60sp"
+        android:textColor="@color/white"
         android:background="@drawable/quadrado_azul"/>
 
 

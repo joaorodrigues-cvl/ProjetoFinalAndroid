@@ -21,7 +21,7 @@ binding.buttonSubmit.setOnClickListener {
     var user = binding.editUser.text.toString()
     var pass = binding.editPassword.text.toString()
 
-    if (user == "admin" && pass == "123"){
+    if (user == "admin" || user == "ADMIN" && pass == "123"){
         // vai para menu admin
         val intentAdmin: Intent = Intent(this@MainActivity, MenuAdminActivity::class.java)
         startActivity(intentAdmin)
