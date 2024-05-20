@@ -141,12 +141,7 @@ class MenuAdminActivity : AppCompatActivity() {
 
         binding.getModulos.setOnClickListener{
 
-            val api = Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
 
-            val myApi=api.create(MyApi::class.java);
 
             myApi.getModulos().enqueue(object : Callback<List<Modulos>> {
                 override fun onResponse(
@@ -195,9 +190,7 @@ class MenuAdminActivity : AppCompatActivity() {
 
             })
 
-            binding.getModulos.setOnClickListener {
 
-            }
 
 
         }
