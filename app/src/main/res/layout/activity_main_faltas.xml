@@ -30,7 +30,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <Button
-        android:id="@+id/buttonBack"
+        android:id="@+id/buttonFaltasBack"
         android:layout_width="150dp"
         android:layout_height="25dp"
         android:layout_marginBottom="32dp"
@@ -42,7 +42,7 @@
         app:layout_constraintStart_toStartOf="parent"/>
 
     <ListView
-        android:id="@+id/nomeCursoID"
+        android:id="@+id/dataFaltaID"
         android:layout_width="118dp"
         android:layout_height="442dp"
         android:layout_marginStart="32dp"
@@ -52,7 +52,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.03"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2"/>
 
     <ListView
         android:id="@+id/tipoFaltaID"
