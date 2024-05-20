@@ -76,7 +76,7 @@
         android:gravity="center">
 
         <Button
-            android:id="@+id/getCursos"
+            android:id="@+id/getCursosFormando"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:background="@drawable/quadrado_roxo"
@@ -88,16 +88,16 @@
             />
 
         <Button
+            android:id="@+id/getNotasFormando"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_marginLeft="20dp"
             android:background="@drawable/quadrado_rosa"
+            android:fontFamily="@font/montserrat"
             android:gravity="center"
             android:text="Notas"
-            android:fontFamily="@font/montserrat"
-            android:textSize="15sp"
             android:textColor="@color/white"
-            />
+            android:textSize="15sp" />
 
     </LinearLayout>
 
@@ -110,14 +110,15 @@
         android:gravity="center">
 
         <Button
+            android:id="@+id/getFaltasFormando"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:background="@drawable/quadrado_azul"
+            android:fontFamily="@font/montserrat"
             android:gravity="center"
             android:text="Faltas"
-            android:fontFamily="@font/montserrat"
-            android:textSize="15sp"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"
+            android:textSize="15sp" />
 
         <Button
             android:layout_width="150dp"
@@ -139,14 +140,15 @@
         android:gravity="center">
 
         <Button
+            android:id="@+id/getInfoFormando"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:background="@drawable/quadrado_rosa"
+            android:fontFamily="@font/montserrat"
             android:gravity="center"
             android:text="Informações Pessoais"
-            android:fontFamily="@font/montserrat"
-            android:textSize="15sp"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"
+            android:textSize="15sp" />
 
     </LinearLayout>
 

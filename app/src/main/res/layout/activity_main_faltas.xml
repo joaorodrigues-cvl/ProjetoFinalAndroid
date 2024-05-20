@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/faltaDataID"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/roxo"
@@ -42,7 +42,7 @@
         app:layout_constraintStart_toStartOf="parent"/>
 
     <ListView
-        android:id="@+id/nomeCursosID"
+        android:id="@+id/nomeCursoID"
         android:layout_width="118dp"
         android:layout_height="442dp"
         android:layout_marginStart="32dp"
@@ -55,7 +55,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <ListView
-        android:id="@+id/nomeCursoID"
+        android:id="@+id/tipoFaltaID"
         android:layout_width="118dp"
         android:layout_height="442dp"
         android:layout_marginStart="32dp"
@@ -68,7 +68,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <ListView
-        android:id="@+id/nomeCurso1ID"
+        android:id="@+id/justificarID"
         android:layout_width="100dp"
         android:layout_height="442dp"
         android:layout_marginStart="32dp"

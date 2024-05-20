@@ -7,18 +7,31 @@ import com.example.projectofinalteamjr.databinding.ActivityMenuFormandoBinding
 
 
 class MenuFormandoActivity : AppCompatActivity() {
-    private val binding by lazy{
+    private val binding by lazy {
         ActivityMenuFormandoBinding.inflate(layoutInflater)
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(binding.root)
 
 
-            binding.buttonLogout.setOnClickListener {
-                val iLogout: Intent = Intent(this@MenuFormandoActivity, MainActivity::class.java)
-                startActivity(iLogout)
+        binding.buttonLogout.setOnClickListener {
+            val iLogout: Intent = Intent(this@MenuFormandoActivity, MainActivity::class.java)
+            startActivity(iLogout)
         }
+        binding.getCursosFormando.setOnClickListener {
+
+        }
+        binding.getNotasFormando.setOnClickListener {
+
+        }
+        binding.getFaltasFormando.setOnClickListener {
+            val intent = Intent(this, MainFaltasActivity::class.java)
+            startActivity(intent)
+        }
+
+
     }
 }

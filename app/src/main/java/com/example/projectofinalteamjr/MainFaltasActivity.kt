@@ -7,12 +7,11 @@ import androidx.appcompat.app.AppCompatActivity
 
 
 class MainFaltasActivity : AppCompatActivity() {
-    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_main_faltas)
 
-        val listView = findViewById<ListView>(R.id.nomeCursosID)
+        val listView = findViewById<ListView>(R.id.nomeCursoID)
         val items = ArrayList<String>()
         items.add("Data 1")
         items.add("Data 2")
