@@ -8,16 +8,17 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-
+// URL base para a API e tags para logs.
 private val BASE_URL = "http://10.0.2.2:8000/api/"
 private val TAG: String = "CHECK_RESPONSE"
 private val TAG2: String = "Metodo Post"
-
+// Lista de cursos para armazenar os cursos recebidos da API.
 public var cursosList: ArrayList<Cursos>? = ArrayList()
 
 class CursosActions {
 
-    public fun sendRequestCursos(curso: Curso) {
+    // Método para enviar uma solicitação para criar um novo curso na API.
+    public fun sendRequestCursos(curso: Curso) { // O sendRequestCursos envia uma solicitação para criar um novo curso na API
         val client = OkHttpClient.Builder().build()   // adicionado para funcioanr..
         val builder = Retrofit.Builder()
             .baseUrl(BASE_URL)

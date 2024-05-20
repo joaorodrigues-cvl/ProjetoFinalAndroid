@@ -2,12 +2,9 @@ package com.example.projectofinalteamjr
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.projectofinalteamjr.databinding.ActivityMenuAdminBinding
 import com.example.projectofinalteamjr.databinding.ActivityMenuFormandoBinding
+import com.example.projectofinalteamjr.views.MainActivity
 
 class MenuFormandoActivity : AppCompatActivity() {
     private val binding by lazy{
