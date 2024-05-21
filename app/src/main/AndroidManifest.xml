@@ -29,11 +29,32 @@
             android:name=".MainRecyclerViewActivity2"
             android:exported="false" />
         <activity
+            android:name=".DetalheTurmaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DetalhesModuloActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TurmasActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditarCursoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdicionarCursoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdicionarModuloActivity"
+            android:exported="false" />
+        <activity
             android:name=".MenuFormandoActivity"
             android:exported="false" />
         <activity
             android:name=".MenuAdminActivity"
             android:exported="false" />
+        <activity
+            android:name=".DetalhesCursoActivity"
+            android:exported="true" />
         <activity
             android:name=".SplashScreenActivity"
             android:exported="true">
@@ -47,7 +68,10 @@
             android:name=".CursosActivity"
             android:exported="false" />
         <activity
-            android:name=".views.MainActivity"
+            android:name=".ModulosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
             android:exported="false" />
     </application>
 

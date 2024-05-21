@@ -5,7 +5,10 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.projectofinalteamjr.api.Cursos
+import com.example.projectofinalteamjr.api.Modulos
+import com.example.projectofinalteamjr.api.ModulosActions
 import com.example.projectofinalteamjr.api.MyApi
+import com.example.projectofinalteamjr.api.Turmas
 import com.example.projectofinalteamjr.databinding.ActivityMenuAdminBinding
 import com.example.projectofinalteamjr.views.MainActivity
 import retrofit2.Call
@@ -13,12 +16,23 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.io.Serializable
 
 class MenuAdminActivity : AppCompatActivity() {
 
     val BASE_URL = "http://10.0.2.2:8000/api/"
-    val TAG: String = "CHECK_RESPONSE"
-    val TAG2: String = "Metodo Post"
+
+    val api = Retrofit.Builder()
+        .baseUrl(BASE_URL)
+        .addConverterFactory(GsonConverterFactory.create())
+        .build();
+
+    val myApi=api.create(MyApi::class.java);
+
+    public var modulosNomeList = ArrayList<String>()
+    public var modulosDescricaoList = ArrayList<String>()
+    public var modulosRegimeList = ArrayList<String>()
+    public var modulosHorasList = ArrayList<Int>()
 
     public var cursosNomeList = ArrayList<String>()
     public var cursosDescricaoList = ArrayList<String>()
@@ -29,18 +43,9 @@ class MenuAdminActivity : AppCompatActivity() {
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(binding.root)
 
-
         binding.getCursos.setOnClickListener{
-
-            val api = Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-            val myApi=api.create(MyApi::class.java);
 
             myApi.getCursos().enqueue(object : Callback<ArrayList<Cursos>> {
                 override fun onResponse(
@@ -86,18 +91,125 @@ class MenuAdminActivity : AppCompatActivity() {
 
                     //Log.i(TAG, "onFailure: ${t.message}")
                 }
+            })
+        }
+
+
+        binding.buttonTurmasID.setOnClickListener {
+
+
+            myApi.getTurmas().enqueue(object : Callback<List<Turmas>> {
+                override fun onResponse(
+                    call: Call<List<Turmas>>,
+                    response: Response<List<Turmas>>
+                ) {
+                    if (response.isSuccessful) {
+
+                        var turmas = response.body()!! // Store the list
+
+                        // Intent:
+
+                        val i: Intent = Intent(this@MenuAdminActivity, TurmasActivity::class.java)
+                        i.putExtra("listaTurmas", turmas as Serializable)
+                        startActivity(i)
+                    } else {
+
+                        // Fazer Toast
+
+                        Toast.makeText(applicationContext, "Não foi possivel realizar a operação", Toast.LENGTH_LONG).show()
+
+                        //Log.i(TAG, "Unsuccessful response: ${response.code()}")
+                    }
+                }
+
+                override fun onFailure(call: Call<List<Turmas>>, t: Throwable) {
+
+                    // Fazer Toast
+
+                    Toast.makeText(applicationContext, "Falha ao tentar aceder o servidor", Toast.LENGTH_LONG).show()
+
+                    //Log.i(TAG, "onFailure: ${t.message}")
+                }
 
             })
 
+            binding.getModulos.setOnClickListener {
 
+            }
 
 
         }
+
+        binding.getModulos.setOnClickListener{
+
+            val api = Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+            val myApi=api.create(MyApi::class.java);
+
+            myApi.getModulos().enqueue(object : Callback<List<Modulos>> {
+                override fun onResponse(
+                    call: Call<List<Modulos>>,
+                    response: Response<List<Modulos>>
+                ) {
+                    if (response.isSuccessful) {
+
+                        var output = response.body() // Store the list
+                        output?.let {
+                            for (modulo in it) {
+                                modulosNomeList.add(modulo.Nome)
+                                modulosDescricaoList.add(modulo.Descricao)
+                                modulosRegimeList.add(modulo.Regime_modulo)
+                                modulosHorasList.add(modulo.Horas)
+
+                            }
+
+                        }
+                        // Intent:
+
+                        val i: Intent = Intent(this@MenuAdminActivity, ModulosActivity::class.java)
+                        i.putExtra("listaNomesModulos", modulosNomeList)
+                        i.putExtra("listaDescricaoModulos", modulosDescricaoList)
+                        i.putExtra("listaRegimeModulos", modulosRegimeList)
+                        i.putExtra("listaHorasModulos", modulosHorasList)
+                        startActivity(i)
+                    } else {
+
+                        // Fazer Toast
+
+                        Toast.makeText(applicationContext, "Não foi possivel realizar a operação", Toast.LENGTH_LONG).show()
+
+                        //Log.i(TAG, "Unsuccessful response: ${response.code()}")
+                    }
+                }
+
+                override fun onFailure(call: Call<List<Modulos>>, t: Throwable) {
+
+                    // Fazer Toast
+
+                    Toast.makeText(applicationContext, "Falha ao tentar aceder o servidor", Toast.LENGTH_LONG).show()
+
+                    //Log.i(TAG, "onFailure: ${t.message}")
+                }
+
+            })
+
+            binding.getModulos.setOnClickListener {
+
+            }
+
+
+        }
+
+
 
         binding.buttonLogout.setOnClickListener {
             val iLogout: Intent = Intent(this@MenuAdminActivity, MainActivity::class.java)
             startActivity(iLogout)
         }
+
 
     }
 }
