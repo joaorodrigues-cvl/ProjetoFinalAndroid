@@ -58,10 +58,9 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
-        android:paddingTop="50dp"
         android:paddingLeft="50dp"
-        android:paddingRight="50dp"
-        >
+        android:paddingTop="50dp"
+        android:paddingRight="50dp">
 
         <TextView
             android:layout_width="match_parent"
@@ -70,31 +69,33 @@
             android:textColor="@color/white" />
 
         <TextView
-            android:padding="5dp"
             android:id="@+id/edit_nome_curso"
             android:layout_width="match_parent"
             android:layout_height="35sp"
             android:background="@drawable/corners"
+            android:padding="5dp"
 
             />
+
         <TextView
-            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity=""
+            android:layout_marginTop="20dp"
+
             android:text="Descrição"
             android:textColor="@color/white" />
 
         <TextView
-            android:padding="5dp"
             android:id="@+id/edit_descricao_curso"
             android:layout_width="match_parent"
-            android:gravity="top"
-            android:layout_height="150sp"
-            android:background="@drawable/corners"
+            android:layout_height="100sp"
             android:layout_marginBottom="15dp"
+            android:background="@drawable/corners"
+            android:gravity="top"
+            android:padding="5dp"
 
             />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -102,45 +103,58 @@
             android:textColor="@color/white" />
 
         <TextView
-            android:padding="5dp"
-            android:layout_marginBottom="5dp"
             android:id="@+id/edit_horas_curso"
             android:layout_width="match_parent"
             android:layout_height="35sp"
+            android:layout_marginBottom="5dp"
             android:background="@drawable/corners"
+            android:padding="5dp"
 
             />
     </LinearLayout>
+
+
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="50dp"
-        android:paddingRight="50dp"
         android:gravity="center"
-        >
+        android:orientation="vertical"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp">
+
+        <Button
+            android:id="@+id/btn_modulosCurso"
+            android:layout_margin="12dp"
+            android:background="@drawable/corners"
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:text="Módulos do Curso"
+            android:textAllCaps="false"
+            android:gravity="center"
+            />
+
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/btn_edit_curso"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:clickable="true"
             app:backgroundTint="@color/rosa"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/img"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"/>
+            app:srcCompat="@drawable/img" />
 
     </LinearLayout>
+
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="50dp"
-        android:paddingRight="50dp"
         android:gravity="center"
-        >
+        android:orientation="vertical"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp">
 
         <Button
             android:id="@+id/buttonBack"

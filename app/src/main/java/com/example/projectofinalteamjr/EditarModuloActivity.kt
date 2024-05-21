@@ -4,11 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.projectofinalteamjr.api.Curso
 import com.example.projectofinalteamjr.api.Modulo
 import com.example.projectofinalteamjr.api.Modulos
+import com.example.projectofinalteamjr.api.ModulosActions
 import com.example.projectofinalteamjr.api.MyApi
-import com.example.projectofinalteamjr.databinding.ActivityEditarCursoBinding
 import com.example.projectofinalteamjr.databinding.ActivityEditarModuloBinding
 import retrofit2.Call
 import retrofit2.Callback
@@ -18,13 +17,16 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class EditarModuloActivity : AppCompatActivity() {
 
-    private val binding by lazy{
+    private val binding by lazy {
         ActivityEditarModuloBinding.inflate(layoutInflater)
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-                setContentView(R.layout.activity_editar_modulo)
+        val modulosActions = ModulosActions()
+        setContentView(binding.root)
+
 
         val intent = intent
 
@@ -32,23 +34,25 @@ class EditarModuloActivity : AppCompatActivity() {
         val descricaoModulo = intent.getStringExtra("descricaoModulo")
         val regimeModulo = intent.getStringExtra("regimeModulo")
         val horasModulo = intent.getIntExtra("horasModulo", 0)
+        val idModulo = intent.getIntExtra("idModulo", 0)
 
         binding.editNomeModulo.setText(nomeModulo)
         binding.editDescricaoModulo.setText(descricaoModulo)
         binding.editRegimeModulo.setText(regimeModulo)
         binding.editHorasModulo.setText(horasModulo.toString())
 
-        binding.btnGravarEditModulo.setOnClickListener{
+        binding.btnGravarEditModulo2.setOnClickListener {
             val nome = binding.editNomeModulo.text.toString()
             val descricao = binding.editDescricaoModulo.text.toString()
             val regime = binding.editRegimeModulo.text.toString()
             val horas = binding.editHorasModulo.text.toString().toIntOrNull() ?: 0
 
+
             if (nome.isNotEmpty() && descricao.isNotEmpty() && regime.isNotEmpty() && horas > 0) {
-                val modulo = Modulo(nome, descricao, horas, regime)
+                val modulo = Modulo(nome, descricao, regime, horas)
+                modulosActions.atualizarModulo(idModulo, modulo)
 
 
-                // Fetch the updated list of cursos from the API
                 val BASE_URL = "http://10.0.2.2:8000/api/"
                 val TAG: String = "CHECK_RESPONSE"
                 val TAG2: String = "Metodo Post"
@@ -78,7 +82,7 @@ class EditarModuloActivity : AppCompatActivity() {
                                     listaRegimeModulos.add(modulo.Regime_modulo)
                                     listaHorasModulos.add(modulo.Horas)
 
-                                }
+
 
                             }
                             // Intent:
@@ -89,6 +93,7 @@ class EditarModuloActivity : AppCompatActivity() {
                             i.putExtra("listaRegimeModulos", listaRegimeModulos)
                             i.putExtra("listaHorasModulos", listaHorasModulos)
                             startActivity(i)
+                                }
                         } else {
 
                             // Fazer Toast
@@ -113,10 +118,11 @@ class EditarModuloActivity : AppCompatActivity() {
                 // Show error message to user
                 Toast.makeText(this, "Por favor, preencha todos os campos", Toast.LENGTH_SHORT).show()
             }
+
+
         }
         binding.buttonBack2.setOnClickListener {
-            val iBack: Intent = Intent(this@EditarModuloActivity,DetalhesModuloActivity::class.java)
-            startActivity(iBack)
-        }
-    }
+            finish()
+
+        }}
 }

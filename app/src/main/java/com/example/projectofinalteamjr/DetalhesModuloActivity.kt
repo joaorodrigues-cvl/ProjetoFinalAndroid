@@ -34,8 +34,8 @@ class DetalhesModuloActivity : AppCompatActivity() {
             startActivity(iBack)
         }
         binding.btnEditModulo.setOnClickListener {
-            val nomeModulo = intent.getStringExtra("nomeCurso")
-            val descricaoModulo = intent.getStringExtra("descricaoCurso")
+            val nomeModulo = intent.getStringExtra("nomeModulo")
+            val descricaoModulo = intent.getStringExtra("descricaoModulo")
             val regimeModulo = intent.getStringExtra("regimeModulo")
             val horasModulo = intent.getIntExtra("horasModulo", 0)
             val idModulo = intent.getIntExtra("idModulo", -1)

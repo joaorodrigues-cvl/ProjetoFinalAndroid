@@ -50,13 +50,13 @@ class ModulosActivity : AppCompatActivity() {
             val descricao = listaDescricaoModulos!!.get(position)
             val regime = listaRegimeModulos!!.get(position)
             val Totalhoras = listaHorasModulos!!.get(position)
-            val id = position+1
+            val idmodulo = position+1
             val intent = Intent(this, DetalhesModuloActivity::class.java)
             intent.putExtra("nomeModulo",element)
             intent.putExtra("descricaoModulo",descricao)
             intent.putExtra("regimeModulo", regime)
             intent.putExtra("horasModulo",Totalhoras)
-            intent.putExtra("idCurso",id)
+            intent.putExtra("idModulo",idmodulo)
             startActivity(intent)
 
         }
@@ -65,10 +65,10 @@ class ModulosActivity : AppCompatActivity() {
             finish()
         }
 
-       /* binding.btnAddCurso.setOnClickListener {
-            val iBack: Intent = Intent(this@CursosActivity,AdicionarCursoActivity::class.java)
+        binding.btnAddModulo.setOnClickListener {
+            val iBack: Intent = Intent(this@ModulosActivity,AdicionarModuloActivity::class.java)
             startActivity(iBack)
-        }*/
+        }
     }
 
 

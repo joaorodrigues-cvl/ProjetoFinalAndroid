@@ -26,7 +26,7 @@ class MenuAdminActivity : AppCompatActivity() {
         .addConverterFactory(GsonConverterFactory.create())
         .build();
 
-    val myApi=api.create(MyApi::class.java);
+    val myApi = api.create(MyApi::class.java);
 
     public var modulosNomeList = ArrayList<String>()
     public var modulosDescricaoList = ArrayList<String>()
@@ -37,14 +37,15 @@ class MenuAdminActivity : AppCompatActivity() {
     public var cursosDescricaoList = ArrayList<String>()
     public var cursosHorasList = ArrayList<Int>()
 
-    private val binding by lazy{
+    private val binding by lazy {
         ActivityMenuAdminBinding.inflate(layoutInflater)
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        binding.getCursos.setOnClickListener{
+        binding.getCursos.setOnClickListener {
 
             myApi.getCursos().enqueue(object : Callback<ArrayList<Cursos>> {
                 override fun onResponse(
@@ -76,7 +77,11 @@ class MenuAdminActivity : AppCompatActivity() {
 
                         // Fazer Toast
 
-                        Toast.makeText(applicationContext, "Não foi possivel realizar a operação", Toast.LENGTH_LONG).show()
+                        Toast.makeText(
+                            applicationContext,
+                            "Não foi possivel realizar a operação",
+                            Toast.LENGTH_LONG
+                        ).show()
 
                         //Log.i(TAG, "Unsuccessful response: ${response.code()}")
                     }
@@ -86,7 +91,11 @@ class MenuAdminActivity : AppCompatActivity() {
 
                     // Fazer Toast
 
-                    Toast.makeText(applicationContext, "Falha ao tentar aceder o servidor", Toast.LENGTH_LONG).show()
+                    Toast.makeText(
+                        applicationContext,
+                        "Falha ao tentar aceder o servidor",
+                        Toast.LENGTH_LONG
+                    ).show()
 
                     //Log.i(TAG, "onFailure: ${t.message}")
                 }
@@ -115,7 +124,11 @@ class MenuAdminActivity : AppCompatActivity() {
 
                         // Fazer Toast
 
-                        Toast.makeText(applicationContext, "Não foi possivel realizar a operação", Toast.LENGTH_LONG).show()
+                        Toast.makeText(
+                            applicationContext,
+                            "Não foi possivel realizar a operação",
+                            Toast.LENGTH_LONG
+                        ).show()
 
                         //Log.i(TAG, "Unsuccessful response: ${response.code()}")
                     }
@@ -125,7 +138,11 @@ class MenuAdminActivity : AppCompatActivity() {
 
                     // Fazer Toast
 
-                    Toast.makeText(applicationContext, "Falha ao tentar aceder o servidor", Toast.LENGTH_LONG).show()
+                    Toast.makeText(
+                        applicationContext,
+                        "Falha ao tentar aceder o servidor",
+                        Toast.LENGTH_LONG
+                    ).show()
 
                     //Log.i(TAG, "onFailure: ${t.message}")
                 }
@@ -139,8 +156,7 @@ class MenuAdminActivity : AppCompatActivity() {
 
         }
 
-        binding.getModulos.setOnClickListener{
-
+        binding.getModulos.setOnClickListener {
 
 
             myApi.getModulos().enqueue(object : Callback<List<Modulos>> {
@@ -173,7 +189,11 @@ class MenuAdminActivity : AppCompatActivity() {
 
                         // Fazer Toast
 
-                        Toast.makeText(applicationContext, "Não foi possivel realizar a operação", Toast.LENGTH_LONG).show()
+                        Toast.makeText(
+                            applicationContext,
+                            "Não foi possivel realizar a operação",
+                            Toast.LENGTH_LONG
+                        ).show()
 
                         //Log.i(TAG, "Unsuccessful response: ${response.code()}")
                     }
@@ -183,14 +203,16 @@ class MenuAdminActivity : AppCompatActivity() {
 
                     // Fazer Toast
 
-                    Toast.makeText(applicationContext, "Falha ao tentar aceder o servidor", Toast.LENGTH_LONG).show()
+                    Toast.makeText(
+                        applicationContext,
+                        "Falha ao tentar aceder o servidor",
+                        Toast.LENGTH_LONG
+                    ).show()
 
                     //Log.i(TAG, "onFailure: ${t.message}")
                 }
 
             })
-
-
 
 
         }

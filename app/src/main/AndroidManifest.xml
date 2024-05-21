@@ -17,6 +17,18 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".AdicionarMACursoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity2"
+            android:exported="false" />
+        <activity
+            android:name=".AdicionarModuloAoCursoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ModulosDoCursoActivity"
+            android:exported="false" />
+        <activity
             android:name=".EditarModuloActivity"
             android:exported="false" />
         <activity

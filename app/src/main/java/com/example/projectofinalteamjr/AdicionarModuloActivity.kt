@@ -12,7 +12,7 @@ class AdicionarModuloActivity : AppCompatActivity() {
 
 
     private lateinit var binding: ActivityAdicionarModuloBinding
-    private val modulosActions = ModulosActions(this)
+    private val modulosActions = ModulosActions()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,11 +23,12 @@ class AdicionarModuloActivity : AppCompatActivity() {
         binding.btnGravarModulo.setOnClickListener {
             val nome = binding.editNomeModulo.text.toString()
             val descricao = binding.editDescricaoModulo.text.toString()
-            val horas = binding.editHorasModulo.text.toString().toIntOrNull()?: 0
             val regimeModulo = binding.editTipoRegime.text.toString()
+            val horas = binding.editHorasModulo.text.toString().toIntOrNull()?: 0
+
 
             if (nome.isNotEmpty() && descricao.isNotEmpty() && horas > 0 && regimeModulo.isNotEmpty()) {
-                val modulo = Modulo(nome, descricao, horas, regimeModulo)
+                val modulo = Modulo(nome, descricao, regimeModulo, horas)
                 modulosActions.sendRequestModulos(modulo)
                 startActivity(Intent(this, MenuAdminActivity::class.java))
             } else {
