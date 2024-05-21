@@ -48,5 +48,10 @@ interface MyApi {
     fun getFaltas(
         @Path("userID") id: Int
     ): Call<List<Faltas>>
+
+    @GET("cursos/{userID}")
+    fun getCursosFormando(
+        @Path("userID") id: Int
+    ): Call<List<Cursos>>
 }
 
