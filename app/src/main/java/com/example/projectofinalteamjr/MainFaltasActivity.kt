@@ -2,6 +2,7 @@ package com.example.projectofinalteamjr
 
 import android.R
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
@@ -10,8 +11,10 @@ import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.projectofinalteamjr.api.Faltas
 import com.example.projectofinalteamjr.databinding.ActivityMainFaltasBinding
 import com.example.projectofinalteamjr.databinding.ActivityModulosBinding
+import java.io.Serializable
 
 
 class MainFaltasActivity : AppCompatActivity() {
@@ -23,11 +26,16 @@ class MainFaltasActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        val listaDataFaltas = ArrayList<String>()
+        val i = intent
 
-        listaDataFaltas.add("19/03/2024")
-        listaDataFaltas.add("21/03/2024")
-        listaDataFaltas.add("22/03/2024")
+        val listaFaltas = i.getSerializableExtra("listaFaltas") as List<Faltas>
+
+        val listaDataFaltas = ArrayList<String>()
+        val listaTipoFalta = ArrayList<String>()
+
+        for (falta in listaFaltas){
+            listaDataFaltas.add(falta.data + " - " + falta.tipo)
+        }
 
         val arrayAdapterDataFaltas = object : ArrayAdapter<String>(this, R.layout.simple_list_item_1, listaDataFaltas!!){
             override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
@@ -38,20 +46,15 @@ class MainFaltasActivity : AppCompatActivity() {
 
         binding.dataFaltaID.adapter = arrayAdapterDataFaltas
 
-        val listaTipoFalta = ArrayList<String>()
+        binding.dataFaltaID.setOnItemClickListener { parent, view, position, id ->
+            val element = parent.getItemAtPosition(position) as String?
+            val intent = Intent(this, DetalhesFaltaActivity::class.java)
+            intent.putExtra("nomeModulo",element)
+            intent.putExtra("falta",listaFaltas[position] as Serializable)
+            startActivity(intent)
 
-        listaTipoFalta.add("Justificada")
-        listaTipoFalta.add("Injustificada")
-        listaTipoFalta.add("Justificada")
-
-        val arrayAdapterTipoFaltas = object : ArrayAdapter<String>(this, R.layout.simple_list_item_1, listaTipoFalta!!){
-            override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-                val view = super.getView(position, convertView, parent)
-                return view
-            }
         }
 
-        binding.tipoFaltaID.adapter = arrayAdapterTipoFaltas
 
         binding.buttonFaltasBack.setOnClickListener {
             finish()
