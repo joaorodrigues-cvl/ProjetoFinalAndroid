@@ -16,10 +16,7 @@ class MainRecyclerViewActivity2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-       binding.recyclerView.layoutManager = LinearLayoutManager(this)
-        //Criar uma instanciação do CursoMock e chamada para a base de dados
-        val mock = CursosMock() //isso seria uma substituição da chamada a base de dados
-       binding.recyclerView.adapter = CursosListAdapter(mock.listaCursos)
+
 
         }
     }
