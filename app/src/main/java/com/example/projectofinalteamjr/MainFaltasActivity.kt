@@ -31,7 +31,6 @@ class MainFaltasActivity : AppCompatActivity() {
         val listaFaltas = i.getSerializableExtra("listaFaltas") as List<Faltas>
 
         val listaDataFaltas = ArrayList<String>()
-        val listaTipoFalta = ArrayList<String>()
 
         for (falta in listaFaltas){
             listaDataFaltas.add(falta.data + " - " + falta.tipo)

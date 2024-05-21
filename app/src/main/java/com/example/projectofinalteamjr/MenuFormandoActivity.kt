@@ -28,7 +28,7 @@ class MenuFormandoActivity : AppCompatActivity() {
         .addConverterFactory(GsonConverterFactory.create())
         .build();
 
-    val myApi=api.create(MyApi::class.java);
+    val myApi = api.create(MyApi::class.java);
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,6 +41,48 @@ class MenuFormandoActivity : AppCompatActivity() {
             startActivity(iLogout)
         }
         binding.getCursosFormando.setOnClickListener {
+            myApi.getCursosFormando(4).enqueue(object : Callback<List<Cursos>> {
+                override fun onResponse(
+                    call: Call<List<Cursos>>,
+                    response: Response<List<Cursos>>
+                ) {
+                    if (response.isSuccessful) {
+
+                        var cursos = response.body() // Store the list
+
+                        // Intent:
+
+                        val intent =
+                            Intent(this@MenuFormandoActivity, CursosFormandoActivity::class.java)
+                        intent.putExtra("listaCursos", cursos as Serializable)
+                        startActivity(intent)
+                    } else {
+
+                        // Fazer Toast
+
+                        Toast.makeText(
+                            applicationContext,
+                            "Não foi possivel realizar a operação",
+                            Toast.LENGTH_LONG
+                        ).show()
+
+                        //Log.i(TAG, "Unsuccessful response: ${response.code()}")
+                    }
+                }
+
+                override fun onFailure(call: Call<List<Cursos>>, t: Throwable) {
+
+                    // Fazer Toast
+
+                    Toast.makeText(
+                        applicationContext,
+                        "Falha ao tentar aceder o servidor",
+                        Toast.LENGTH_LONG
+                    ).show()
+
+                    //Log.i(TAG, "onFailure: ${t.message}")
+                }
+            })
 
         }
         binding.getNotasFormando.setOnClickListener {
@@ -59,14 +101,19 @@ class MenuFormandoActivity : AppCompatActivity() {
 
                         // Intent:
 
-                        val intent = Intent(this@MenuFormandoActivity, MainFaltasActivity::class.java)
+                        val intent =
+                            Intent(this@MenuFormandoActivity, MainFaltasActivity::class.java)
                         intent.putExtra("listaFaltas", faltas as Serializable)
                         startActivity(intent)
                     } else {
 
                         // Fazer Toast
 
-                        Toast.makeText(applicationContext, "Não foi possivel realizar a operação", Toast.LENGTH_LONG).show()
+                        Toast.makeText(
+                            applicationContext,
+                            "Não foi possivel realizar a operação",
+                            Toast.LENGTH_LONG
+                        ).show()
 
                         //Log.i(TAG, "Unsuccessful response: ${response.code()}")
                     }
@@ -76,15 +123,15 @@ class MenuFormandoActivity : AppCompatActivity() {
 
                     // Fazer Toast
 
-                    Toast.makeText(applicationContext, "Falha ao tentar aceder o servidor", Toast.LENGTH_LONG).show()
+                    Toast.makeText(
+                        applicationContext,
+                        "Falha ao tentar aceder o servidor",
+                        Toast.LENGTH_LONG
+                    ).show()
 
                     //Log.i(TAG, "onFailure: ${t.message}")
                 }
             })
-
-
-
-
 
 
         }
