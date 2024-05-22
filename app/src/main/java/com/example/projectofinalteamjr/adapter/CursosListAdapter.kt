@@ -11,6 +11,7 @@ import com.example.projectofinalteamjr.api.Curso
 
 // Esta classe é um adaptador para o RecyclerView. Ele conecta os dados (lista de cursos) com a exibição na interface do usuário.
 
+/*
 class CursosListAdapter (val listaCursos: ArrayList<Curso>):
     RecyclerView.Adapter<CursosListAdapter.CursoViewHolder>() {
 
@@ -41,4 +42,4 @@ class CursosListAdapter (val listaCursos: ArrayList<Curso>):
         val curso = listaCursos[position]  // Obtém o curso na posição 'position'
         holder.textViewCurso.setText(curso.Nome) // Define o texto do TextView para o nome do curso.
     }
-}
+}*/

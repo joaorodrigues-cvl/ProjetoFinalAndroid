@@ -40,8 +40,8 @@ class AdicionarModuloAoCursoActivity : AppCompatActivity() {
                 return view
             }
         }
-        binding.LVAddModulosToCurso.choiceMode = ListView.CHOICE_MODE_MULTIPLE
-        binding.LVAddModulosToCurso.adapter = arrayAdapterNomesModulos
+        //binding.LVAddModulosToCurso.choiceMode = ListView.CHOICE_MODE_MULTIPLE
+        //binding.LVAddModulosToCurso.adapter = arrayAdapterNomesModulos
 
 
 

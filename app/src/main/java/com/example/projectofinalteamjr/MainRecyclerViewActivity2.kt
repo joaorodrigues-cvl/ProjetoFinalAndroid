@@ -3,7 +3,6 @@ package com.example.projectofinalteamjr
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.projectofinalteamjr.adapter.CursosListAdapter
 import com.example.projectofinalteamjr.data.CursosMock
 import com.example.projectofinalteamjr.databinding.ActivityMainRecyclerView2Binding
 

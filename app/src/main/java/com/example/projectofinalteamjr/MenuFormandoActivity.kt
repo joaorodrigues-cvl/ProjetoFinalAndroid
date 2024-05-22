@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.projectofinalteamjr.api.Cursos
 import com.example.projectofinalteamjr.api.Faltas
 import com.example.projectofinalteamjr.api.MyApi
+import com.example.projectofinalteamjr.api.User
 import com.example.projectofinalteamjr.databinding.ActivityMenuFormandoBinding
 import retrofit2.Call
 import retrofit2.Callback
@@ -133,6 +134,52 @@ class MenuFormandoActivity : AppCompatActivity() {
                 }
             })
 
+
+        }
+        binding.getInfoFormando.setOnClickListener {
+
+            myApi.getUserInfo(4).enqueue(object : Callback<User> {
+                override fun onResponse(
+                    call: Call<User>,
+                    response: Response<User>
+                ) {
+                    if (response.isSuccessful) {
+
+                        var user = response.body() // Store the list
+
+                        // Intent:
+
+                        val intent =
+                            Intent(this@MenuFormandoActivity, MainPerfilActivity2::class.java)
+                        intent.putExtra("user", user as Serializable)
+                        startActivity(intent)
+                    } else {
+
+                        // Fazer Toast
+
+                        Toast.makeText(
+                            applicationContext,
+                            "Não foi possivel realizar a operação",
+                            Toast.LENGTH_LONG
+                        ).show()
+
+                        //Log.i(TAG, "Unsuccessful response: ${response.code()}")
+                    }
+                }
+
+                override fun onFailure(call: Call<User>, t: Throwable) {
+
+                    // Fazer Toast
+
+                    Toast.makeText(
+                        applicationContext,
+                        "Falha ao tentar aceder o servidor",
+                        Toast.LENGTH_LONG
+                    ).show()
+
+                    //Log.i(TAG, "onFailure: ${t.message}")
+                }
+            })
 
         }
 

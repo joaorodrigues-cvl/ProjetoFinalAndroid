@@ -63,5 +63,11 @@ interface MyApi {
     fun getModulosCurso(
         @Path("cursoID") id: Int
     ): Call<List<Modulos>>
+
+    @GET ("user/{userID}")
+    fun getUserInfo(
+        @Path ("userID") id: Int
+    ): Call<User>
+
 }
 
