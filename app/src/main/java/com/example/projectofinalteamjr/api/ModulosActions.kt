@@ -1,6 +1,7 @@
 package com.example.projectofinalteamjr.api
 
 import android.util.Log
+import com.example.projectofinalteamjr.AdicionarModuloActivity
 import okhttp3.OkHttpClient
 import retrofit2.Call
 import retrofit2.Callback
@@ -16,7 +17,7 @@ private val TAG2: String = "Metodo Post Modulo"
 
 public var modulosList: ArrayList<Modulos>? = ArrayList()
 
-class ModulosActions() {
+class ModulosActions () {
 
     public fun sendRequestModulos(modulo: Modulo) {
         val client = OkHttpClient.Builder().build()   // adicionado para funcioanr..

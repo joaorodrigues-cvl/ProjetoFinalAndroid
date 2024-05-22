@@ -49,7 +49,7 @@ class EditarModuloActivity : AppCompatActivity() {
 
 
             if (nome.isNotEmpty() && descricao.isNotEmpty() && regime.isNotEmpty() && horas > 0) {
-                val modulo = Modulo(nome, descricao, regime, horas)
+                val modulo = Modulo(nome, descricao,  horas, regime)
                 modulosActions.atualizarModulo(idModulo, modulo)
 
 

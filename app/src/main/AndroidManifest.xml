@@ -17,22 +17,13 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".CriarTurmaActivity"
+            android:name=".DetalhesCursoFormandoActivity"
             android:exported="false" />
         <activity
-            android:name=".AdicionarMACursoActivity"
+            android:name=".CursosFormandoActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity2"
-            android:exported="false" />
-        <activity
-            android:name=".AdicionarModuloAoCursoActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ModulosDoCursoActivity"
-            android:exported="false" />
-        <activity
-            android:name=".EditarModuloActivity"
+            android:name=".DetalhesFaltaActivity"
             android:exported="false" />
         <activity
             android:name=".DetalheTurmaActivity"
@@ -41,13 +32,19 @@
             android:name=".DetalhesModuloActivity"
             android:exported="false" />
         <activity
+            android:name=".ModulosDoCursoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditarModuloActivity"
+            android:exported="false" />
+        <activity
             android:name=".TurmasActivity"
             android:exported="false" />
         <activity
             android:name=".EditarCursoActivity"
             android:exported="false" />
         <activity
-            android:name=".AdicionarCursoActivity"
+            android:name=".MainFaltasActivity"
             android:exported="false" />
         <activity
             android:name=".AdicionarModuloActivity"
@@ -60,7 +57,10 @@
             android:exported="false" />
         <activity
             android:name=".DetalhesCursoActivity"
-            android:exported="true" />
+            android:exported="false" />
+        <activity
+            android:name=".MainPerfilActivity2"
+            android:exported="false" />
         <activity
             android:name=".SplashScreenActivity"
             android:exported="true">
