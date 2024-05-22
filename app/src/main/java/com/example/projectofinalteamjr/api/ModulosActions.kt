@@ -1,7 +1,6 @@
 package com.example.projectofinalteamjr.api
 
 import android.util.Log
-import com.example.projectofinalteamjr.AdicionarModuloActivity
 import okhttp3.OkHttpClient
 import retrofit2.Call
 import retrofit2.Callback

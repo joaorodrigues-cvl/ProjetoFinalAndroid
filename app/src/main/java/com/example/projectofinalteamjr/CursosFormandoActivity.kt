@@ -7,15 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.projectofinalteamjr.api.Cursos
 import com.example.projectofinalteamjr.api.Modulos
 import com.example.projectofinalteamjr.api.MyApi
+import com.example.projectofinalteamjr.cursos.DetalhesCursoFormandoActivity
 import com.example.projectofinalteamjr.databinding.ActivityCursosFormandoBinding
-import com.example.projectofinalteamjr.databinding.ActivityDetalhesCursoBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

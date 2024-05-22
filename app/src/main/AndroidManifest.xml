@@ -17,37 +17,49 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".DetalhesCursoFormandoActivity"
+            android:name=".faltasAdministrador.FaltasAdminTurmaFormandoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".faltasAdministrador.FaltasAdminTurmasActivity"
+            android:exported="false" />
+        <activity
+            android:name=".faltasAdministrador.FaltasAdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".turmas.CriarTurmaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".cursos.DetalhesCursoFormandoActivity"
             android:exported="false" />
         <activity
             android:name=".CursosFormandoActivity"
             android:exported="false" />
         <activity
-            android:name=".DetalhesFaltaActivity"
+            android:name=".faltasFormando.DetalhesFaltaActivity"
             android:exported="false" />
         <activity
-            android:name=".DetalheTurmaActivity"
+            android:name=".turmas.DetalheTurmaActivity"
             android:exported="false" />
         <activity
-            android:name=".DetalhesModuloActivity"
+            android:name=".modulos.DetalhesModuloActivity"
             android:exported="false" />
         <activity
-            android:name=".ModulosDoCursoActivity"
+            android:name=".cursos.ModulosDoCursoActivity"
             android:exported="false" />
         <activity
-            android:name=".EditarModuloActivity"
+            android:name=".modulos.EditarModuloActivity"
             android:exported="false" />
         <activity
-            android:name=".TurmasActivity"
+            android:name=".turmas.TurmasActivity"
             android:exported="false" />
         <activity
-            android:name=".EditarCursoActivity"
+            android:name=".cursos.EditarCursoActivity"
             android:exported="false" />
         <activity
-            android:name=".MainFaltasActivity"
+            android:name=".faltasFormando.MainFaltasActivity"
             android:exported="false" />
         <activity
-            android:name=".AdicionarModuloActivity"
+            android:name=".modulos.AdicionarModuloActivity"
             android:exported="false" />
         <activity
             android:name=".MenuFormandoActivity"
@@ -56,7 +68,7 @@
             android:name=".MenuAdminActivity"
             android:exported="false" />
         <activity
-            android:name=".DetalhesCursoActivity"
+            android:name=".cursos.DetalhesCursoActivity"
             android:exported="false" />
         <activity
             android:name=".MainPerfilActivity2"
@@ -71,10 +83,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CursosActivity"
+            android:name=".cursos.CursosActivity"
             android:exported="false" />
         <activity
-            android:name=".ModulosActivity"
+            android:name=".modulos.ModulosActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

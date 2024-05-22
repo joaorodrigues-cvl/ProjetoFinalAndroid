@@ -69,5 +69,10 @@ interface MyApi {
         @Path ("userID") id: Int
     ): Call<User>
 
+    @GET ("user/{userID}")
+    fun getUserInfoNome(
+        @Path ("userID") id: Int
+    ): Call<List<User>>
+
 }
 
