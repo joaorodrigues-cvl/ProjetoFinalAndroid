@@ -24,25 +24,7 @@ class AdicionarModuloAoCursoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        val i = intent
-
-
-        var listaNomesModulos = i.getStringArrayListExtra("listaNomesModulos")
-        var listaDescricaoModulos = i.getStringArrayListExtra("listaDescricaoModulos")
-        var listaRegimeModulos = i.getStringArrayListExtra("listaRegimeModulos")
-        var listaHorasModulos = i.getIntegerArrayListExtra("listaHorasModulos")!!
-
-        val arrayAdapterNomesModulos = object : ArrayAdapter<String>(this, R.layout.simple_list_item_1, listaNomesModulos!!) {
-            override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-                val view = super.getView(position, convertView, parent)
-                val textView = view.findViewById<TextView>(android.R.id.text1)
-                textView.setTextColor(Color.WHITE) // cor do texto branco
-                return view
-            }
-        }
-        binding.LVAddModulosToCurso.choiceMode = ListView.CHOICE_MODE_MULTIPLE
-        binding.LVAddModulosToCurso.adapter = arrayAdapterNomesModulos
-
+        
 
 
         binding.buttonBack.setOnClickListener {
