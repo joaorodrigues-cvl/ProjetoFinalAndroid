@@ -1,6 +1,7 @@
 package com.example.projectofinalteamjr
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.icu.util.Calendar
 import android.os.Bundle
 import android.widget.Button
@@ -56,6 +57,10 @@ class CriarTurmaActivity : AppCompatActivity() {
         btnDateFim.setOnClickListener{
             DatePickerDialog(this, datePickerFim, calendarioFim.get(Calendar.YEAR),
                 calendarioFim.get(Calendar.MONTH), calendarioFim.get(Calendar.DAY_OF_MONTH)).show()
+        }
+        binding.buttonBack.setOnClickListener {
+            val iBack: Intent = Intent(this@CriarTurmaActivity,TurmasActivity::class.java)
+            startActivity(iBack)
         }
 
     }
