@@ -33,6 +33,20 @@ class DetalhesModuloActivity : AppCompatActivity() {
             val iBack: Intent = Intent(this@DetalhesModuloActivity,ModulosActivity::class.java)
             startActivity(iBack)
         }
+        binding.btnEditModulo.setOnClickListener {
+            val nomeModulo = intent.getStringExtra("nomeModulo")
+            val descricaoModulo = intent.getStringExtra("descricaoModulo")
+            val regimeModulo = intent.getStringExtra("regimeModulo")
+            val horasModulo = intent.getIntExtra("horasModulo", 0)
+            val idModulo = intent.getIntExtra("idModulo", -1)
 
+            val intentEditarModulo = Intent(this, EditarModuloActivity::class.java)
+            intentEditarModulo.putExtra("nomeModulo", nomeModulo)
+            intentEditarModulo.putExtra("descricaoModulo", descricaoModulo)
+            intentEditarModulo.putExtra("regimeModulo", regimeModulo)
+            intentEditarModulo.putExtra("horasModulo", horasModulo)
+            intentEditarModulo.putExtra("idModulo", idModulo)
+            startActivity(intentEditarModulo)
+        }
     }
 }

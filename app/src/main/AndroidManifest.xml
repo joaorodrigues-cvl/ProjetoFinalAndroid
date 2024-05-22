@@ -32,22 +32,22 @@
             android:name=".DetalhesModuloActivity"
             android:exported="false" />
         <activity
+            android:name=".ModulosDoCursoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditarModuloActivity"
+            android:exported="false" />
+        <activity
             android:name=".TurmasActivity"
             android:exported="false" />
         <activity
             android:name=".EditarCursoActivity"
             android:exported="false" />
         <activity
-            android:name=".AdicionarCursoActivity"
-            android:exported="false" />
-        <activity
-            android:name=".AdicionarModuloActivity"
-            android:exported="false" />
-        <activity
             android:name=".MainFaltasActivity"
             android:exported="false" />
         <activity
-            android:name=".MainRecyclerViewActivity2"
+            android:name=".AdicionarModuloActivity"
             android:exported="false" />
         <activity
             android:name=".MenuFormandoActivity"

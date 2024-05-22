@@ -26,6 +26,11 @@ interface MyApi {
         @Body curso: Curso
     ): Call<Curso>
 
+    @Headers("Content-Type: application/json")
+    @PUT("modulos/edit/{id}")
+    fun atualizarModulo(@Path("id") id: Int, @Body modulo: Modulo): Call<Modulo>
+
+
 
     @GET("modulos")
     fun getModulos(): Call<List<Modulos>>

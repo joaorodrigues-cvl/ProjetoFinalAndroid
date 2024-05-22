@@ -2,12 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/view_cursos"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#201544"
     android:orientation="vertical"
-    tools:context=".DetalhesCursoActivity">
+    tools:context=".EditarModuloActivity">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -49,7 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:gravity="center"
-            android:text="Detalhes do Curso"
+            android:text="Editar Módulo"
             android:textColor="@color/black" />
     </LinearLayout>
 
@@ -58,9 +58,11 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
+        android:paddingTop="20dp"
+        android:paddingRight="50dp"
         android:paddingLeft="50dp"
-        android:paddingTop="50dp"
-        android:paddingRight="50dp">
+
+        >
 
         <TextView
             android:layout_width="match_parent"
@@ -68,96 +70,90 @@
             android:text="Nome"
             android:textColor="@color/white" />
 
-        <TextView
-            android:id="@+id/edit_nome_curso"
+        <EditText
+            android:padding="5dp"
+            android:layout_marginBottom="5dp"
+            android:id="@+id/edit_nome_modulo"
             android:layout_width="match_parent"
             android:layout_height="35sp"
             android:background="@drawable/corners"
-            android:padding="5dp"
-
             />
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-
             android:text="Descrição"
             android:textColor="@color/white" />
 
-        <TextView
-            android:id="@+id/edit_descricao_curso"
-            android:layout_width="match_parent"
-            android:layout_height="100sp"
-            android:layout_marginBottom="15dp"
-            android:background="@drawable/corners"
-            android:gravity="top"
+        <EditText
             android:padding="5dp"
-
+            android:layout_marginBottom="5dp"
+            android:id="@+id/edit_descricao_modulo"
+            android:layout_width="match_parent"
+            android:gravity="top"
+            android:layout_height="150sp"
+            android:background="@drawable/corners"
             />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingRight="50dp"
+        android:paddingLeft="50dp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Total horas"
+            android:text="Regime"
             android:textColor="@color/white" />
 
-        <TextView
-            android:id="@+id/edit_horas_curso"
+        <EditText
+            android:padding="5dp"
+            android:layout_marginBottom="5dp"
+            android:id="@+id/edit_regime_modulo"
             android:layout_width="match_parent"
             android:layout_height="35sp"
-            android:layout_marginBottom="5dp"
             android:background="@drawable/corners"
-            android:padding="5dp"
-
             />
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:paddingLeft="50dp"
-        android:paddingRight="50dp">
-
-        <Button
-            android:id="@+id/btn_modulosCurso"
-            android:layout_margin="12dp"
-            android:background="@drawable/corners"
-            android:layout_width="150dp"
-            android:layout_height="30dp"
-            android:text="Módulos do Curso"
-            android:textAllCaps="false"
-            android:gravity="center"
-            />
-
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/btn_edit_curso"
-            android:layout_width="wrap_content"
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:clickable="true"
-            app:backgroundTint="@color/rosa"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/img" />
+            android:text="Horas"
+            android:textColor="@color/white" />
 
+        <EditText
+            android:padding="5dp"
+            android:layout_marginBottom="5dp"
+            android:id="@+id/edit_horas_modulo"
+            android:layout_width="match_parent"
+            android:layout_height="35sp"
+            android:background="@drawable/corners"
+            />
     </LinearLayout>
 
     <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical"
         android:paddingLeft="50dp"
-        android:paddingRight="50dp">
+        android:paddingRight="50dp"
+        android:gravity="center"
+        >
 
         <Button
-            android:id="@+id/buttonBack"
+            android:layout_margin="20dp"
+            android:id="@+id/btn_gravar_edit_modulo2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#20A000"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:text="Gravar"
+            android:textSize="20dp"
+            app:cornerRadius="4dp"
+            />
+        <Button
+            android:id="@+id/buttonBack2"
             android:layout_width="150dp"
             android:layout_height="45dp"
             android:layout_marginBottom="20dp"
@@ -167,6 +163,5 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent" />
-
     </LinearLayout>
 </LinearLayout>
