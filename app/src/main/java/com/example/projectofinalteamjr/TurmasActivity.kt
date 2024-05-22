@@ -100,7 +100,10 @@ class TurmasActivity : AppCompatActivity() {
             })
         }
 
-
+        binding.BTNaddTurmaID.setOnClickListener{
+            val iBack: Intent = Intent(this@TurmasActivity,CriarTurmaActivity::class.java)
+            startActivity(iBack)
+        }
 
 
 

@@ -24,7 +24,7 @@ class AdicionarModuloAoCursoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        
+
 
 
         binding.buttonBack.setOnClickListener {
