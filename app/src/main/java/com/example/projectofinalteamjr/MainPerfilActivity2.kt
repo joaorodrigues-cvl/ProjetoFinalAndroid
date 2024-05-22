@@ -5,16 +5,18 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.projectofinalteamjr.databinding.ActivityAdicionarCursoBinding
+import com.example.projectofinalteamjr.databinding.ActivityMainPerfil2Binding
 
 class MainPerfilActivity2 : AppCompatActivity() {
+
+    private val binding by lazy{
+        ActivityMainPerfil2Binding.inflate(layoutInflater)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_main_perfil2)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+        setContentView(binding.root)
+
     }
 }

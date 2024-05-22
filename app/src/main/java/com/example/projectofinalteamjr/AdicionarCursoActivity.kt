@@ -7,17 +7,19 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.projectofinalteamjr.api.Curso
 import com.example.projectofinalteamjr.api.CursosActions
 import com.example.projectofinalteamjr.databinding.ActivityAdicionarCursoBinding
+import com.example.projectofinalteamjr.databinding.ActivityCursosBinding
 
 class AdicionarCursoActivity : AppCompatActivity() {
 
+    private val binding by lazy{
+        ActivityAdicionarCursoBinding.inflate(layoutInflater)
+    }
 
-    private lateinit var binding: ActivityAdicionarCursoBinding
     private val cursosActions = CursosActions()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityAdicionarCursoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.btnGravarCurso.setOnClickListener {

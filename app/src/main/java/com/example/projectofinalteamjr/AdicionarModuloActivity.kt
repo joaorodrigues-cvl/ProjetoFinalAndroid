@@ -7,17 +7,19 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.projectofinalteamjr.api.Modulo
 import com.example.projectofinalteamjr.api.ModulosActions
 import com.example.projectofinalteamjr.databinding.ActivityAdicionarModuloBinding
+import com.example.projectofinalteamjr.databinding.ActivityCursosBinding
 
 class AdicionarModuloActivity : AppCompatActivity() {
 
+    private val binding by lazy{
+        ActivityAdicionarModuloBinding.inflate(layoutInflater)
+    }
 
-    private lateinit var binding: ActivityAdicionarModuloBinding
-    private val modulosActions = ModulosActions(this)
+    val modulosActions = ModulosActions()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityAdicionarModuloBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.btnGravarModulo.setOnClickListener {
