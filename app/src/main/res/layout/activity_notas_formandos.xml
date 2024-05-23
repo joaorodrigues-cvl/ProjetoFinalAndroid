@@ -7,6 +7,16 @@
     android:background="@color/roxo"
     android:backgroundTint="@color/roxo">
 
+    <ListView
+        android:id="@+id/Nota_Formando_id"
+        android:layout_width="0dp"
+        android:layout_height="350dp"
+        android:layout_marginEnd="64dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/modulos_Notas_id"
+        app:layout_constraintTop_toBottomOf="@+id/nota_formando" />
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="200dp"
@@ -18,31 +28,17 @@
         app:srcCompat="@drawable/logo" />
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView2"
-        android:layout_width="0dp"
-        android:layout_height="350dp"
-        android:layout_marginEnd="32dp"
-        android:background="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/recyclerView"
-        app:layout_constraintTop_toBottomOf="@+id/nota_formando" />
-
     <TextView
         android:id="@+id/data_moduloN"
         android:layout_width="0dp"
         android:layout_height="47dp"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="64dp"
         android:layout_marginTop="16dp"
         android:background="@color/white"
         android:gravity="center"
         android:text="Módulo"
-        android:fontFamily="@font/montserrat"
-        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/nota_formando"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintHorizontal_bias="5"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
@@ -50,24 +46,21 @@
         android:layout_width="0dp"
         android:layout_height="47dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="64dp"
         android:background="@color/white"
         android:gravity="center"
         android:text="Nota"
-        android:fontFamily="@font/montserrat"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/data_moduloN"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    <ListView
+        android:id="@+id/modulos_Notas_id"
         android:layout_width="0dp"
         android:layout_height="350dp"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="64dp"
         android:background="@color/white"
-        app:layout_constraintEnd_toStartOf="@+id/recyclerView2"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintEnd_toStartOf="@+id/Nota_Formando_id"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/data_moduloN" />
 
@@ -77,7 +70,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:fontFamily="@font/montserrat"
-        android:text="Módulos"
+        android:text="Notas"
         android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -85,7 +78,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button
-        android:id="@+id/buttonBack"
+        android:id="@+id/buttonBackNotasFormando"
         android:layout_width="150dp"
         android:layout_height="35dp"
         android:layout_marginBottom="50dp"
@@ -94,6 +87,5 @@
         android:text="Voltar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
