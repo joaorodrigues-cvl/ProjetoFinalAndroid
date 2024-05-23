@@ -82,8 +82,6 @@ class EditarModuloActivity : AppCompatActivity() {
                                     listaRegimeModulos.add(modulo.Regime_modulo)
                                     listaHorasModulos.add(modulo.Horas)
 
-
-
                             }
                             // Intent:
 
