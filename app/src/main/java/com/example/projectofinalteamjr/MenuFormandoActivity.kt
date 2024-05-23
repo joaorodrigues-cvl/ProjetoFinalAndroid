@@ -10,6 +10,7 @@ import com.example.projectofinalteamjr.api.ModulosNotas
 import com.example.projectofinalteamjr.api.MyApi
 import com.example.projectofinalteamjr.api.User
 import com.example.projectofinalteamjr.databinding.ActivityMenuFormandoBinding
+import com.example.projectofinalteamjr.faltasFormando.MainFaltasActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

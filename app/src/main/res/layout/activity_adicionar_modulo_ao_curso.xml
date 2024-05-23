@@ -8,7 +8,7 @@
     android:background="@color/roxo"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context=".AdicionarModuloAoCursoActivity">
+    tools:context=".modulos.AdicionarModuloAoCursoActivity">
 
     <ImageView
         android:id="@+id/imageView2"

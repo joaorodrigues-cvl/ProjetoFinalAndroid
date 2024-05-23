@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#201544"
     android:orientation="vertical"
-    tools:context=".DetalhesModuloActivity">
+    tools:context=".modulos.DetalhesModuloActivity">
 
     <LinearLayout
         android:layout_width="wrap_content"

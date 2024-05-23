@@ -9,7 +9,11 @@ import com.example.projectofinalteamjr.api.Modulos
 
 import com.example.projectofinalteamjr.api.MyApi
 import com.example.projectofinalteamjr.api.Turmas
+import com.example.projectofinalteamjr.cursos.CursosActivity
 import com.example.projectofinalteamjr.databinding.ActivityMenuAdminBinding
+import com.example.projectofinalteamjr.faltasAdministrador.FaltasAdminActivity
+import com.example.projectofinalteamjr.modulos.ModulosActivity
+import com.example.projectofinalteamjr.turmas.TurmasActivity
 
 import retrofit2.Call
 import retrofit2.Callback
@@ -118,7 +122,7 @@ class MenuAdminActivity : AppCompatActivity() {
 
                         // Intent:
 
-                        val i: Intent = Intent(this@MenuAdminActivity, TurmasActivity::class.java)
+                        val i: Intent = Intent(this@MenuAdminActivity, FaltasAdminActivity::class.java)
                         i.putExtra("listaTurmas", turmas as Serializable)
                         startActivity(i)
                     } else {
@@ -217,6 +221,8 @@ class MenuAdminActivity : AppCompatActivity() {
 
 
         }
+
+
 
 
 
