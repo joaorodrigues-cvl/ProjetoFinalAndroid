@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#201544"
     android:orientation="vertical"
-    tools:context=".turmas.CriarTurmaActivity">
+    tools:context=".faltasAdministrador.FaltasAdminActivity">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -61,47 +61,19 @@
         android:paddingTop="20dp"
         android:paddingRight="50dp"
         android:paddingLeft="50dp"
-        android:paddingBottom="130dp"
-
+        android:paddingBottom="20dp"
         >
 
        <ListView
            android:id="@+id/LV_turmas"
            android:layout_width="match_parent"
-           android:layout_height="wrap_content"
+           android:layout_height="310dp"
            android:background="@drawable/corners"
            android:divider="@color/white"
            />
 
     </LinearLayout>
 
-
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="50dp"
-        android:paddingRight="50dp"
-        >
-
-        <Button
-            android:layout_marginRight="80dp"
-            android:layout_marginLeft="80dp"
-            android:id="@+id/btn_gravar_modulo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#20A000"
-            android:textColor="#FFFFFF"
-            android:text="Gravar"
-            android:textSize="20dp"
-            android:textAllCaps="false"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/corners_blue"
-
-
-            />
-    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

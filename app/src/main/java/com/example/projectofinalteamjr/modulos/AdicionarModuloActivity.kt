@@ -37,7 +37,10 @@ class AdicionarModuloActivity : AppCompatActivity() {
                 Toast.makeText(this, "Por favor, preencha todos os campos", Toast.LENGTH_SHORT).show()
             }
         }
-
+        binding.buttonBack.setOnClickListener {
+            val iBack: Intent = Intent(this@AdicionarModuloActivity, MenuAdminActivity::class.java)
+            startActivity(iBack)
+        }
 
     }
 }

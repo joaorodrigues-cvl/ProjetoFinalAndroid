@@ -73,6 +73,5 @@ interface MyApi {
     fun getUserInfoNome(
         @Path ("userID") id: Int
     ): Call<List<User>>
-
 }
 

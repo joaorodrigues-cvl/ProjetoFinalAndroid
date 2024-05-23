@@ -11,8 +11,6 @@ import com.example.projectofinalteamjr.api.DetalhesTurma
 import com.example.projectofinalteamjr.api.MyApi
 import com.example.projectofinalteamjr.api.Turmas
 import com.example.projectofinalteamjr.databinding.ActivityFaltasAdminBinding
-import com.example.projectofinalteamjr.databinding.ActivityTurmasBinding
-import com.example.projectofinalteamjr.turmas.DetalheTurmaActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -25,18 +23,19 @@ class FaltasAdminActivity : AppCompatActivity() {
     private val binding by lazy{
         ActivityFaltasAdminBinding.inflate(layoutInflater)
     }
+    val BASE_URL = "http://10.0.2.2:8000/api/"
+
+    val api = Retrofit.Builder()
+        .baseUrl(BASE_URL)
+        .addConverterFactory(GsonConverterFactory.create())
+        .build();
+
+    val myApi=api.create(MyApi::class.java);
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        val BASE_URL = "http://10.0.2.2:8000/api/"
 
-        val api = Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build();
-
-        val myApi=api.create(MyApi::class.java);
 
         val i = intent
 
@@ -49,11 +48,13 @@ class FaltasAdminActivity : AppCompatActivity() {
         }
 
 
+
+
         val arrayAdapterTurmas = ArrayAdapter(this, R.layout.simple_list_item_1, listaNomesTurmas)
 
         binding.LVTurmas.adapter=arrayAdapterTurmas
 
-        /*binding.LVTurmas.setOnItemClickListener { parent, view, position, id ->
+        binding.LVTurmas.setOnItemClickListener { parent, view, position, id ->
             myApi.detalhesTurma(position + 1).enqueue(object : Callback<DetalhesTurma> {
                 override fun onResponse(
                     call: Call<DetalhesTurma>,
@@ -65,7 +66,7 @@ class FaltasAdminActivity : AppCompatActivity() {
 
                         // Intent:
 
-                        val i: Intent = Intent(this@FaltasAdminActivity, FaltasAdminActivity::class.java)
+                        val i: Intent = Intent(this@FaltasAdminActivity, FaltasAdminFormandoListActivity::class.java)
                         i.putExtra("listaTurmas", turma as Serializable)
                         startActivity(i)
                     } else {
@@ -96,7 +97,7 @@ class FaltasAdminActivity : AppCompatActivity() {
                 }
 
             })
-        }*/
+        }
 
 
 
