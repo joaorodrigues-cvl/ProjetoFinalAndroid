@@ -69,5 +69,10 @@ interface MyApi {
         @Path ("userID") id: Int
     ): Call<User>
 
+    @GET ("notas/{userID}")
+    fun getNotas(
+        @Path ("userID") id: Int
+    ): Call<ModulosNotas>
+
 }
 
