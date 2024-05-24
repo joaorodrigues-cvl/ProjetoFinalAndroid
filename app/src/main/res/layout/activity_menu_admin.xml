@@ -141,14 +141,15 @@
         android:gravity="center">
 
         <Button
+            android:id="@+id/faltasAdminID"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:background="@drawable/quadrado_rosa"
+            android:fontFamily="@font/montserrat"
             android:gravity="center"
             android:text="Faltas"
-            android:fontFamily="@font/montserrat"
-            android:textSize="15sp"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"
+            android:textSize="15sp" />
 
         <Button
             android:id="@+id/buttonTurmasID"

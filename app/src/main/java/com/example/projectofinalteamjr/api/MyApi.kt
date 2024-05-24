@@ -20,7 +20,7 @@ interface MyApi {
     ): Call<Curso>
 
     @Headers("Content-Type: application/json")
-    @PUT("cursos/{id}")
+    @PUT("curso_update/{id}")
     fun atualizarCurso(
         @Path("id") id: Int,
         @Body curso: Curso

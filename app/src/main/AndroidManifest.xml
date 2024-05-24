@@ -20,7 +20,9 @@
             android:name=".NotasFormandosActivity"
             android:exported="false" />
         <activity
-            android:name=".CriarTurmaActivity"
+        android:name=".turmas.CriarTurmaActivity"
+            android:exported="false" />
+        <activity
             android:name=".faltasAdministrador.FaltasAdminFormandoFaltasActivity"
             android:exported="false" />
         <activity
@@ -33,11 +35,7 @@
             android:name=".cursos.AdicionarCursoActivity"
             android:exported="false" />
         <activity
-            android:name=".DetalhesCursoFormandoActivity"
             android:name=".faltasAdministrador.FaltasAdminActivity"
-            android:exported="false" />
-        <activity
-            android:name=".turmas.CriarTurmaActivity"
             android:exported="false" />
         <activity
             android:name=".cursos.DetalhesCursoFormandoActivity"

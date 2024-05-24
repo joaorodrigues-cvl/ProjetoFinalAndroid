@@ -107,8 +107,7 @@ class MenuAdminActivity : AppCompatActivity() {
             })
         }
 
-
-        binding.buttonTurmasID.setOnClickListener {
+        binding.faltasAdminID.setOnClickListener {
 
 
             myApi.getTurmas().enqueue(object : Callback<List<Turmas>> {
@@ -222,15 +221,10 @@ class MenuAdminActivity : AppCompatActivity() {
 
         }
 
-
-
-
-
         binding.buttonLogout.setOnClickListener {
             val iLogout: Intent = Intent(this@MenuAdminActivity, MainActivity::class.java)
             startActivity(iLogout)
+
         }
-
-
     }
 }
