@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" >
+    xmlns:tools="http://schemas.android.com/tools">
     <!-- Permissões de Internet. Não mexer. -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -15,12 +15,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjectoFinalTeamJR"
         android:usesCleartextTraffic="true"
-        tools:targetApi="31" >
+        tools:targetApi="31">
+        <activity
+            android:name=".faltasAdministrador.FaltasAdminVisualizarModulosFaltasActivity"
+            android:exported="false" />
+        <activity
+            android:name=".faltasAdministrador.FaltasAdminVisualizarFormandoListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".faltasAdministrador.MenuFaltasAdminActivity"
+            android:exported="false" />
         <activity
             android:name=".NotasFormandosActivity"
             android:exported="false" />
         <activity
-        android:name=".turmas.CriarTurmaActivity"
+            android:name=".turmas.CriarTurmaActivity"
             android:exported="false" />
         <activity
             android:name=".faltasAdministrador.FaltasAdminFormandoFaltasActivity"
@@ -84,7 +93,7 @@
             android:exported="false" />
         <activity
             android:name=".SplashScreenActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

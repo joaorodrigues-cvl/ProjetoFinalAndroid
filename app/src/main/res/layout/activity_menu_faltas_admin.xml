@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#201544"
     android:orientation="vertical"
-    tools:context=".faltasAdministrador.FaltasAdminFormandoListActivity">
+    tools:context=".faltasAdministrador.MenuFaltasAdminActivity">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -49,7 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:gravity="center"
-            android:text="Lançar Faltas - Selecionar Formando"
+            android:text="Faltas"
             android:textColor="@color/black" />
     </LinearLayout>
 
@@ -58,29 +58,53 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
-        android:paddingTop="20dp"
-        android:paddingRight="50dp"
         android:paddingLeft="50dp"
-        android:paddingBottom="20dp"
-        >
+        android:paddingTop="50dp"
+        android:paddingRight="50dp"
+        android:paddingBottom="20dp">
 
         <TextView
             android:id="@+id/text_nomeTurma"
-            android:layout_marginBottom="20dp"
             android:layout_width="match_parent"
             android:layout_height="25dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/corners"
             android:gravity="center"
-            android:hint="Nome turma"
-            android:background="@drawable/corners"
-            />
+            android:hint="Nome turma" />
 
-        <ListView
-            android:id="@+id/LV_formandosTurma"
-            android:layout_width="match_parent"
-            android:layout_height="310dp"
-            android:background="@drawable/corners"
-            android:divider="@color/white"
-            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="50dp">
+
+        <Button
+            android:id="@+id/btn_viewFaltas"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/quadrado_azul"
+            android:fontFamily="@font/montserrat"
+            android:gravity="center"
+            android:text="Visualizar&#10;Faltas"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/btn_lancarFaltas"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@drawable/quadrado_rosa"
+            android:fontFamily="@font/montserrat"
+            android:gravity="center"
+            android:text="Lançar&#10;Faltas"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
 
     </LinearLayout>
 
@@ -93,12 +117,12 @@
         android:paddingRight="50dp">
 
         <Button
-            android:layout_margin="30dp"
             android:id="@+id/buttonBack"
             android:layout_width="150dp"
             android:layout_height="45dp"
+            android:layout_margin="30dp"
             android:layout_marginBottom="20dp"
-            android:background="@drawable/quadrado_azul"
+            android:background="@drawable/corners"
             android:text="Voltar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -106,8 +130,6 @@
             app:layout_constraintStart_toStartOf="parent" />
 
     </LinearLayout>
-
-
 
 
 </LinearLayout>
