@@ -10,7 +10,7 @@
 .gradle/configuration-cache/2fjeno0skrdbri0x2g36vl2wn/buildfingerprint.bin
 .gradle/configuration-cache/2fjeno0skrdbri0x2g36vl2wn/work.bin
 .gradle/kotlin/sessions/kotlin-compiler-8595803980924965191.salive
-local.properties
+/local.properties
 .gradle/8.4/dependencies-accessors/dependencies-accessors.lock
 .gradle/8.4/executionHistory/executionHistory.bin
 .gradle/8.4/executionHistory/executionHistory.lock
@@ -100,3 +100,8 @@ local.properties
 /.idea/modules/app/ProjectoFinalTeamJR.app.iml
 /.idea/modules/app/ProjectoFinalTeamJR.app.unitTest.iml
 /.idea/modules/ProjectoFinalTeamJR.iml
+/.gradle/configuration-cache/bd491o5f6i7277uvqsqg0qqjm/buildfingerprint.bin
+/.gradle/configuration-cache/bd491o5f6i7277uvqsqg0qqjm/entry.bin
+/.gradle/kotlin/sessions/kotlin-compiler-4887544779408846888.salive
+/.gradle/configuration-cache/bd491o5f6i7277uvqsqg0qqjm/projectfingerprint.bin
+/.gradle/configuration-cache/bd491o5f6i7277uvqsqg0qqjm/work.bin
