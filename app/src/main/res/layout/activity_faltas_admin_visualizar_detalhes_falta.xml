@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#201544"
     android:orientation="vertical"
-    tools:context=".faltasAdministrador.FaltasAdminFormandoListActivity">
+    tools:context=".faltasAdministrador.FaltasAdminVisualizarDetalhesFaltaActivity">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -49,7 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:gravity="center"
-            android:text="Lançar Faltas - Selecionar Formando"
+            android:text="Detalhes da Falta"
             android:textColor="@color/black" />
     </LinearLayout>
 
@@ -58,41 +58,80 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
+        android:paddingLeft="50dp"
         android:paddingTop="20dp"
         android:paddingRight="50dp"
-        android:paddingLeft="50dp"
-        android:paddingBottom="20dp"
-        >
+        android:paddingBottom="30dp">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Turma"
+            android:text="Data"
             android:textColor="@color/white" />
 
         <TextView
-            android:id="@+id/text_nomeTurma"
-            android:layout_marginBottom="20dp"
+            android:id="@+id/edit_data_falta"
             android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:gravity="center"
-            android:hint="Nome turma"
+            android:layout_height="35dp"
             android:background="@drawable/corners"
+            android:padding="5dp"
+
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Módulo"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/edit_modulo_falta"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/corners"
+            android:gravity="top"
+            android:padding="5dp"
+
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Horas"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/edit_horas_falta"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/corners"
+            android:gravity="top"
+            android:padding="5dp"
+
             />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Formando"
+            android:text="Horas"
             android:textColor="@color/white" />
 
-        <ListView
-            android:id="@+id/LV_formandosTurma"
+        <TextView
+            android:id="@+id/edit_tipo_falta"
             android:layout_width="match_parent"
-            android:layout_height="310dp"
+            android:layout_height="35dp"
+            android:layout_marginBottom="15dp"
             android:background="@drawable/corners"
-            android:divider="@color/white"
-            />
+            android:gravity="top"
+            android:padding="5dp"
 
+            />
     </LinearLayout>
+
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -103,7 +142,6 @@
         android:paddingRight="50dp">
 
         <Button
-            android:layout_margin="30dp"
             android:id="@+id/buttonBack"
             android:layout_width="150dp"
             android:layout_height="45dp"
@@ -116,8 +154,4 @@
             app:layout_constraintStart_toStartOf="parent" />
 
     </LinearLayout>
-
-
-
-
 </LinearLayout>

@@ -7,19 +7,19 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.projectofinalteamjr.R
-import com.example.projectofinalteamjr.databinding.ActivityFaltasAdminVisualizarModulosFaltasBinding
+import com.example.projectofinalteamjr.databinding.ActivityFaltasAdminVisualizarDetalhesFaltaBinding
 
-class FaltasAdminVisualizarModulosFaltasActivity : AppCompatActivity() {
+class FaltasAdminVisualizarDetalhesFaltaActivity : AppCompatActivity() {
 
     private val binding by lazy {
-        ActivityFaltasAdminVisualizarModulosFaltasBinding.inflate(layoutInflater)
+        ActivityFaltasAdminVisualizarDetalhesFaltaBinding.inflate(layoutInflater)
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
         binding.buttonBack.setOnClickListener {
-            val iBack: Intent = Intent(this@FaltasAdminVisualizarModulosFaltasActivity, FaltasAdminFormandoFaltasActivity::class.java)
+            val iBack: Intent = Intent(this@FaltasAdminVisualizarDetalhesFaltaActivity, FaltasAdminVisualizarFaltasActivity::class.java)
             startActivity(iBack)
         }
 

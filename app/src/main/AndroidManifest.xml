@@ -17,7 +17,10 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".faltasAdministrador.FaltasAdminVisualizarModulosFaltasActivity"
+            android:name=".faltasAdministrador.FaltasAdminVisualizarDetalhesFaltaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".faltasAdministrador.FaltasAdminVisualizarFaltasActivity"
             android:exported="false" />
         <activity
             android:name=".faltasAdministrador.FaltasAdminVisualizarFormandoListActivity"
