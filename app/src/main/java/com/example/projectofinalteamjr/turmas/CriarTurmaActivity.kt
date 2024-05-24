@@ -11,7 +11,9 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.projectofinalteamjr.MenuAdminActivity
 import com.example.projectofinalteamjr.R
 import com.example.projectofinalteamjr.api.Curso
 import com.example.projectofinalteamjr.api.Cursos
@@ -50,15 +52,12 @@ class CriarTurmaActivity : AppCompatActivity() {
             listaNomesCursos.add(curso.Nome)
         }
 
-
         val arrayAdapterNomesCursos = object : ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listaNomesCursos!!) {
             override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
                 val view = super.getView(position, convertView, parent)
                 return view
             }
         }
-
-
 
         var calendarioInicio = Calendar.getInstance()
         val datePickerInicio = DatePickerDialog.OnDateSetListener{view, anoInicio, mesInicio, diaDoMesInicio ->
@@ -127,15 +126,22 @@ class CriarTurmaActivity : AppCompatActivity() {
                     if (response.isSuccessful) {
                         val TurmaCriada = response.body()
 
+                        Toast.makeText(applicationContext, "Turma gravada com sucesso!", Toast.LENGTH_SHORT).show()
 
+                        val iback = Intent(this@CriarTurmaActivity, MenuAdminActivity::class.java)
+                        startActivity(iback)
 
                     } else {
+
+                        Toast.makeText(applicationContext, "Erro na submissão dos dados", Toast.LENGTH_SHORT).show()
 
                     }
                 }
 
                 override fun onFailure(call: Call<Turma>, t: Throwable) {
                     // Handle failure
+
+                    Toast.makeText(applicationContext, "Erro no acesso à base de dados", Toast.LENGTH_SHORT).show()
 
                 }
             })
