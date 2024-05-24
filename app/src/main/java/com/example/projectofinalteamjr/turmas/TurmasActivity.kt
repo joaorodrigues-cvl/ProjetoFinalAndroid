@@ -7,9 +7,11 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.projectofinalteamjr.MenuAdminActivity
+import com.example.projectofinalteamjr.api.Cursos
 import com.example.projectofinalteamjr.api.DetalhesTurma
 import com.example.projectofinalteamjr.api.MyApi
 import com.example.projectofinalteamjr.api.Turmas
+import com.example.projectofinalteamjr.cursos.CursosActivity
 import com.example.projectofinalteamjr.databinding.ActivityTurmasBinding
 import retrofit2.Call
 import retrofit2.Callback
@@ -97,8 +99,48 @@ class TurmasActivity : AppCompatActivity() {
         }
 
         binding.BTNaddTurmaID.setOnClickListener{
-            val iBack: Intent = Intent(this@TurmasActivity, CriarTurmaActivity::class.java)
-            startActivity(iBack)
+
+            val criarTurma: Intent = Intent(this@TurmasActivity, CriarTurmaActivity::class.java)
+
+            myApi.getCursos().enqueue(object : Callback<ArrayList<Cursos>> {
+                override fun onResponse(
+                    call: Call<ArrayList<Cursos>>,
+                    response: Response<ArrayList<Cursos>>
+                ) {
+                    if (response.isSuccessful) {
+
+                        var listaCursos = response.body() // Store the list
+
+                        criarTurma.putExtra("listaCursos", listaCursos as Serializable)
+                        startActivity(criarTurma)
+                    } else {
+
+                        // Fazer Toast
+
+                        Toast.makeText(
+                            applicationContext,
+                            "Não foi possivel realizar a operação",
+                            Toast.LENGTH_LONG
+                        ).show()
+
+                        //Log.i(TAG, "Unsuccessful response: ${response.code()}")
+                    }
+                }
+
+                override fun onFailure(call: Call<ArrayList<Cursos>>, t: Throwable) {
+
+                    // Fazer Toast
+
+                    Toast.makeText(
+                        applicationContext,
+                        "Falha ao tentar aceder o servidor",
+                        Toast.LENGTH_LONG
+                    ).show()
+
+                    //Log.i(TAG, "onFailure: ${t.message}")
+                }
+            })
+
         }
 
 

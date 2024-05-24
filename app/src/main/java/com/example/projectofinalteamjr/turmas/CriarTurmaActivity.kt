@@ -2,15 +2,22 @@ package com.example.projectofinalteamjr.turmas
 
 import android.app.DatePickerDialog
 import android.content.Intent
+import android.graphics.Color
 import android.icu.util.Calendar
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.projectofinalteamjr.R
+import com.example.projectofinalteamjr.api.Curso
+import com.example.projectofinalteamjr.api.Cursos
 import com.example.projectofinalteamjr.api.MyApi
 import com.example.projectofinalteamjr.api.Turma
+import com.example.projectofinalteamjr.cursos.DetalhesCursoActivity
 import com.example.projectofinalteamjr.databinding.ActivityCriarTurmaBinding
 import okhttp3.OkHttpClient
 import retrofit2.Call
@@ -19,26 +26,39 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.text.SimpleDateFormat
+import java.time.YearMonth
 import java.util.Locale
 
 class CriarTurmaActivity : AppCompatActivity() {
 
-    private lateinit var tvDateInicio : TextView
-    private lateinit var btnDateInicio : Button
-    private lateinit var tvDateFim : TextView
-    private lateinit var btnDateFim : Button
 
     private val binding by lazy {
         ActivityCriarTurmaBinding.inflate(layoutInflater)
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        tvDateInicio = binding.TVDatepickerInicio
-        btnDateInicio = binding.btnDatepickerInicio
-        tvDateFim = binding.TVDatepickerFim
-        btnDateFim = binding.btnDatepickerFim
+        val i = intent
+
+        val listaCursos = i.getSerializableExtra("listaCursos") as ArrayList<Cursos>
+
+        val listaNomesCursos = ArrayList<String>()
+
+        for (curso in listaCursos){
+            listaNomesCursos.add(curso.Nome)
+        }
+
+
+        val arrayAdapterNomesCursos = object : ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listaNomesCursos!!) {
+            override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+                val view = super.getView(position, convertView, parent)
+                return view
+            }
+        }
+
+
 
         var calendarioInicio = Calendar.getInstance()
         val datePickerInicio = DatePickerDialog.OnDateSetListener{view, anoInicio, mesInicio, diaDoMesInicio ->
@@ -55,19 +75,39 @@ class CriarTurmaActivity : AppCompatActivity() {
             calendarioFim.set(Calendar.DAY_OF_MONTH, diaDoMesFim)
             updateLableFim(calendarioFim)
         }
-        btnDateInicio.setOnClickListener{
+        binding.TVDatepickerInicio.setOnClickListener{
             DatePickerDialog(this, datePickerInicio, calendarioInicio.get(Calendar.YEAR),
                 calendarioInicio.get(Calendar.MONTH), calendarioInicio.get(Calendar.DAY_OF_MONTH)).show()
         }
-        btnDateFim.setOnClickListener{
+        binding.TVDatepickerFim.setOnClickListener{
             DatePickerDialog(this, datePickerFim, calendarioFim.get(Calendar.YEAR),
                 calendarioFim.get(Calendar.MONTH), calendarioFim.get(Calendar.DAY_OF_MONTH)).show()
         }
 
+        binding.listaCursosTurmaID.adapter=arrayAdapterNomesCursos
+
+        var cursoID : Int = -1
+
+        binding.listaCursosTurmaID.setOnItemClickListener { parent, view, position, id ->
+               cursoID = position+1
+        }
+
+
         binding.btnGravarTurma.setOnClickListener {
+            // Ler dados
+
+            val nomeTurma = binding.editNomeTurma.text.toString()
+            val localizacaoTurma = binding.editLocalizacaoTurma.text.toString()
+            val datainicioTurma = binding.TVDatepickerInicio.text.toString()
+            val datafimTurma = binding.TVDatepickerFim.text.toString()
+            val regimeTurma = binding.editTipoRegime.text.toString()
+
+
+
+
             // cria uma instanciacao da classe turma
 
-            val novaTurma = Turma(2, "Turma DA Braga", "Braga", "2024-10-01","2025-05-31","Presencial")
+            val novaTurma = Turma(cursoID, nomeTurma, localizacaoTurma, datainicioTurma,datafimTurma,regimeTurma)
 
 
             val client = OkHttpClient.Builder().build()   // adicionado para funcioanr..
@@ -113,13 +153,13 @@ class CriarTurmaActivity : AppCompatActivity() {
     }
 
     private fun updateLableInicio(calendarioInicio: Calendar) {
-        val formatoDataInicio = "dd-MM-yyyy"
+        val formatoDataInicio = "yyyy-MM-dd"
         val sdf = SimpleDateFormat(formatoDataInicio, Locale.UK)
-        tvDateInicio.setText(sdf.format(calendarioInicio.time))
+       binding.TVDatepickerInicio.setText(sdf.format(calendarioInicio.time))
     }
     private fun updateLableFim(calendarioFim: Calendar) {
-        val formatoDataFim = "dd-MM-yyyy"
+        val formatoDataFim = "yyyy-MM-dd"
         val sdf = SimpleDateFormat(formatoDataFim , Locale.UK)
-        tvDateFim.setText(sdf.format( calendarioFim.time))
+        binding.TVDatepickerFim.setText(sdf.format( calendarioFim.time))
     }
 }

@@ -113,18 +113,39 @@
 
         <EditText
             android:padding="5dp"
-            android:layout_marginBottom="30dp"
             android:id="@+id/edit_tipo_regime"
             android:layout_width="match_parent"
             android:layout_height="35sp"
             android:background="@drawable/corners"
             android:hint="Selecionar regime"
             android:textSize="14sp"
+            android:layout_marginBottom="5dp"
             />
 
     </LinearLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Curso"
+        android:textColor="@color/white"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"/>
+
+    <ListView
+        android:id="@+id/listaCursosTurmaID"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@drawable/corners"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:choiceMode="singleChoice"
+        android:listSelector="@color/azul">
+
+    </ListView>
+
     <LinearLayout
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:orientation="horizontal"
