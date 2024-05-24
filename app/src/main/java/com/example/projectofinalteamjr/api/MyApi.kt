@@ -83,5 +83,12 @@ interface MyApi {
     fun criarTurma(
         @Body turmaNova : Turma
     ): Call<Turma>
+
+    @POST ("curso/{cursoID}/{moduloID}")
+    fun adicionarModuloCurso(
+        @Path("cursoID") cursoId: Int,
+        @Path("moduloID") moduloId: Int
+    ): Call<CursoModulo>
+
 }
 

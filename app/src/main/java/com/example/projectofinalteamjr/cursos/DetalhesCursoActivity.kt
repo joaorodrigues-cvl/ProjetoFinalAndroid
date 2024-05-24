@@ -12,6 +12,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.io.Serializable
 
 class DetalhesCursoActivity : AppCompatActivity() {
 
@@ -53,32 +54,20 @@ class DetalhesCursoActivity : AppCompatActivity() {
         binding.btnModulosCurso.setOnClickListener {
 
 
-            myApi.getModulos().enqueue(object : Callback<List<Modulos>> {
+            myApi.getModulosCurso(1).enqueue(object : Callback<List<Modulos>> {
                 override fun onResponse(
                     call: Call<List<Modulos>>,
                     response: Response<List<Modulos>>
                 ) {
                     if (response.isSuccessful) {
 
-                        var output = response.body() // Store the list
-                        output?.let {
-                            for (modulo in it) {
-                                modulosNomeList.add(modulo.Nome)
-                                modulosDescricaoList.add(modulo.Descricao)
-                                modulosRegimeList.add(modulo.Regime_modulo)
-                                modulosHorasList.add(modulo.Horas)
-
-                            }
-
-                        }
+                        var modulos = response.body() // Store the list
                         // Intent:
 
                         val i: Intent = Intent(this@DetalhesCursoActivity, ModulosDoCursoActivity::class.java)
-                        i.putExtra("listaNomesModulos", modulosNomeList)
-                        i.putExtra("listaDescricaoModulos", modulosDescricaoList)
-                        i.putExtra("listaRegimeModulos", modulosRegimeList)
-                        i.putExtra("listaHorasModulos", modulosHorasList)
+                        i.putExtra("Modulos", modulos as Serializable)
                         startActivity(i)
+
                     } else {
 
                         // Fazer Toast
