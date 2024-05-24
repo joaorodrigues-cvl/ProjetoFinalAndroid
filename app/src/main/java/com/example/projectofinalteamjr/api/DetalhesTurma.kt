@@ -11,7 +11,6 @@ data class DetalhesTurma(
 ):Serializable
 
 data class Turma(
-    val turmaID: Int,
     val cursoID: Int,
     val nome: String,
     val localizacao: String,

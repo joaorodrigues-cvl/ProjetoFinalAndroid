@@ -226,5 +226,52 @@ class MenuAdminActivity : AppCompatActivity() {
             startActivity(iLogout)
 
         }
+
+        binding.buttonTurmasID.setOnClickListener {
+
+            myApi.getTurmas().enqueue(object : Callback<List<Turmas>> {
+                override fun onResponse(
+                    call: Call<List<Turmas>>,
+                    response: Response<List<Turmas>>
+                ) {
+                    if (response.isSuccessful) {
+
+                        var turmas = response.body() // Store the list
+                        // Intent:
+
+                        val i: Intent = Intent(this@MenuAdminActivity, TurmasActivity::class.java)
+                        i.putExtra("turmas", turmas as Serializable)
+                        startActivity(i)
+                    } else {
+
+                        // Fazer Toast
+
+                        Toast.makeText(
+                            applicationContext,
+                            "Não foi possivel realizar a operação",
+                            Toast.LENGTH_LONG
+                        ).show()
+
+                        //Log.i(TAG, "Unsuccessful response: ${response.code()}")
+                    }
+                }
+
+                override fun onFailure(call: Call<List<Turmas>>, t: Throwable) {
+
+                    // Fazer Toast
+
+                    Toast.makeText(
+                        applicationContext,
+                        "Falha ao tentar aceder o servidor",
+                        Toast.LENGTH_LONG
+                    ).show()
+
+                    //Log.i(TAG, "onFailure: ${t.message}")
+                }
+
+            })
+
+
+        }
     }
 }

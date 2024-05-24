@@ -78,5 +78,10 @@ interface MyApi {
     fun getUserInfoNome(
         @Path ("userID") id: Int
     ): Call<List<User>>
+
+    @POST ("turma/create")
+    fun criarTurma(
+        @Body turmaNova : Turma
+    ): Call<Turma>
 }
 

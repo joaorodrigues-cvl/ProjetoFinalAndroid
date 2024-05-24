@@ -39,14 +39,13 @@ class TurmasActivity : AppCompatActivity() {
 
         val i = intent
 
-        val listaTurmas = i.getSerializableExtra("listaTurmas") as List<Turmas>
+        val listaTurmas = i.getSerializableExtra("turmas") as List<Turmas>
 
         val listaNomesTurmas = ArrayList<String>()
 
         for (turma in listaTurmas){
             listaNomesTurmas.add(turma.nome)
         }
-
 
         val arrayAdapterTurmas = ArrayAdapter(this, R.layout.simple_list_item_1, listaNomesTurmas)
 
@@ -65,7 +64,7 @@ class TurmasActivity : AppCompatActivity() {
                         // Intent:
 
                         val i: Intent = Intent(this@TurmasActivity, DetalheTurmaActivity::class.java)
-                        i.putExtra("listaTurmas", turma as Serializable)
+                        i.putExtra("Turma", turma as Serializable)
                         startActivity(i)
                     } else {
 
@@ -101,8 +100,6 @@ class TurmasActivity : AppCompatActivity() {
             val iBack: Intent = Intent(this@TurmasActivity, CriarTurmaActivity::class.java)
             startActivity(iBack)
         }
-
-
 
 
         binding.buttonBack.setOnClickListener {

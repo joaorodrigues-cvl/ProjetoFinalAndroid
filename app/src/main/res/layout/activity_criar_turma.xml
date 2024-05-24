@@ -206,7 +206,7 @@
         <Button
             android:layout_marginRight="80dp"
             android:layout_marginLeft="80dp"
-            android:id="@+id/btn_gravar_modulo"
+            android:id="@+id/btn_gravar_turma"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#20A000"
