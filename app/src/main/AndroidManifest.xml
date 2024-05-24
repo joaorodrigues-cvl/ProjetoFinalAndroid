@@ -17,6 +17,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31" >
         <activity
+            android:name=".NotasFormandosActivity"
+            android:exported="false" />
+        <activity
+        android:name=".turmas.CriarTurmaActivity"
+            android:exported="false" />
+        <activity
             android:name=".faltasAdministrador.FaltasAdminFormandoFaltasActivity"
             android:exported="false" />
         <activity
@@ -30,9 +36,6 @@
             android:exported="false" />
         <activity
             android:name=".faltasAdministrador.FaltasAdminActivity"
-            android:exported="false" />
-        <activity
-            android:name=".turmas.CriarTurmaActivity"
             android:exported="false" />
         <activity
             android:name=".cursos.DetalhesCursoFormandoActivity"

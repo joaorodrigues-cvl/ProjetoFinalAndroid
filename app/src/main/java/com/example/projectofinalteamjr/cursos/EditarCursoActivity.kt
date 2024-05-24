@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.projectofinalteamjr.MenuAdminActivity
 import com.example.projectofinalteamjr.api.Curso
 import com.example.projectofinalteamjr.api.Cursos
 import com.example.projectofinalteamjr.api.CursosActions
@@ -47,9 +48,11 @@ class EditarCursoActivity : AppCompatActivity() {
 
             if (nome.isNotEmpty() && descricao.isNotEmpty() && totalHoras > 0) {
                 val curso = Curso(nome, descricao, totalHoras)
-                cursosActions.atualizarCurso(idCurso, curso)
+                val resposta = cursosActions.atualizarCurso(idCurso, curso)
 
-                // Fetch the updated list of cursos from the API
+                Toast.makeText(this, resposta, Toast.LENGTH_SHORT).show()
+
+                /*// Fetch the updated list of cursos from the API
                 val BASE_URL = "http://10.0.2.2:8000/api/"
                 val TAG: String = "CHECK_RESPONSE"
                 val TAG2: String = "Metodo Post"
@@ -103,14 +106,16 @@ class EditarCursoActivity : AppCompatActivity() {
                         // Handle the error here
                         Toast.makeText(applicationContext, "Erro na conexão: ${t.localizedMessage}", Toast.LENGTH_LONG).show()
                     }
-                })
+                })*/
+
             } else {
                 // Show error message to user
                 Toast.makeText(this, "Por favor, preencha todos os campos", Toast.LENGTH_SHORT).show()
             }
         }
         binding.buttonBack.setOnClickListener {
-            finish()
+            val i = Intent(this, MenuAdminActivity::class.java)
+            startActivity(i)
         }
 
     }

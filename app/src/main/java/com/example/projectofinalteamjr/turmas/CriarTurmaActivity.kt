@@ -46,7 +46,6 @@ class CriarTurmaActivity : AppCompatActivity() {
             calendarioFim.set(Calendar.DAY_OF_MONTH, diaDoMesFim)
             updateLableFim(calendarioFim)
         }
-
         btnDateInicio.setOnClickListener{
             DatePickerDialog(this, datePickerInicio, calendarioInicio.get(Calendar.YEAR),
                 calendarioInicio.get(Calendar.MONTH), calendarioInicio.get(Calendar.DAY_OF_MONTH)).show()
@@ -59,7 +58,6 @@ class CriarTurmaActivity : AppCompatActivity() {
             val iBack: Intent = Intent(this@CriarTurmaActivity, TurmasActivity::class.java)
             startActivity(iBack)
         }
-
     }
 
     private fun updateLableInicio(calendarioInicio: Calendar) {

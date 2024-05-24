@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.projectofinalteamjr.api.Cursos
 import com.example.projectofinalteamjr.api.Faltas
+import com.example.projectofinalteamjr.api.ModulosNotas
 import com.example.projectofinalteamjr.api.MyApi
 import com.example.projectofinalteamjr.api.User
 import com.example.projectofinalteamjr.databinding.ActivityMenuFormandoBinding
@@ -43,6 +44,7 @@ class MenuFormandoActivity : AppCompatActivity() {
             startActivity(iLogout)
         }
         binding.getCursosFormando.setOnClickListener {
+
             myApi.getCursosFormando(4).enqueue(object : Callback<List<Cursos>> {
                 override fun onResponse(
                     call: Call<List<Cursos>>,
@@ -85,9 +87,52 @@ class MenuFormandoActivity : AppCompatActivity() {
                     //Log.i(TAG, "onFailure: ${t.message}")
                 }
             })
-
         }
         binding.getNotasFormando.setOnClickListener {
+
+            myApi.getNotas(3).enqueue(object : Callback<ModulosNotas> {
+                override fun onResponse(
+                    call: Call<ModulosNotas>,
+                    response: Response<ModulosNotas>
+                ) {
+                    if (response.isSuccessful) {
+
+                        var notas = response.body() // Store the list
+
+                        // Intent:
+
+                        val intent =
+                            Intent(this@MenuFormandoActivity, NotasFormandosActivity::class.java)
+                        intent.putExtra("notas", notas as Serializable)
+                        startActivity(intent)
+                    } else {
+
+                        // Fazer Toast
+
+                        Toast.makeText(
+                            applicationContext,
+                            "Não foi possivel realizar a operação",
+                            Toast.LENGTH_LONG
+                        ).show()
+
+                        //Log.i(TAG, "Unsuccessful response: ${response.code()}")
+                    }
+                }
+
+                override fun onFailure(call: Call<ModulosNotas>, t: Throwable) {
+
+                    // Fazer Toast
+
+                    Toast.makeText(
+                        applicationContext,
+                        "Falha ao tentar aceder o servidor",
+                        Toast.LENGTH_LONG
+                    ).show()
+
+                    //Log.i(TAG, "onFailure: ${t.message}")
+                }
+            })
+
 
         }
         binding.getFaltasFormando.setOnClickListener {

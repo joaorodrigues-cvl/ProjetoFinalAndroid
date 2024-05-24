@@ -1,6 +1,8 @@
 package com.example.projectofinalteamjr.api
 
 import android.util.Log
+import android.widget.Toast
+import com.example.projectofinalteamjr.cursos.EditarCursoActivity
 import okhttp3.OkHttpClient
 import retrofit2.Call
 import retrofit2.Callback
@@ -89,7 +91,7 @@ class CursosActions {
 
         })
     }
-    public fun atualizarCurso(id: Int, curso: Curso) {
+    public fun atualizarCurso(id: Int, curso: Curso) : String {
         val client = OkHttpClient.Builder().build()
         val builder = Retrofit.Builder()
             .baseUrl(BASE_URL)
@@ -99,20 +101,30 @@ class CursosActions {
             .create(MyApi::class.java)
         val call = builder.atualizarCurso(id, curso)
 
+        var resposta = ""
+
         call.enqueue(object : Callback<Curso> {
             override fun onResponse(call: Call<Curso>, response: Response<Curso>) {
                 if (response.isSuccessful) {
-                    val cursoAtualizado = response.body()
-                    Log.i(TAG2, "onResponse: Curso atualizado ${cursoAtualizado?.Nome}")
+
+                    resposta = "Curso atualizado com sucesso!"
+
+                //val cursoAtualizado = response.body()
+
+                //Log.i(TAG2, "onResponse: Curso atualizado ${cursoAtualizado?.Nome}")
                 } else {
-                    Log.i(TAG2, "onResponse: Error ${response.message()}")
+
+                    resposta = "Erro. Não foi possível atualizar o curso."
+
+                //Log.i(TAG2, "onResponse: Error ${response.message()}")
                 }
             }
 
             override fun onFailure(call: Call<Curso>, t: Throwable) {
-                Log.i(TAG2, "onFailure: Network request failed: ${t.message}")
+                resposta = "Erro. Falha na Base de Dados."
             }
         })
+        return resposta
     }
 
 
