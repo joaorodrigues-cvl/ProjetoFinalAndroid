@@ -218,17 +218,6 @@
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="50dp"
-        android:paddingRight="50dp"
-        >
-
-
-    </LinearLayout>
-
-    <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -249,8 +238,6 @@
             android:textAllCaps="false"
             android:textColor="#FFFFFF"
             android:textSize="20dp"
-
-
             />
 
         <Button
