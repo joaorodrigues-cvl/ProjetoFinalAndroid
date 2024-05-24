@@ -6,4 +6,11 @@
     </style>
 
     <style name="Theme.ProjectoFinalTeamJR" parent="Base.Theme.ProjectoFinalTeamJR" />
+    <style name="Theme.ProjectoFinalTeamJR.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.ProjectoFinalTeamJR.AppBarOverlay"
+        parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.ProjectoFinalTeamJR.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

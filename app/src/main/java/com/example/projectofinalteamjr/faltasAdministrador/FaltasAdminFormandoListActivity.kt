@@ -3,11 +3,11 @@ package com.example.projectofinalteamjr.faltasAdministrador
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.projectofinalteamjr.databinding.ActivityFaltasAdminTurmaFormandoBinding
+import com.example.projectofinalteamjr.databinding.ActivityFaltasAdminFormandoListBinding
 
 class FaltasAdminFormandoListActivity : AppCompatActivity() {
     private val binding by lazy {
-        ActivityFaltasAdminTurmaFormandoBinding.inflate(layoutInflater)
+        ActivityFaltasAdminFormandoListBinding.inflate(layoutInflater)
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

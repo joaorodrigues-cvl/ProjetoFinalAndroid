@@ -13,6 +13,7 @@ import com.example.projectofinalteamjr.cursos.CursosActivity
 import com.example.projectofinalteamjr.databinding.ActivityMenuAdminBinding
 import com.example.projectofinalteamjr.faltasAdministrador.FaltasAdminActivity
 import com.example.projectofinalteamjr.modulos.ModulosActivity
+import com.example.projectofinalteamjr.notas.AdminNotasSelecionarTurmaActivity
 import com.example.projectofinalteamjr.turmas.TurmasActivity
 
 import retrofit2.Call
@@ -158,6 +159,51 @@ class MenuAdminActivity : AppCompatActivity() {
             }
 
 
+        }
+
+        binding.getNotas.setOnClickListener {
+            myApi.getTurmas().enqueue(object : Callback<List<Turmas>> {
+                override fun onResponse(
+                    call: Call<List<Turmas>>,
+                    response: Response<List<Turmas>>
+                ) {
+                    if (response.isSuccessful) {
+
+                        var turmas = response.body()!! // Store the list
+
+                        // Intent:
+
+                        val i: Intent = Intent(this@MenuAdminActivity, AdminNotasSelecionarTurmaActivity::class.java)
+                        i.putExtra("listaTurmas", turmas as Serializable)
+                        startActivity(i)
+                    } else {
+
+                        // Fazer Toast
+
+                        Toast.makeText(
+                            applicationContext,
+                            "Não foi possivel realizar a operação",
+                            Toast.LENGTH_LONG
+                        ).show()
+
+                        //Log.i(TAG, "Unsuccessful response: ${response.code()}")
+                    }
+                }
+
+                override fun onFailure(call: Call<List<Turmas>>, t: Throwable) {
+
+                    // Fazer Toast
+
+                    Toast.makeText(
+                        applicationContext,
+                        "Falha ao tentar aceder o servidor",
+                        Toast.LENGTH_LONG
+                    ).show()
+
+                    //Log.i(TAG, "onFailure: ${t.message}")
+                }
+
+            })
         }
 
         binding.getModulos.setOnClickListener {

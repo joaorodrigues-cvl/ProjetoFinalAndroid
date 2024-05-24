@@ -66,7 +66,7 @@ class FaltasAdminActivity : AppCompatActivity() {
 
                         // Intent:
 
-                        val i: Intent = Intent(this@FaltasAdminActivity, FaltasAdminFormandoListActivity::class.java)
+                        val i: Intent = Intent(this@FaltasAdminActivity, MenuFaltasAdminActivity::class.java)
                         i.putExtra("listaTurmas", turma as Serializable)
                         startActivity(i)
                     } else {

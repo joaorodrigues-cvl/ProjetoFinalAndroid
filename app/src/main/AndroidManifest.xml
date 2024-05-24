@@ -17,10 +17,30 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31" >
         <activity
+            android:name=".notas.MainActivity123"
+            android:exported="false"
+            android:label="@string/title_activity_main123"
+            android:theme="@style/Theme.ProjectoFinalTeamJR.NoActionBar" />
+        <activity
+            android:name=".notas.AdminNotasSelecionarTurmaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".faltasAdministrador.FaltasAdminVisualizarDetalhesFaltaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".faltasAdministrador.FaltasAdminVisualizarFaltasActivity"
+            android:exported="false" />
+        <activity
+            android:name=".faltasAdministrador.FaltasAdminVisualizarFormandoListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".faltasAdministrador.MenuFaltasAdminActivity"
+            android:exported="false" />
+        <activity
             android:name=".NotasFormandosActivity"
             android:exported="false" />
         <activity
-        android:name=".turmas.CriarTurmaActivity"
+            android:name=".turmas.CriarTurmaActivity"
             android:exported="false" />
         <activity
             android:name=".faltasAdministrador.FaltasAdminFormandoFaltasActivity"
