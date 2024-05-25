@@ -22,6 +22,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.io.Serializable
 
 class ModulosDoCursoActivity : AppCompatActivity() {
 
@@ -44,6 +45,7 @@ class ModulosDoCursoActivity : AppCompatActivity() {
         val i = intent
 
         val modulosList=i.getSerializableExtra("Modulos") as List<Modulos>
+        val cursoPosition=i.getIntExtra("cursoPosition",-1)
 
 val listaNomesModulos = ArrayList<String>()
 
@@ -88,32 +90,22 @@ val listaNomesModulos = ArrayList<String>()
         }
 
         binding.btnAddModuloToCurso.setOnClickListener {
-            myApi.adicionarModuloCurso(3,3).enqueue(object : Callback<CursoModulo> {
+
+            myApi.getModulos().enqueue(object : Callback<List<Modulos>> {
                 override fun onResponse(
-                    call: Call<CursoModulo>,
-                    response: Response<CursoModulo>
+                    call: Call<List<Modulos>>,
+                    response: Response<List<Modulos>>
                 ) {
                     if (response.isSuccessful) {
 
-                        var output = response.body() // Store the list
+                        var listaModulos = response.body() // Store the list
+
+                        val i = Intent(this@ModulosDoCursoActivity,SelecionarModuloActivity::class.java)
+                        i.putExtra("listaModulos",listaModulos as Serializable)
+                        i.putExtra("cursoPosition",cursoPosition)
+                        startActivity(i)
 
 
-                        Toast.makeText(
-                            applicationContext,
-                            "modulo adicionado",
-                            Toast.LENGTH_LONG
-                        ).show()
-                        // Intent:
-
-                      /*  val i: Intent = Intent(
-                            this@ModulosDoCursoActivity,
-                            AdicionarModuloAoCursoActivity::class.java
-                        )
-                        i.putExtra("listaNomesModulos", modulosNomeList)
-                        i.putExtra("listaDescricaoModulos", modulosDescricaoList)
-                        i.putExtra("listaRegimeModulos", modulosRegimeList)
-                        i.putExtra("listaHorasModulos", modulosHorasList)
-                        startActivity(i)*/
                     } else {
 
                         // Fazer Toast
@@ -128,7 +120,7 @@ val listaNomesModulos = ArrayList<String>()
                     }
                 }
 
-                override fun onFailure(call: Call<CursoModulo>, t: Throwable) {
+                override fun onFailure(call: Call<List<Modulos>>, t: Throwable) {
 
                     // Fazer Toast
 

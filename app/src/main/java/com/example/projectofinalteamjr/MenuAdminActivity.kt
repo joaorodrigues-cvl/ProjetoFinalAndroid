@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.startActivity
 import com.example.projectofinalteamjr.api.Cursos
 import com.example.projectofinalteamjr.api.Modulos
 
@@ -59,24 +60,13 @@ class MenuAdminActivity : AppCompatActivity() {
                 ) {
                     if (response.isSuccessful) {
 
-                        var output = response.body() // Store the list
-                        output?.let {
-                            for (curso in it) {
-                                cursosNomeList.add(curso.Nome)
-                                cursosDescricaoList.add(curso.Descricao)
-                                cursosHorasList.add(curso.TotalHoras)
+                        var cursos = response.body() // Store the list
 
-                                // Process each curso object
-                                // You can access properties like curso.Nome here
-                            }
-
-                        }
                         // Intent:
 
                         val i: Intent = Intent(this@MenuAdminActivity, CursosActivity::class.java)
-                        i.putExtra("listaNomesCursos", cursosNomeList)
-                        i.putExtra("listaDescricaoCursos", cursosDescricaoList)
-                        i.putExtra("listaHorasCursos", cursosHorasList)
+                        i.putExtra("listaCursos", cursos as Serializable)
+
                         startActivity(i)
                     } else {
 
