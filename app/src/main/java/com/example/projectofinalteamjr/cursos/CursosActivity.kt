@@ -9,7 +9,10 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.projectofinalteamjr.MenuAdminActivity
+import com.example.projectofinalteamjr.api.Cursos
 import com.example.projectofinalteamjr.databinding.ActivityCursosBinding
+import java.io.Serializable
 
 class CursosActivity : AppCompatActivity() {
 
@@ -22,10 +25,13 @@ class CursosActivity : AppCompatActivity() {
 
         val i = intent
 
+        val listaCursos = i.getSerializableExtra("listaCursos") as List<Cursos>
 
-        var listaNomesCursos = i.getStringArrayListExtra("listaNomesCursos")
-        var listaDescricaoCursos = i.getStringArrayListExtra("listaDescricaoCursos")
-        var listaHorasCursos = i.getIntegerArrayListExtra("listaHorasCursos")!!
+        val listaNomesCursos = ArrayList<String>()
+
+        for(curso in listaCursos){
+            listaNomesCursos.add(curso.Nome)
+        }
 
         val arrayAdapterNomesCursos = object : ArrayAdapter<String>(this, R.layout.simple_list_item_1, listaNomesCursos!!) {
             override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
@@ -36,34 +42,25 @@ class CursosActivity : AppCompatActivity() {
             }
         }
 
-        //val arrayAdapterDescricaoCursos = ArrayAdapter(this, R.layout.simple_list_item_1, listaDescricaoCursos!!)
-        //val arrayAdapterHorasCursos = ArrayAdapter(this, R.layout.simple_list_item_1, listaHorasCursos!!)
-
         binding.nomeCursosID.adapter = arrayAdapterNomesCursos
-        //binding.decricaoCursosID.adapter = arrayAdapterDescricaoCursos
-        //binding.horasCursosID.adapter = arrayAdapterHorasCursos
 
         binding.nomeCursosID.setOnItemClickListener { parent, view, position, id ->
-            val element = parent.getItemAtPosition(position) as String?
-            val descricao = listaDescricaoCursos!!.get(position)
-            val Totalhoras = listaHorasCursos!!.get(position)
-            val id = position+1
+            val cursoPosition = position
             val intent = Intent(this, DetalhesCursoActivity::class.java)
-            intent.putExtra("nomeCurso",element)
-            intent.putExtra("descricaoCurso",descricao)
-            intent.putExtra("horasCurso",Totalhoras)
-            intent.putExtra("idCurso",id)
+            intent.putExtra("cursoPosition", cursoPosition)
+            intent.putExtra("listaCursos", listaCursos as Serializable)
             startActivity(intent)
 
         }
 
         binding.buttonBack.setOnClickListener {
-            finish()
+            val intent = Intent(this,MenuAdminActivity::class.java)
+            startActivity(intent)
         }
 
         binding.btnAddCurso.setOnClickListener {
-            val iBack: Intent = Intent(this@CursosActivity, AdicionarCursoActivity::class.java)
-            startActivity(iBack)
+            val iAddCurso: Intent = Intent(this@CursosActivity, AdicionarCursoActivity::class.java)
+            startActivity(iAddCurso)
         }
     }
 
