@@ -44,21 +44,25 @@ class AdminNotasSelecionarFormandoActivity : AppCompatActivity() {
         val i = intent
 
         val turma = i.getSerializableExtra("turma") as DetalhesTurma
+        val nomeTurma = i.getStringExtra("nomeTurma")
 
         val listaFormandos = turma.Formandos
 
         val listaNomesFormandos = ArrayList<String>()
         val listaUserIDFormando = ArrayList<Int>()
+        val listaFormandoTurmaID = ArrayList<Int>()
 
         for (formando in listaFormandos){
             listaNomesFormandos.add(formando.formandoNome)
             listaUserIDFormando.add(formando.userID)
+            listaFormandoTurmaID.add(formando.formandoTurmaID)
+
         }
+
+        binding.textNomeTurma.text = nomeTurma
 
         val arrayAdapterNomesFormandos =
             ArrayAdapter(this, android.R.layout.simple_list_item_1, listaNomesFormandos)
-
-
 
         binding.LVFormandosTurma.adapter=arrayAdapterNomesFormandos
 
@@ -66,6 +70,7 @@ class AdminNotasSelecionarFormandoActivity : AppCompatActivity() {
         binding.LVFormandosTurma.setOnItemClickListener { parent, view, position, id ->
             val formandoNome = listaNomesFormandos[position]
             val userID = listaUserIDFormando[position]
+            val formandoTurmaID = listaFormandoTurmaID[position]
 
             myApi.getModulosFormando(userID).enqueue(object : Callback<List<Modulos>> {
                 override fun onResponse(
@@ -81,6 +86,7 @@ class AdminNotasSelecionarFormandoActivity : AppCompatActivity() {
                         val i: Intent = Intent(this@AdminNotasSelecionarFormandoActivity, AdminNotasSelecionarModulosActivity::class.java)
                         i.putExtra("listaModulosFormando", modulos as Serializable)
                         i.putExtra("nomeFormando", formandoNome)
+                        i.putExtra("formandoTurmaID", formandoTurmaID)
                         startActivity(i)
                     } else {
 
@@ -112,7 +118,9 @@ class AdminNotasSelecionarFormandoActivity : AppCompatActivity() {
             })
         }
 
-
+binding.buttonBack.setOnClickListener {
+    finish()
+}
 
     }
 }

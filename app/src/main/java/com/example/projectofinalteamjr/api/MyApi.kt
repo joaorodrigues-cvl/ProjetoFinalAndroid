@@ -100,5 +100,9 @@ interface MyApi {
     fun getParametros(
     ): Call<List<Parametro>>
 
+    @POST ("avaliacao_modulo/store")
+    fun postAvaliacaoModulo(
+        @Body avalicao : avaliacaoModulo
+    ): Call<avaliacaoModulo>
 }
 

@@ -60,6 +60,7 @@ class AdminNotasSelecionarTurmaActivity : AppCompatActivity() {
         binding.LVTurmas.adapter = arrayAdapterTurmas
 
         binding.LVTurmas.setOnItemClickListener { parent, view, position, id ->
+            val nomeTurma = parent.getItemAtPosition(position) as String?
             myApi.detalhesTurma(position + 1).enqueue(object : Callback<DetalhesTurma> {
                 override fun onResponse(
                     call: Call<DetalhesTurma>,
@@ -74,6 +75,7 @@ class AdminNotasSelecionarTurmaActivity : AppCompatActivity() {
                         val i: Intent =
                             Intent(this@AdminNotasSelecionarTurmaActivity, AdminNotasSelecionarFormandoActivity::class.java)
                         i.putExtra("turma", turma as Serializable)
+                        i.putExtra("nomeTurma", nomeTurma)
                         startActivity(i)
                     } else {
 

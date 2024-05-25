@@ -1,5 +1,6 @@
 package com.example.projectofinalteamjr.api
 
+import android.content.Context
 import android.util.Log
 import android.widget.Toast
 import okhttp3.OkHttpClient
@@ -19,7 +20,7 @@ public var modulosList: ArrayList<Modulos>? = ArrayList()
 
 class ModulosActions () {
 
-    public fun sendRequestModulos(modulo: Modulo) {
+    public fun sendRequestModulos(context: Context, modulo: Modulo) {
         val client = OkHttpClient.Builder().build()   // adicionado para funcioanr..
         val builder = Retrofit.Builder()
             .baseUrl(BASE_URL)
@@ -36,19 +37,17 @@ class ModulosActions () {
                 // Handle successful response
                 if (response.isSuccessful) {
                     val moduloCriado = response.body()
-                    Log.i(TAG2, "onResponse: Módulo criado ${moduloCriado?.Nome}")
-
-
+                    Toast.makeText(context, "Módulo criado com sucesso", Toast.LENGTH_SHORT).show()
 
                 } else {
-                    Log.i(TAG2, "onResponse: Erro ${response.message()}")
+                    Toast.makeText(context, "Erro na gravação", Toast.LENGTH_SHORT).show()
 
                 }
             }
 
             override fun onFailure(call: Call<Modulo>, t: Throwable) {
                 // Handle failure
-                Log.i(TAG2, "onFailure: Network request failed: ${t.message}")
+                Toast.makeText(context, "Erro no servidor", Toast.LENGTH_SHORT).show()
             }
         })
     }

@@ -44,12 +44,17 @@ class AdminNotasSelecionarModulosActivity : AppCompatActivity() {
 
         val listaModulos = i.getSerializableExtra("listaModulosFormando") as List<Modulos>
         val formandoNome = i.getStringExtra("nomeFormando")
+        val formandoTurmaID = i.getIntExtra("formandoTurmaID",-1)
 
         val listaNomesModulos = ArrayList<String>()
+        val listaModuloID = ArrayList<Int>()
 
         for (modulo in listaModulos){
             listaNomesModulos.add(modulo.Nome)
+            listaModuloID.add(modulo.ModuloID)
         }
+
+        binding.textNomeFormando.text = formandoNome
 
         val arrayAdapterNomesModulos =
             ArrayAdapter(this, android.R.layout.simple_list_item_1, listaNomesModulos)
@@ -58,6 +63,7 @@ class AdminNotasSelecionarModulosActivity : AppCompatActivity() {
 
         binding.LVModulosFormando.setOnItemClickListener { parent, view, position, id ->
             val moduloNome = listaNomesModulos[position]
+            val moduloID = listaModuloID[position]
             myApi.getParametros().enqueue(object : Callback<List<Parametro>> {
                 override fun onResponse(
                     call: Call<List<Parametro>>,
@@ -73,6 +79,8 @@ class AdminNotasSelecionarModulosActivity : AppCompatActivity() {
                         i.putExtra("listaParametros", parametros as Serializable)
                         i.putExtra("formandoNome", formandoNome)
                         i.putExtra("nomeModulo",moduloNome)
+                        i.putExtra("formandoTurmaID",formandoTurmaID)
+                        i.putExtra("moduloID",moduloID)
                         startActivity(i)
                     } else {
 
@@ -104,6 +112,8 @@ class AdminNotasSelecionarModulosActivity : AppCompatActivity() {
             })
 
         }
-
+binding.buttonBack.setOnClickListener {
+    finish()
+}
     }
 }

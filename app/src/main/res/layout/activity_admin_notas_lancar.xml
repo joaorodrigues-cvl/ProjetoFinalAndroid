@@ -86,6 +86,8 @@
             android:id="@+id/LVParametros"
             android:layout_width="match_parent"
             android:layout_height="200dp"
+            android:listSelector="@color/azul"
+            android:choiceMode="singleChoice"
             android:background="@drawable/corners"
             android:divider="@color/white" />
 
