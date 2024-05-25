@@ -47,9 +47,6 @@ class FaltasAdminActivity : AppCompatActivity() {
             listaNomesTurmas.add(turma.nome)
         }
 
-
-
-
         val arrayAdapterTurmas = ArrayAdapter(this, R.layout.simple_list_item_1, listaNomesTurmas)
 
         binding.LVTurmas.adapter=arrayAdapterTurmas

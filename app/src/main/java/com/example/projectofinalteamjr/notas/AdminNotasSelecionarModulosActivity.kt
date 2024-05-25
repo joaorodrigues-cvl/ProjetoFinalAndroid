@@ -8,15 +8,12 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.projectofinalteamjr.MenuAdminActivity
 import com.example.projectofinalteamjr.R
-import com.example.projectofinalteamjr.api.DetalhesTurma
+import com.example.projectofinalteamjr.api.Modulos
 import com.example.projectofinalteamjr.api.MyApi
-import com.example.projectofinalteamjr.api.Turmas
-import com.example.projectofinalteamjr.databinding.ActivityAdminNotasSelecionarTurmaBinding
-import com.example.projectofinalteamjr.databinding.ActivityFaltasAdminBinding
-import com.example.projectofinalteamjr.faltasAdministrador.FaltasAdminActivity
-import com.example.projectofinalteamjr.faltasAdministrador.MenuFaltasAdminActivity
+import com.example.projectofinalteamjr.api.Parametro
+import com.example.projectofinalteamjr.databinding.ActivityAdminNotasSelecionarFormandoBinding
+import com.example.projectofinalteamjr.databinding.ActivityAdminNotasSelecionarModulosBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -24,7 +21,11 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.Serializable
 
-class AdminNotasSelecionarTurmaActivity : AppCompatActivity() {
+class AdminNotasSelecionarModulosActivity : AppCompatActivity() {
+
+    private val binding by lazy {
+        ActivityAdminNotasSelecionarModulosBinding.inflate(layoutInflater)
+    }
 
     val BASE_URL = "http://10.0.2.2:8000/api/"
 
@@ -34,46 +35,44 @@ class AdminNotasSelecionarTurmaActivity : AppCompatActivity() {
         .build();
 
     val myApi = api.create(MyApi::class.java);
-
-    private val binding by lazy {
-        ActivityAdminNotasSelecionarTurmaBinding.inflate(layoutInflater)
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(binding.root)
 
         val i = intent
 
-        val listaTurmas = i.getSerializableExtra("listaTurmas") as List<Turmas>
+        val listaModulos = i.getSerializableExtra("listaModulosFormando") as List<Modulos>
+        val formandoNome = i.getStringExtra("nomeFormando")
 
-        val listaNomesTurmas = ArrayList<String>()
+        val listaNomesModulos = ArrayList<String>()
 
-        for (turma in listaTurmas) {
-            listaNomesTurmas.add(turma.nome)
+        for (modulo in listaModulos){
+            listaNomesModulos.add(modulo.Nome)
         }
 
+        val arrayAdapterNomesModulos =
+            ArrayAdapter(this, android.R.layout.simple_list_item_1, listaNomesModulos)
 
-        val arrayAdapterTurmas =
-            ArrayAdapter(this, android.R.layout.simple_list_item_1, listaNomesTurmas)
+        binding.LVModulosFormando.adapter = arrayAdapterNomesModulos
 
-        binding.LVTurmas.adapter = arrayAdapterTurmas
-
-        binding.LVTurmas.setOnItemClickListener { parent, view, position, id ->
-            myApi.detalhesTurma(position + 1).enqueue(object : Callback<DetalhesTurma> {
+        binding.LVModulosFormando.setOnItemClickListener { parent, view, position, id ->
+            val moduloNome = listaNomesModulos[position]
+            myApi.getParametros().enqueue(object : Callback<List<Parametro>> {
                 override fun onResponse(
-                    call: Call<DetalhesTurma>,
-                    response: Response<DetalhesTurma>
+                    call: Call<List<Parametro>>,
+                    response: Response<List<Parametro>>
                 ) {
                     if (response.isSuccessful) {
 
-                        var turma = response.body()!! // Store the list
+                        var parametros = response.body()!! // Store the list
 
                         // Intent:
 
-                        val i: Intent =
-                            Intent(this@AdminNotasSelecionarTurmaActivity, AdminNotasSelecionarFormandoActivity::class.java)
-                        i.putExtra("turma", turma as Serializable)
+                        val i: Intent = Intent(this@AdminNotasSelecionarModulosActivity, AdminNotasLancarActivity::class.java)
+                        i.putExtra("listaParametros", parametros as Serializable)
+                        i.putExtra("formandoNome", formandoNome)
+                        i.putExtra("nomeModulo",moduloNome)
                         startActivity(i)
                     } else {
 
@@ -89,7 +88,7 @@ class AdminNotasSelecionarTurmaActivity : AppCompatActivity() {
                     }
                 }
 
-                override fun onFailure(call: Call<DetalhesTurma>, t: Throwable) {
+                override fun onFailure(call: Call<List<Parametro>>, t: Throwable) {
 
                     // Fazer Toast
 
@@ -103,12 +102,7 @@ class AdminNotasSelecionarTurmaActivity : AppCompatActivity() {
                 }
 
             })
-        }
 
-        binding.buttonBack.setOnClickListener {
-            val iBack: Intent =
-                Intent(this@AdminNotasSelecionarTurmaActivity, MenuAdminActivity::class.java)
-            startActivity(iBack)
         }
 
     }

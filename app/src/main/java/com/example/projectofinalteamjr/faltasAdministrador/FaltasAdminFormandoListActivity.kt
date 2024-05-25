@@ -14,8 +14,6 @@ class FaltasAdminFormandoListActivity : AppCompatActivity() {
 
         setContentView(binding.root)
 
-
-
         binding.buttonBack.setOnClickListener {
             val iBack: Intent = Intent(this@FaltasAdminFormandoListActivity, FaltasAdminActivity::class.java)
             startActivity(iBack)

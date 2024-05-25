@@ -33,8 +33,6 @@ interface MyApi {
         @Body modulo: Modulo
     ): Call<Modulo>
 
-
-
     @GET("modulos")
     fun getModulos(): Call<List<Modulos>>
 
@@ -92,6 +90,15 @@ interface MyApi {
         @Path("cursoID") cursoId: Int,
         @Path("moduloID") moduloId: Int
     ): Call<CursoModulo>
+
+    @GET ("modulos_formando/{userID}")
+    fun getModulosFormando(
+        @Path("userID") id: Int
+    ): Call<List<Modulos>>
+
+    @GET ("parametros/index")
+    fun getParametros(
+    ): Call<List<Parametro>>
 
 }
 
