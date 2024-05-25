@@ -1,6 +1,7 @@
 package com.example.projectofinalteamjr.api
 
 import android.util.Log
+import android.widget.Toast
 import okhttp3.OkHttpClient
 import retrofit2.Call
 import retrofit2.Callback
@@ -94,6 +95,7 @@ class ModulosActions () {
             override fun onResponse(call: Call<Modulo>, response: Response<Modulo>) {
                 if (response.isSuccessful) {
                     val moduloAtualizado = response.body()
+
                     Log.i(TAG2, "onResponse: Modulo atualizado ${moduloAtualizado?.Nome}")
                 } else {
                     Log.i(TAG2, "onResponse: Error ${response.message()}")

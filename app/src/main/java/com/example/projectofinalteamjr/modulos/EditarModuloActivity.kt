@@ -2,8 +2,10 @@ package com.example.projectofinalteamjr.modulos
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.projectofinalteamjr.MenuAdminActivity
 import com.example.projectofinalteamjr.api.Modulo
 import com.example.projectofinalteamjr.api.Modulos
 import com.example.projectofinalteamjr.api.ModulosActions
@@ -21,11 +23,28 @@ class EditarModuloActivity : AppCompatActivity() {
         ActivityEditarModuloBinding.inflate(layoutInflater)
     }
 
+    val BASE_URL = "http://10.0.2.2:8000/api/"
+    val TAG: String = "CHECK_RESPONSE"
+    val TAG2: String = "Metodo Post"
+
+    val api = Retrofit.Builder()
+        .baseUrl(BASE_URL)
+        .addConverterFactory(GsonConverterFactory.create())
+        .build();
+
+    val myApi = api.create(MyApi::class.java)
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         val modulosActions = ModulosActions()
         setContentView(binding.root)
+
+
+        var listaNomesModulos = ArrayList<String>()
+        var listaDescricaoModulos = ArrayList<String>()
+        var listaRegimeModulos = ArrayList<String>()
+        var listaHorasModulos = ArrayList<Int>()
 
 
         val intent = intent
@@ -34,7 +53,7 @@ class EditarModuloActivity : AppCompatActivity() {
         val descricaoModulo = intent.getStringExtra("descricaoModulo")
         val regimeModulo = intent.getStringExtra("regimeModulo")
         val horasModulo = intent.getIntExtra("horasModulo", 0)
-        val idModulo = intent.getIntExtra("idModulo", 0)
+        val idModulo = intent.getIntExtra("idModulo", -1)
 
         binding.editNomeModulo.setText(nomeModulo)
         binding.editDescricaoModulo.setText(descricaoModulo)
@@ -49,78 +68,47 @@ class EditarModuloActivity : AppCompatActivity() {
 
 
             if (nome.isNotEmpty() && descricao.isNotEmpty() && regime.isNotEmpty() && horas > 0) {
-                val modulo = Modulo(nome, descricao,  horas, regime)
-                modulosActions.atualizarModulo(idModulo, modulo)
+                val modulo = Modulo(nome, descricao, horas, regime)
 
-
-                val BASE_URL = "http://10.0.2.2:8000/api/"
-                val TAG: String = "CHECK_RESPONSE"
-                val TAG2: String = "Metodo Post"
-
-                var listaNomesModulos = ArrayList<String>()
-                var listaDescricaoModulos = ArrayList<String>()
-                var listaRegimeModulos = ArrayList<String>()
-                var listaHorasModulos = ArrayList<Int>()
-                val api = Retrofit.Builder()
-                    .baseUrl(BASE_URL)
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build();
-
-                val myApi = api.create(MyApi::class.java)
-                myApi.getModulos().enqueue(object : Callback<List<Modulos>> {
-                    override fun onResponse(
-                        call: Call<List<Modulos>>,
-                        response: Response<List<Modulos>>
-                    ) {
+                myApi.atualizarModulo(idModulo, modulo).enqueue(object : Callback<Modulo> {
+                    override fun onResponse(call: Call<Modulo>, response: Response<Modulo>) {
                         if (response.isSuccessful) {
+                            val moduloAtualizado = response.body()
 
-                            var output = response.body() // Store the list
-                            output?.let {
-                                for (modulo in it) {
-                                    listaNomesModulos.add(modulo.Nome)
-                                    listaDescricaoModulos.add(modulo.Descricao)
-                                    listaRegimeModulos.add(modulo.Regime_modulo)
-                                    listaHorasModulos.add(modulo.Horas)
+                            Toast.makeText(
+                                applicationContext,
+                                "Modulo atualizado com sucesso",
+                                Toast.LENGTH_SHORT
+                            ).show()
 
-                            }
-                            // Intent:
+                            startActivity(
+                                Intent(
+                                    this@EditarModuloActivity,
+                                    MenuAdminActivity::class.java
+                                )
+                            )
 
-                            val i: Intent = Intent(this@EditarModuloActivity, ModulosActivity::class.java)
-                            i.putExtra("listaNomesModulos", listaNomesModulos)
-                            i.putExtra("listaDescricaoModulos", listaDescricaoModulos)
-                            i.putExtra("listaRegimeModulos", listaRegimeModulos)
-                            i.putExtra("listaHorasModulos", listaHorasModulos)
-                            startActivity(i)
-                                }
                         } else {
 
-                            // Fazer Toast
+                            Toast.makeText(applicationContext, "Erro.", Toast.LENGTH_SHORT).show()
 
-                            Toast.makeText(applicationContext, "Não foi possivel realizar a operação", Toast.LENGTH_LONG).show()
-
-                            //Log.i(TAG, "Unsuccessful response: ${response.code()}")
                         }
                     }
 
-                    override fun onFailure(call: Call<List<Modulos>>, t: Throwable) {
-
-                        // Fazer Toast
-
-                        Toast.makeText(applicationContext, "Falha ao tentar aceder o servidor", Toast.LENGTH_LONG).show()
-
-                        //Log.i(TAG, "onFailure: ${t.message}")
+                    override fun onFailure(call: Call<Modulo>, t: Throwable) {
+                        Toast.makeText(
+                            applicationContext,
+                            "Não foi possivel estabelecer ligação com base de dados",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
-
                 })
-            } else {
-                // Show error message to user
-                Toast.makeText(this, "Por favor, preencha todos os campos", Toast.LENGTH_SHORT).show()
+
+                binding.buttonBack2.setOnClickListener {
+                    finish()
+
+                }
             }
-
-
         }
-        binding.buttonBack2.setOnClickListener {
-            finish()
-
-        }}
+    }
 }
