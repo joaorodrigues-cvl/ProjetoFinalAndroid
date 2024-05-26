@@ -24,7 +24,9 @@ data class CursoTurma(
 ):Serializable
 
 data class Formandos(
-    val formandoNome: String
+    val formandoNome: String,
+    val userID: Int,
+    val formandoTurmaID: Int
 ):Serializable
 
 

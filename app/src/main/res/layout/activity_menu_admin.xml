@@ -89,6 +89,7 @@
             />
 
         <Button
+            android:id="@+id/getNotas"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_marginLeft="20dp"

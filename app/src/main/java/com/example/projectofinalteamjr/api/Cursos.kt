@@ -12,3 +12,5 @@ data class Cursos (
 // Construtor
 
 data class Curso(val Nome: String, val Descricao: String, val TotalHoras: Int)
+
+data class CursoModulo(val cursoID: Int, val moduloID: Int)

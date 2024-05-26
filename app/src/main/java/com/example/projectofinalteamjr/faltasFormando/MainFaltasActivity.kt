@@ -31,7 +31,9 @@ class MainFaltasActivity : AppCompatActivity() {
             listaDataFaltas.add(falta.data + " - " + falta.tipo)
         }
 
-        val arrayAdapterDataFaltas = object : ArrayAdapter<String>(this, R.layout.simple_list_item_1, listaDataFaltas!!){
+        val arrayAdapterDataFaltas = object : ArrayAdapter<String>(this, R.layout.simple_list_item_1,
+            listaDataFaltas
+        ){
             override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
                 val view = super.getView(position, convertView, parent)
                 return view

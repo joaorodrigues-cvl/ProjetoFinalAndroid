@@ -28,9 +28,9 @@ class FaltasAdminActivity : AppCompatActivity() {
     val api = Retrofit.Builder()
         .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
-        .build();
+        .build()
 
-    val myApi=api.create(MyApi::class.java);
+    val myApi=api.create(MyApi::class.java)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
@@ -46,9 +46,6 @@ class FaltasAdminActivity : AppCompatActivity() {
         for (turma in listaTurmas){
             listaNomesTurmas.add(turma.nome)
         }
-
-
-
 
         val arrayAdapterTurmas = ArrayAdapter(this, R.layout.simple_list_item_1, listaNomesTurmas)
 
@@ -66,7 +63,7 @@ class FaltasAdminActivity : AppCompatActivity() {
 
                         // Intent:
 
-                        val i: Intent = Intent(this@FaltasAdminActivity, FaltasAdminFormandoListActivity::class.java)
+                        val i: Intent = Intent(this@FaltasAdminActivity, MenuFaltasAdminActivity::class.java)
                         i.putExtra("listaTurmas", turma as Serializable)
                         startActivity(i)
                     } else {

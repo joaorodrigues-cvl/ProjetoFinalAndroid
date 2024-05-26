@@ -36,7 +36,9 @@ class DetalhesCursoFormandoActivity : AppCompatActivity() {
         for (modulo in listaModulos){
             listaNomeModulos.add(modulo.Nome)
         }
-        val arrayAdapterModulosCursosFormando = object : ArrayAdapter<String>(this, R.layout.simple_list_item_1, listaNomeModulos!!){
+        val arrayAdapterModulosCursosFormando = object : ArrayAdapter<String>(this, R.layout.simple_list_item_1,
+            listaNomeModulos
+        ){
             override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
                 val view = super.getView(position, convertView, parent)
                 return view

@@ -53,6 +53,6 @@ class FaltasAdminFormandoFaltasActivity : AppCompatActivity() {
     private fun updateLable(calendarioFalta: Calendar) {
         val formatoData = "dd-MM-yyyy"
         val sdf = SimpleDateFormat(formatoData, Locale.UK)
-        tvDataFalta.setText(sdf.format(calendarioFalta.time))
+        tvDataFalta.text = sdf.format(calendarioFalta.time)
     }
 }

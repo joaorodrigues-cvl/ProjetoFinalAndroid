@@ -32,14 +32,11 @@ class EditarCursoActivity : AppCompatActivity() {
 
         val intent = intent
 
-        val nomeCurso = intent.getStringExtra("nomeCurso")
-        val descricaoCurso = intent.getStringExtra("descricaoCurso")
-        val horasCurso = intent.getIntExtra("horasCurso", 0)
-        val idCurso = intent.getIntExtra("idCurso",0)
+        val curso = intent.getSerializableExtra("curso") as Cursos
 
-        binding.editNomeCurso.setText(nomeCurso)
-        binding.editDescricaoCurso.setText(descricaoCurso)
-        binding.editHorasCurso.setText(horasCurso.toString())
+        binding.editNomeCurso.setText(curso.Nome)
+        binding.editDescricaoCurso.setText(curso.Descricao)
+        binding.editHorasCurso.setText(curso.TotalHoras.toString())
 
         binding.btnGravarEditCurso.setOnClickListener {
             val nome = binding.editNomeCurso.text.toString()
@@ -47,8 +44,8 @@ class EditarCursoActivity : AppCompatActivity() {
             val totalHoras = binding.editHorasCurso.text.toString().toIntOrNull() ?: 0
 
             if (nome.isNotEmpty() && descricao.isNotEmpty() && totalHoras > 0) {
-                val curso = Curso(nome, descricao, totalHoras)
-                val resposta = cursosActions.atualizarCurso(idCurso, curso)
+                val cursoEditado = Curso(nome, descricao, totalHoras)
+                val resposta = cursosActions.atualizarCurso(curso.cursoID, cursoEditado)
 
                 Toast.makeText(this, resposta, Toast.LENGTH_SHORT).show()
 

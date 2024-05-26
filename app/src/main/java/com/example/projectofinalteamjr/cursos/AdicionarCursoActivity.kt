@@ -30,7 +30,9 @@ class AdicionarCursoActivity : AppCompatActivity() {
 
             if (nome.isNotEmpty() && descricao.isNotEmpty() && totalHoras > 0 ) {
                 val curso = Curso(nome, descricao, totalHoras)
-                cursosActions.sendRequestCursos(curso)
+                cursosActions.sendRequestCursos(this, curso)
+
+
                 startActivity(Intent(this, MenuAdminActivity::class.java))
             } else {
                 // Show error message to user

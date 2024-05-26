@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.startActivity
 import com.example.projectofinalteamjr.api.Cursos
 import com.example.projectofinalteamjr.api.Modulos
 
@@ -13,6 +14,7 @@ import com.example.projectofinalteamjr.cursos.CursosActivity
 import com.example.projectofinalteamjr.databinding.ActivityMenuAdminBinding
 import com.example.projectofinalteamjr.faltasAdministrador.FaltasAdminActivity
 import com.example.projectofinalteamjr.modulos.ModulosActivity
+import com.example.projectofinalteamjr.notas.AdminNotasSelecionarTurmaActivity
 import com.example.projectofinalteamjr.turmas.TurmasActivity
 
 import retrofit2.Call
@@ -29,18 +31,18 @@ class MenuAdminActivity : AppCompatActivity() {
     val api = Retrofit.Builder()
         .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
-        .build();
+        .build()
 
-    val myApi = api.create(MyApi::class.java);
+    val myApi = api.create(MyApi::class.java)
 
-    public var modulosNomeList = ArrayList<String>()
-    public var modulosDescricaoList = ArrayList<String>()
-    public var modulosRegimeList = ArrayList<String>()
-    public var modulosHorasList = ArrayList<Int>()
+    var modulosNomeList = ArrayList<String>()
+    var modulosDescricaoList = ArrayList<String>()
+    var modulosRegimeList = ArrayList<String>()
+    var modulosHorasList = ArrayList<Int>()
 
-    public var cursosNomeList = ArrayList<String>()
-    public var cursosDescricaoList = ArrayList<String>()
-    public var cursosHorasList = ArrayList<Int>()
+    var cursosNomeList = ArrayList<String>()
+    var cursosDescricaoList = ArrayList<String>()
+    var cursosHorasList = ArrayList<Int>()
 
     private val binding by lazy {
         ActivityMenuAdminBinding.inflate(layoutInflater)
@@ -59,24 +61,13 @@ class MenuAdminActivity : AppCompatActivity() {
                 ) {
                     if (response.isSuccessful) {
 
-                        var output = response.body() // Store the list
-                        output?.let {
-                            for (curso in it) {
-                                cursosNomeList.add(curso.Nome)
-                                cursosDescricaoList.add(curso.Descricao)
-                                cursosHorasList.add(curso.TotalHoras)
+                        var cursos = response.body() // Store the list
 
-                                // Process each curso object
-                                // You can access properties like curso.Nome here
-                            }
-
-                        }
                         // Intent:
 
                         val i: Intent = Intent(this@MenuAdminActivity, CursosActivity::class.java)
-                        i.putExtra("listaNomesCursos", cursosNomeList)
-                        i.putExtra("listaDescricaoCursos", cursosDescricaoList)
-                        i.putExtra("listaHorasCursos", cursosHorasList)
+                        i.putExtra("listaCursos", cursos as Serializable)
+
                         startActivity(i)
                     } else {
 
@@ -158,6 +149,51 @@ class MenuAdminActivity : AppCompatActivity() {
             }
 
 
+        }
+
+        binding.getNotas.setOnClickListener {
+            myApi.getTurmas().enqueue(object : Callback<List<Turmas>> {
+                override fun onResponse(
+                    call: Call<List<Turmas>>,
+                    response: Response<List<Turmas>>
+                ) {
+                    if (response.isSuccessful) {
+
+                        var turmas = response.body()!! // Store the list
+
+                        // Intent:
+
+                        val i: Intent = Intent(this@MenuAdminActivity, AdminNotasSelecionarTurmaActivity::class.java)
+                        i.putExtra("listaTurmas", turmas as Serializable)
+                        startActivity(i)
+                    } else {
+
+                        // Fazer Toast
+
+                        Toast.makeText(
+                            applicationContext,
+                            "Não foi possivel realizar a operação",
+                            Toast.LENGTH_LONG
+                        ).show()
+
+                        //Log.i(TAG, "Unsuccessful response: ${response.code()}")
+                    }
+                }
+
+                override fun onFailure(call: Call<List<Turmas>>, t: Throwable) {
+
+                    // Fazer Toast
+
+                    Toast.makeText(
+                        applicationContext,
+                        "Falha ao tentar aceder o servidor",
+                        Toast.LENGTH_LONG
+                    ).show()
+
+                    //Log.i(TAG, "onFailure: ${t.message}")
+                }
+
+            })
         }
 
         binding.getModulos.setOnClickListener {

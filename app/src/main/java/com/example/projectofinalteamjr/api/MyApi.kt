@@ -27,10 +27,11 @@ interface MyApi {
     ): Call<Curso>
 
     @Headers("Content-Type: application/json")
-    @PUT("modulos/edit/{id}")
-    fun atualizarModulo(@Path("id") id: Int, @Body modulo: Modulo): Call<Modulo>
-
-
+    @PUT("modulo_update/{id}")
+    fun atualizarModulo(
+        @Path("id") id: Int,
+        @Body modulo: Modulo
+    ): Call<Modulo>
 
     @GET("modulos")
     fun getModulos(): Call<List<Modulos>>
@@ -83,5 +84,25 @@ interface MyApi {
     fun criarTurma(
         @Body turmaNova : Turma
     ): Call<Turma>
+
+    @POST ("curso/{cursoID}/{moduloID}")
+    fun adicionarModuloCurso(
+        @Path("cursoID") cursoId: Int,
+        @Path("moduloID") moduloId: Int
+    ): Call<CursoModulo>
+
+    @GET ("modulos_formando/{userID}")
+    fun getModulosFormando(
+        @Path("userID") id: Int
+    ): Call<List<Modulos>>
+
+    @GET ("parametros/index")
+    fun getParametros(
+    ): Call<List<Parametro>>
+
+    @POST ("avaliacao_modulo/store")
+    fun postAvaliacaoModulo(
+        @Body avalicao : avaliacaoModulo
+    ): Call<avaliacaoModulo>
 }
 
