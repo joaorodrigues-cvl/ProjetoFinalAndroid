@@ -15,7 +15,6 @@ import com.example.projectofinalteamjr.api.Modulos
 import com.example.projectofinalteamjr.api.MyApi
 import com.example.projectofinalteamjr.api.modulosList
 import com.example.projectofinalteamjr.databinding.ActivityModulosDoCursoBinding
-import com.example.projectofinalteamjr.modulos.AdicionarModuloAoCursoActivity
 import com.example.projectofinalteamjr.modulos.DetalhesModuloActivity
 import retrofit2.Call
 import retrofit2.Callback
