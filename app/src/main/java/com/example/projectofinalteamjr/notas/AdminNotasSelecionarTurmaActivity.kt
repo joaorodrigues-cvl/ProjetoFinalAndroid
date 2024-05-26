@@ -31,9 +31,9 @@ class AdminNotasSelecionarTurmaActivity : AppCompatActivity() {
     val api = Retrofit.Builder()
         .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
-        .build();
+        .build()
 
-    val myApi = api.create(MyApi::class.java);
+    val myApi = api.create(MyApi::class.java)
 
     private val binding by lazy {
         ActivityAdminNotasSelecionarTurmaBinding.inflate(layoutInflater)

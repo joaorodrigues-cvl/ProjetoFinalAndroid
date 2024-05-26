@@ -25,9 +25,9 @@ class DetalhesCursoActivity : AppCompatActivity() {
     val api = Retrofit.Builder()
         .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
-        .build();
+        .build()
 
-    val myApi = api.create(MyApi::class.java);
+    val myApi = api.create(MyApi::class.java)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

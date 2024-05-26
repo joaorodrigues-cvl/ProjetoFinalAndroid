@@ -31,7 +31,7 @@ class ModulosActivity : AppCompatActivity() {
         val arrayAdapterNomesModulos = object : ArrayAdapter<String>(this, R.layout.simple_list_item_1, listaNomesModulos!!) {
             override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
                 val view = super.getView(position, convertView, parent)
-                val textView = view.findViewById<TextView>(android.R.id.text1)
+                val textView = view.findViewById<TextView>(R.id.text1)
                 textView.setTextColor(Color.WHITE) // cor do texto branco
                 return view
             }
@@ -48,7 +48,7 @@ class ModulosActivity : AppCompatActivity() {
             val element = parent.getItemAtPosition(position) as String?
             val descricao = listaDescricaoModulos!!.get(position)
             val regime = listaRegimeModulos!!.get(position)
-            val Totalhoras = listaHorasModulos!!.get(position)
+            val Totalhoras = listaHorasModulos.get(position)
             val idmodulo = position+1
             val intent = Intent(this, DetalhesModuloActivity::class.java)
             intent.putExtra("nomeModulo",element)

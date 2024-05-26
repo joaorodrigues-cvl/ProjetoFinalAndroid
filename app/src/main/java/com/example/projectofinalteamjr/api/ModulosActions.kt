@@ -16,11 +16,11 @@ private val BASE_URL = "http://10.0.2.2:8000/api/"
 private val TAG: String = "Metodo Get Modulo"
 private val TAG2: String = "Metodo Post Modulo"
 
-public var modulosList: ArrayList<Modulos>? = ArrayList()
+var modulosList: ArrayList<Modulos>? = ArrayList()
 
-class ModulosActions () {
+class ModulosActions {
 
-    public fun sendRequestModulos(context: Context, modulo: Modulo) {
+    fun sendRequestModulos(context: Context, modulo: Modulo) {
         val client = OkHttpClient.Builder().build()   // adicionado para funcioanr..
         val builder = Retrofit.Builder()
             .baseUrl(BASE_URL)
@@ -53,7 +53,7 @@ class ModulosActions () {
     }
 
 
-    public fun getApiModulos() {
+    fun getApiModulos() {
         val api = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
@@ -80,7 +80,7 @@ class ModulosActions () {
 
         })
     }
-    public fun atualizarModulo(id: Int, modulo: Modulo) {
+    fun atualizarModulo(id: Int, modulo: Modulo) {
         val client = OkHttpClient.Builder().build()
         val builder = Retrofit.Builder()
             .baseUrl(BASE_URL)

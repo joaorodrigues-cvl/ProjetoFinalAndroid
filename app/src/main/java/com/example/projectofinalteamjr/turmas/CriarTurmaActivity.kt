@@ -52,7 +52,9 @@ class CriarTurmaActivity : AppCompatActivity() {
             listaNomesCursos.add(curso.Nome)
         }
 
-        val arrayAdapterNomesCursos = object : ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listaNomesCursos!!) {
+        val arrayAdapterNomesCursos = object : ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,
+            listaNomesCursos
+        ) {
             override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
                 val view = super.getView(position, convertView, parent)
                 return view
@@ -161,11 +163,11 @@ class CriarTurmaActivity : AppCompatActivity() {
     private fun updateLableInicio(calendarioInicio: Calendar) {
         val formatoDataInicio = "yyyy-MM-dd"
         val sdf = SimpleDateFormat(formatoDataInicio, Locale.UK)
-       binding.TVDatepickerInicio.setText(sdf.format(calendarioInicio.time))
+        binding.TVDatepickerInicio.text = sdf.format(calendarioInicio.time)
     }
     private fun updateLableFim(calendarioFim: Calendar) {
         val formatoDataFim = "yyyy-MM-dd"
         val sdf = SimpleDateFormat(formatoDataFim , Locale.UK)
-        binding.TVDatepickerFim.setText(sdf.format( calendarioFim.time))
+        binding.TVDatepickerFim.text = sdf.format( calendarioFim.time)
     }
 }

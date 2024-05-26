@@ -36,9 +36,9 @@ class SelecionarModuloActivity : AppCompatActivity() {
     val api = Retrofit.Builder()
         .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
-        .build();
+        .build()
 
-    val myApi = api.create(MyApi::class.java);
+    val myApi = api.create(MyApi::class.java)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -56,7 +56,7 @@ class SelecionarModuloActivity : AppCompatActivity() {
         }
 
         val arrayAdapterNomesModulos = object :
-            ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listaNomesModulos!!) {
+            ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listaNomesModulos) {
             override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
                 val view = super.getView(position, convertView, parent)
                 return view

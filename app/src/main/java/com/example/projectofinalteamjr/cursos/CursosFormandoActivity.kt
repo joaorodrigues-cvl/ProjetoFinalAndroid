@@ -1,4 +1,4 @@
-package com.example.projectofinalteamjr
+package com.example.projectofinalteamjr.cursos
 
 import android.R
 import android.content.Intent
@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.projectofinalteamjr.api.Cursos
 import com.example.projectofinalteamjr.api.Modulos
 import com.example.projectofinalteamjr.api.MyApi
-import com.example.projectofinalteamjr.cursos.DetalhesCursoFormandoActivity
 import com.example.projectofinalteamjr.databinding.ActivityCursosFormandoBinding
 import retrofit2.Call
 import retrofit2.Callback
@@ -31,9 +30,9 @@ class CursosFormandoActivity : AppCompatActivity() {
     val api = Retrofit.Builder()
         .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
-        .build();
+        .build()
 
-    val myApi = api.create(MyApi::class.java);
+    val myApi = api.create(MyApi::class.java)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
@@ -46,7 +45,9 @@ class CursosFormandoActivity : AppCompatActivity() {
         for (curso in listaCursos){
             listaNomesCursos.add(curso.Nome)
         }
-        val arrayAdapterCursosFormando = object : ArrayAdapter<String>(this, R.layout.simple_list_item_1, listaNomesCursos!!){
+        val arrayAdapterCursosFormando = object : ArrayAdapter<String>(this, R.layout.simple_list_item_1,
+            listaNomesCursos
+        ){
             override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
                 val view = super.getView(position, convertView, parent)
                 return view

@@ -49,7 +49,7 @@
             android:name=".faltasAdministrador.MenuFaltasAdminActivity"
             android:exported="false" />
         <activity
-            android:name=".NotasFormandosActivity"
+            android:name=".notas.NotasFormandosActivity"
             android:exported="false" />
         <activity
             android:name=".turmas.CriarTurmaActivity"
@@ -73,7 +73,7 @@
             android:name=".cursos.DetalhesCursoFormandoActivity"
             android:exported="false" />
         <activity
-            android:name=".CursosFormandoActivity"
+            android:name=".cursos.CursosFormandoActivity"
             android:exported="false" />
         <activity
             android:name=".faltasFormando.DetalhesFaltaActivity"

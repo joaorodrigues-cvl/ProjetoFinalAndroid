@@ -35,9 +35,9 @@ class ModulosDoCursoActivity : AppCompatActivity() {
     val api = Retrofit.Builder()
         .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
-        .build();
+        .build()
 
-    val myApi = api.create(MyApi::class.java);
+    val myApi = api.create(MyApi::class.java)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
@@ -53,10 +53,12 @@ val listaNomesModulos = ArrayList<String>()
             listaNomesModulos.add(modulo.Nome)
         }
 
-        val arrayAdapterNomesModulos = object : ArrayAdapter<String>(this, R.layout.simple_list_item_1, listaNomesModulos!!) {
+        val arrayAdapterNomesModulos = object : ArrayAdapter<String>(this, R.layout.simple_list_item_1,
+            listaNomesModulos
+        ) {
             override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
                 val view = super.getView(position, convertView, parent)
-                val textView = view.findViewById<TextView>(android.R.id.text1)
+                val textView = view.findViewById<TextView>(R.id.text1)
                 textView.setTextColor(Color.WHITE) // cor do texto branco
                 return view
             }

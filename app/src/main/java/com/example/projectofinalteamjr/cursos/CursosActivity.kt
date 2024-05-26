@@ -33,10 +33,12 @@ class CursosActivity : AppCompatActivity() {
             listaNomesCursos.add(curso.Nome)
         }
 
-        val arrayAdapterNomesCursos = object : ArrayAdapter<String>(this, R.layout.simple_list_item_1, listaNomesCursos!!) {
+        val arrayAdapterNomesCursos = object : ArrayAdapter<String>(this, R.layout.simple_list_item_1,
+            listaNomesCursos
+        ) {
             override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
                 val view = super.getView(position, convertView, parent)
-                val textView = view.findViewById<TextView>(android.R.id.text1)
+                val textView = view.findViewById<TextView>(R.id.text1)
                 textView.setTextColor(Color.WHITE) // cor do texto branco
                 return view
             }

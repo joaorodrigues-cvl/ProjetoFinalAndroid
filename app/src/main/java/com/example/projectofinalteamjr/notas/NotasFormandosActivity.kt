@@ -1,4 +1,4 @@
-package com.example.projectofinalteamjr
+package com.example.projectofinalteamjr.notas
 
 import android.os.Bundle
 import android.view.View
@@ -30,14 +30,18 @@ class NotasFormandosActivity : AppCompatActivity() {
         val notasFormando = listaNotas.results
         val modulos = listaNotas.moduloNomes
 
-        val arrayAdapterNotas = object : ArrayAdapter<Double>(this, android.R.layout.simple_list_item_1, notasFormando!!){
+        val arrayAdapterNotas = object : ArrayAdapter<Double>(this, android.R.layout.simple_list_item_1,
+            notasFormando
+        ){
             override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
                 val view = super.getView(position, convertView, parent)
                 return view
             }
         }
 
-        val arrayAdapterModulos = object : ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, modulos!!){
+        val arrayAdapterModulos = object : ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,
+            modulos
+        ){
             override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
                 val view = super.getView(position, convertView, parent)
                 return view

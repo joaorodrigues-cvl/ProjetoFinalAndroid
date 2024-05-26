@@ -31,18 +31,18 @@ class MenuAdminActivity : AppCompatActivity() {
     val api = Retrofit.Builder()
         .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
-        .build();
+        .build()
 
-    val myApi = api.create(MyApi::class.java);
+    val myApi = api.create(MyApi::class.java)
 
-    public var modulosNomeList = ArrayList<String>()
-    public var modulosDescricaoList = ArrayList<String>()
-    public var modulosRegimeList = ArrayList<String>()
-    public var modulosHorasList = ArrayList<Int>()
+    var modulosNomeList = ArrayList<String>()
+    var modulosDescricaoList = ArrayList<String>()
+    var modulosRegimeList = ArrayList<String>()
+    var modulosHorasList = ArrayList<Int>()
 
-    public var cursosNomeList = ArrayList<String>()
-    public var cursosDescricaoList = ArrayList<String>()
-    public var cursosHorasList = ArrayList<Int>()
+    var cursosNomeList = ArrayList<String>()
+    var cursosDescricaoList = ArrayList<String>()
+    var cursosHorasList = ArrayList<Int>()
 
     private val binding by lazy {
         ActivityMenuAdminBinding.inflate(layoutInflater)
