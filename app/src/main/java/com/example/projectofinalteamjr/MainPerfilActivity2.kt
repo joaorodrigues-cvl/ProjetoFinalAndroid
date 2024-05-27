@@ -23,6 +23,8 @@ val i = intent
 
         val user = i.getSerializableExtra("user") as User
 
+        binding.editNome.text=user.name
+
         binding.nomeFormandoId.text = user.name
         binding.mailFormandoId.text = user.email
         binding.moradaFormandoId.text = user.morada
