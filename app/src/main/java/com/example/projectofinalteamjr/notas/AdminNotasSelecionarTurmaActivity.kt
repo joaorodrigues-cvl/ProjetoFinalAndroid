@@ -31,9 +31,9 @@ class AdminNotasSelecionarTurmaActivity : AppCompatActivity() {
     val api = Retrofit.Builder()
         .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
-        .build();
+        .build()
 
-    val myApi = api.create(MyApi::class.java);
+    val myApi = api.create(MyApi::class.java)
 
     private val binding by lazy {
         ActivityAdminNotasSelecionarTurmaBinding.inflate(layoutInflater)
@@ -60,6 +60,7 @@ class AdminNotasSelecionarTurmaActivity : AppCompatActivity() {
         binding.LVTurmas.adapter = arrayAdapterTurmas
 
         binding.LVTurmas.setOnItemClickListener { parent, view, position, id ->
+            val nomeTurma = parent.getItemAtPosition(position) as String?
             myApi.detalhesTurma(position + 1).enqueue(object : Callback<DetalhesTurma> {
                 override fun onResponse(
                     call: Call<DetalhesTurma>,
@@ -72,8 +73,9 @@ class AdminNotasSelecionarTurmaActivity : AppCompatActivity() {
                         // Intent:
 
                         val i: Intent =
-                            Intent(this@AdminNotasSelecionarTurmaActivity, MenuAdminActivity::class.java)
-                        i.putExtra("listaTurmas", turma as Serializable)
+                            Intent(this@AdminNotasSelecionarTurmaActivity, AdminNotasSelecionarFormandoActivity::class.java)
+                        i.putExtra("turma", turma as Serializable)
+                        i.putExtra("nomeTurma", nomeTurma)
                         startActivity(i)
                     } else {
 

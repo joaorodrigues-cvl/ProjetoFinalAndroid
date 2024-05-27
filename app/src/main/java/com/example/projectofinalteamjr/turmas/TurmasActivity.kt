@@ -7,9 +7,11 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.projectofinalteamjr.MenuAdminActivity
+import com.example.projectofinalteamjr.api.Cursos
 import com.example.projectofinalteamjr.api.DetalhesTurma
 import com.example.projectofinalteamjr.api.MyApi
 import com.example.projectofinalteamjr.api.Turmas
+import com.example.projectofinalteamjr.cursos.CursosActivity
 import com.example.projectofinalteamjr.databinding.ActivityTurmasBinding
 import retrofit2.Call
 import retrofit2.Callback
@@ -33,20 +35,19 @@ class TurmasActivity : AppCompatActivity() {
         val api = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
-            .build();
+            .build()
 
-        val myApi=api.create(MyApi::class.java);
+        val myApi=api.create(MyApi::class.java)
 
         val i = intent
 
-        val listaTurmas = i.getSerializableExtra("listaTurmas") as List<Turmas>
+        val listaTurmas = i.getSerializableExtra("turmas") as List<Turmas>
 
         val listaNomesTurmas = ArrayList<String>()
 
         for (turma in listaTurmas){
             listaNomesTurmas.add(turma.nome)
         }
-
 
         val arrayAdapterTurmas = ArrayAdapter(this, R.layout.simple_list_item_1, listaNomesTurmas)
 
@@ -65,7 +66,7 @@ class TurmasActivity : AppCompatActivity() {
                         // Intent:
 
                         val i: Intent = Intent(this@TurmasActivity, DetalheTurmaActivity::class.java)
-                        i.putExtra("listaTurmas", turma as Serializable)
+                        i.putExtra("Turma", turma as Serializable)
                         startActivity(i)
                     } else {
 
@@ -98,11 +99,49 @@ class TurmasActivity : AppCompatActivity() {
         }
 
         binding.BTNaddTurmaID.setOnClickListener{
-            val iBack: Intent = Intent(this@TurmasActivity, CriarTurmaActivity::class.java)
-            startActivity(iBack)
+
+            val criarTurma: Intent = Intent(this@TurmasActivity, CriarTurmaActivity::class.java)
+
+            myApi.getCursos().enqueue(object : Callback<ArrayList<Cursos>> {
+                override fun onResponse(
+                    call: Call<ArrayList<Cursos>>,
+                    response: Response<ArrayList<Cursos>>
+                ) {
+                    if (response.isSuccessful) {
+
+                        var listaCursos = response.body() // Store the list
+
+                        criarTurma.putExtra("listaCursos", listaCursos as Serializable)
+                        startActivity(criarTurma)
+                    } else {
+
+                        // Fazer Toast
+
+                        Toast.makeText(
+                            applicationContext,
+                            "Não foi possivel realizar a operação",
+                            Toast.LENGTH_LONG
+                        ).show()
+
+                        //Log.i(TAG, "Unsuccessful response: ${response.code()}")
+                    }
+                }
+
+                override fun onFailure(call: Call<ArrayList<Cursos>>, t: Throwable) {
+
+                    // Fazer Toast
+
+                    Toast.makeText(
+                        applicationContext,
+                        "Falha ao tentar aceder o servidor",
+                        Toast.LENGTH_LONG
+                    ).show()
+
+                    //Log.i(TAG, "onFailure: ${t.message}")
+                }
+            })
+
         }
-
-
 
 
         binding.buttonBack.setOnClickListener {

@@ -10,51 +10,54 @@ import android.widget.ArrayAdapter
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.projectofinalteamjr.api.CursoModulo
 import com.example.projectofinalteamjr.api.Modulos
 import com.example.projectofinalteamjr.api.MyApi
+import com.example.projectofinalteamjr.api.modulosList
 import com.example.projectofinalteamjr.databinding.ActivityModulosDoCursoBinding
-import com.example.projectofinalteamjr.modulos.AdicionarModuloAoCursoActivity
 import com.example.projectofinalteamjr.modulos.DetalhesModuloActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.io.Serializable
 
 class ModulosDoCursoActivity : AppCompatActivity() {
 
     private val binding by lazy {
         ActivityModulosDoCursoBinding.inflate(layoutInflater)
     }
+
+    val BASE_URL = "http://10.0.2.2:8000/api/"
+
+    val api = Retrofit.Builder()
+        .baseUrl(BASE_URL)
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
+
+    val myApi = api.create(MyApi::class.java)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
         val i = intent
-        val BASE_URL = "http://10.0.2.2:8000/api/"
 
-        val api = Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build();
+        val modulosList=i.getSerializableExtra("Modulos") as List<Modulos>
+        val cursoPosition=i.getIntExtra("cursoPosition",-1)
 
-        val myApi = api.create(MyApi::class.java);
+val listaNomesModulos = ArrayList<String>()
 
-         var modulosNomeList = ArrayList<String>()
-         var modulosDescricaoList = ArrayList<String>()
-         var modulosRegimeList = ArrayList<String>()
-         var modulosHorasList = ArrayList<Int>()
+        for (modulo in modulosList) {
+            listaNomesModulos.add(modulo.Nome)
+        }
 
-
-        var listaNomesModulos = i.getStringArrayListExtra("listaNomesModulos")
-        var listaDescricaoModulos = i.getStringArrayListExtra("listaDescricaoModulos")
-        var listaRegimeModulos = i.getStringArrayListExtra("listaRegimeModulos")
-        var listaHorasModulos = i.getIntegerArrayListExtra("listaHorasModulos")!!
-
-        val arrayAdapterNomesModulos = object : ArrayAdapter<String>(this, R.layout.simple_list_item_1, listaNomesModulos!!) {
+        val arrayAdapterNomesModulos = object : ArrayAdapter<String>(this, R.layout.simple_list_item_1,
+            listaNomesModulos
+        ) {
             override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
                 val view = super.getView(position, convertView, parent)
-                val textView = view.findViewById<TextView>(android.R.id.text1)
+                val textView = view.findViewById<TextView>(R.id.text1)
                 textView.setTextColor(Color.WHITE) // cor do texto branco
                 return view
             }
@@ -68,7 +71,7 @@ class ModulosDoCursoActivity : AppCompatActivity() {
         //binding.horasCursosID.adapter = arrayAdapterHorasCursos
 
         binding.LVModulosID.setOnItemClickListener { parent, view, position, id ->
-            val element = parent.getItemAtPosition(position) as String?
+            /*val element = parent.getItemAtPosition(position) as String?
             val descricao = listaDescricaoModulos!!.get(position)
             val regime = listaRegimeModulos!!.get(position)
             val Totalhoras = listaHorasModulos!!.get(position)
@@ -79,7 +82,7 @@ class ModulosDoCursoActivity : AppCompatActivity() {
             intent.putExtra("regimeModulo", regime)
             intent.putExtra("horasModulo",Totalhoras)
             intent.putExtra("idModulo",idmodulo)
-            startActivity(intent)
+            startActivity(intent)*/
 
         }
 
@@ -88,6 +91,7 @@ class ModulosDoCursoActivity : AppCompatActivity() {
         }
 
         binding.btnAddModuloToCurso.setOnClickListener {
+
             myApi.getModulos().enqueue(object : Callback<List<Modulos>> {
                 override fun onResponse(
                     call: Call<List<Modulos>>,
@@ -95,28 +99,14 @@ class ModulosDoCursoActivity : AppCompatActivity() {
                 ) {
                     if (response.isSuccessful) {
 
-                        var output = response.body() // Store the list
-                        output?.let {
-                            for (modulo in it) {
-                                modulosNomeList.add(modulo.Nome)
-                                modulosDescricaoList.add(modulo.Descricao)
-                                modulosRegimeList.add(modulo.Regime_modulo)
-                                modulosHorasList.add(modulo.Horas)
+                        var listaModulos = response.body() // Store the list
 
-                            }
-
-                        }
-                        // Intent:
-
-                        val i: Intent = Intent(
-                            this@ModulosDoCursoActivity,
-                            AdicionarModuloAoCursoActivity::class.java
-                        )
-                        i.putExtra("listaNomesModulos", modulosNomeList)
-                        i.putExtra("listaDescricaoModulos", modulosDescricaoList)
-                        i.putExtra("listaRegimeModulos", modulosRegimeList)
-                        i.putExtra("listaHorasModulos", modulosHorasList)
+                        val i = Intent(this@ModulosDoCursoActivity,SelecionarModuloActivity::class.java)
+                        i.putExtra("listaModulos",listaModulos as Serializable)
+                        i.putExtra("cursoPosition",cursoPosition)
                         startActivity(i)
+
+
                     } else {
 
                         // Fazer Toast

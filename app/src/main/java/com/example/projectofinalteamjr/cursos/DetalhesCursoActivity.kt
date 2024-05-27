@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.projectofinalteamjr.api.Cursos
 import com.example.projectofinalteamjr.api.Modulos
 import com.example.projectofinalteamjr.api.MyApi
 import com.example.projectofinalteamjr.databinding.ActivityDetalhesCursoBinding
@@ -12,6 +13,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.io.Serializable
 
 class DetalhesCursoActivity : AppCompatActivity() {
 
@@ -23,14 +25,10 @@ class DetalhesCursoActivity : AppCompatActivity() {
     val api = Retrofit.Builder()
         .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
-        .build();
+        .build()
 
-    val myApi = api.create(MyApi::class.java);
+    val myApi = api.create(MyApi::class.java)
 
-    public var modulosNomeList = ArrayList<String>()
-    public var modulosDescricaoList = ArrayList<String>()
-    public var modulosRegimeList = ArrayList<String>()
-    public var modulosHorasList = ArrayList<Int>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -38,47 +36,38 @@ class DetalhesCursoActivity : AppCompatActivity() {
 
         val intent = intent
 
-        val nomeCurso = intent.getStringExtra("nomeCurso")
-        val descricaoCurso = intent.getStringExtra("descricaoCurso")
-        val horasCurso = intent.getIntExtra("horasCurso", 0)
-        binding.editNomeCurso.text = nomeCurso
-        binding.editDescricaoCurso.text = descricaoCurso
-        binding.editHorasCurso.text = horasCurso.toString()
+        val cursoPosition = intent.getIntExtra("cursoPosition", -1)
+        val listaCursos = intent.getSerializableExtra("listaCursos") as List<Cursos>
+
+        val cursoSelecionado = listaCursos[cursoPosition]
+
+        binding.editNomeCurso.text = cursoSelecionado.Nome
+        binding.editDescricaoCurso.text = cursoSelecionado.Descricao
+        binding.editHorasCurso.text = cursoSelecionado.TotalHoras.toString()
 
         binding.buttonBack.setOnClickListener {
-            val iBack: Intent = Intent(this@DetalhesCursoActivity, CursosActivity::class.java)
-            startActivity(iBack)
+            val i: Intent = Intent(this@DetalhesCursoActivity, CursosActivity::class.java)
+            i.putExtra("listaCursos", listaCursos as Serializable)
+            startActivity(i)
         }
 
         binding.btnModulosCurso.setOnClickListener {
 
-
-            myApi.getModulos().enqueue(object : Callback<List<Modulos>> {
+            myApi.getModulosCurso(cursoSelecionado.cursoID).enqueue(object : Callback<List<Modulos>> {
                 override fun onResponse(
                     call: Call<List<Modulos>>,
                     response: Response<List<Modulos>>
                 ) {
                     if (response.isSuccessful) {
 
-                        var output = response.body() // Store the list
-                        output?.let {
-                            for (modulo in it) {
-                                modulosNomeList.add(modulo.Nome)
-                                modulosDescricaoList.add(modulo.Descricao)
-                                modulosRegimeList.add(modulo.Regime_modulo)
-                                modulosHorasList.add(modulo.Horas)
-
-                            }
-
-                        }
+                        var modulos = response.body() // Store the list
                         // Intent:
 
                         val i: Intent = Intent(this@DetalhesCursoActivity, ModulosDoCursoActivity::class.java)
-                        i.putExtra("listaNomesModulos", modulosNomeList)
-                        i.putExtra("listaDescricaoModulos", modulosDescricaoList)
-                        i.putExtra("listaRegimeModulos", modulosRegimeList)
-                        i.putExtra("listaHorasModulos", modulosHorasList)
+                        i.putExtra("Modulos", modulos as Serializable)
+                        i.putExtra("cursoPosition", cursoPosition)
                         startActivity(i)
+
                     } else {
 
                         // Fazer Toast
@@ -108,19 +97,11 @@ class DetalhesCursoActivity : AppCompatActivity() {
 
             })
 
-
         }
         binding.btnEditCurso.setOnClickListener {
-            val nomeCurso = intent.getStringExtra("nomeCurso")
-            val descricaoCurso = intent.getStringExtra("descricaoCurso")
-            val horasCurso = intent.getIntExtra("horasCurso", 0)
-            val idCurso = intent.getIntExtra("idCurso", -1)
 
             val intentEditarCurso = Intent(this, EditarCursoActivity::class.java)
-            intentEditarCurso.putExtra("nomeCurso", nomeCurso)
-            intentEditarCurso.putExtra("descricaoCurso", descricaoCurso)
-            intentEditarCurso.putExtra("horasCurso", horasCurso)
-            intentEditarCurso.putExtra("idCurso", idCurso)
+            intentEditarCurso.putExtra("curso", cursoSelecionado as Serializable)
             startActivity(intentEditarCurso)
         }
     }

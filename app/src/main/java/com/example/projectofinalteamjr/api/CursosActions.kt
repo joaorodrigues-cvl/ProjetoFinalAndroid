@@ -1,5 +1,6 @@
 package com.example.projectofinalteamjr.api
 
+import android.content.Context
 import android.util.Log
 import android.widget.Toast
 import com.example.projectofinalteamjr.cursos.EditarCursoActivity
@@ -15,12 +16,12 @@ private val BASE_URL = "http://10.0.2.2:8000/api/"
 private val TAG: String = "CHECK_RESPONSE"
 private val TAG2: String = "Metodo Post"
 // Lista de cursos para armazenar os cursos recebidos da API.
-public var cursosList: ArrayList<Cursos>? = ArrayList()
+var cursosList: ArrayList<Cursos>? = ArrayList()
 
 class CursosActions {
 
     // Método para enviar uma solicitação para criar um novo curso na API.
-    public fun sendRequestCursos(curso: Curso) { // O sendRequestCursos envia uma solicitação para criar um novo curso na API
+    fun sendRequestCursos(context: Context, curso: Curso) { // O sendRequestCursos envia uma solicitação para criar um novo curso na API
         val client = OkHttpClient.Builder().build()   // adicionado para funcioanr..
         val builder = Retrofit.Builder()
             .baseUrl(BASE_URL)
@@ -34,31 +35,31 @@ class CursosActions {
             override fun onResponse(call: Call<Curso>, response: Response<Curso>) {
                 // Handle successful response
                 if (response.isSuccessful) {
-                    return
+                    Toast.makeText(context, "Curso gravado com sucesso", Toast.LENGTH_SHORT).show()
 //                    val cursoCriado = response.body()
 //                    Log.i(TAG2, "onResponse: Curso criado ${cursoCriado?.Nome}")
                 } else {
-                    return
+                    Toast.makeText(context, "Erro na gravaçao", Toast.LENGTH_SHORT).show()
 //                    Log.i(TAG2, "onResponse: Error ${response.message()}")
                 }
             }
 
             override fun onFailure(call: Call<Curso>, t: Throwable) {
                 // Handle failure
-                return
+               Toast.makeText(context, "Erro no servidor", Toast.LENGTH_SHORT).show()
 //                Log.i(TAG2, "onFailure: Network request failed: ${t.message}")
             }
         })
     }
 
 
-    public fun getApiCursos() {
+    fun getApiCursos() {
         val api = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
-            .build();
+            .build()
 
-        val myApi=api.create(MyApi::class.java);
+        val myApi=api.create(MyApi::class.java)
 
         myApi.getCursos().enqueue(object : Callback<ArrayList<Cursos>> {
             override fun onResponse(
@@ -91,7 +92,7 @@ class CursosActions {
 
         })
     }
-    public fun atualizarCurso(id: Int, curso: Curso) : String {
+    fun atualizarCurso(id: Int, curso: Curso) : String {
         val client = OkHttpClient.Builder().build()
         val builder = Retrofit.Builder()
             .baseUrl(BASE_URL)

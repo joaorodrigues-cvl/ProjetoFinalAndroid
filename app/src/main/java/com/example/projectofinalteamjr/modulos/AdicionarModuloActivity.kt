@@ -30,7 +30,7 @@ class AdicionarModuloActivity : AppCompatActivity() {
 
             if (nome.isNotEmpty() && descricao.isNotEmpty() && horas > 0 && regimeModulo.isNotEmpty()) {
                 val modulo = Modulo(nome, descricao, horas, regimeModulo)
-                modulosActions.sendRequestModulos(modulo)
+                modulosActions.sendRequestModulos(this, modulo)
                 startActivity(Intent(this, MenuAdminActivity::class.java))
             } else {
                 // Show error message to user

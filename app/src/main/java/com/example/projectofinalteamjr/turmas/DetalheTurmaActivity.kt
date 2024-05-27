@@ -25,7 +25,7 @@ class DetalheTurmaActivity : AppCompatActivity() {
 
         val i = intent
 
-        var turma = i.getSerializableExtra("listaTurmas") as DetalhesTurma
+        var turma = i.getSerializableExtra("Turma") as DetalhesTurma
 
         val listaNomesFormandos = ArrayList<String>()
 

@@ -9,8 +9,10 @@ import com.example.projectofinalteamjr.api.Faltas
 import com.example.projectofinalteamjr.api.ModulosNotas
 import com.example.projectofinalteamjr.api.MyApi
 import com.example.projectofinalteamjr.api.User
+import com.example.projectofinalteamjr.cursos.CursosFormandoActivity
 import com.example.projectofinalteamjr.databinding.ActivityMenuFormandoBinding
 import com.example.projectofinalteamjr.faltasFormando.MainFaltasActivity
+import com.example.projectofinalteamjr.notas.NotasFormandosActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -29,9 +31,9 @@ class MenuFormandoActivity : AppCompatActivity() {
     val api = Retrofit.Builder()
         .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
-        .build();
+        .build()
 
-    val myApi = api.create(MyApi::class.java);
+    val myApi = api.create(MyApi::class.java)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

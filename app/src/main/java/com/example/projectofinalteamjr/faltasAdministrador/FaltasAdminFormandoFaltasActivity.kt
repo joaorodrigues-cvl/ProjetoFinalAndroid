@@ -27,20 +27,17 @@ class FaltasAdminFormandoFaltasActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(binding.root)
-
         tvDataFalta = findViewById(R.id.TV_datepicker)
         btnDataFalta = findViewById(R.id.btn_datepicker)
 
-
-
         var calendarioFalta = Calendar.getInstance()
+
         val datePickerFalta = DatePickerDialog.OnDateSetListener{ view, anoInicio, mesInicio, diaDoMesInicio ->
             calendarioFalta.set(Calendar.YEAR, anoInicio)
             calendarioFalta.set(Calendar.MONTH, mesInicio)
             calendarioFalta.set(Calendar.DAY_OF_MONTH, diaDoMesInicio)
             updateLable(calendarioFalta)
         }
-
 
         binding.buttonBack.setOnClickListener {
             val iBack: Intent = Intent(this@FaltasAdminFormandoFaltasActivity, FaltasAdminModuloListActivity::class.java)
@@ -52,11 +49,10 @@ class FaltasAdminFormandoFaltasActivity : AppCompatActivity() {
                 calendarioFalta.get(Calendar.MONTH), calendarioFalta.get(Calendar.DAY_OF_MONTH)).show()
         }
 
-
     }
     private fun updateLable(calendarioFalta: Calendar) {
         val formatoData = "dd-MM-yyyy"
         val sdf = SimpleDateFormat(formatoData, Locale.UK)
-        tvDataFalta.setText(sdf.format(calendarioFalta.time))
+        tvDataFalta.text = sdf.format(calendarioFalta.time)
     }
 }
