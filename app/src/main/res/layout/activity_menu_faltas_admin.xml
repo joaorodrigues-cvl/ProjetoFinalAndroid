@@ -26,31 +26,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20sp"
-        android:paddingBottom="10dp">
-
-        <TextView
-            android:id="@+id/text_welcome_user"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="bottom"
-            android:text="Bem-vindo Administrador"
-            android:textColor="@color/white" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#FFFFFF"
         android:orientation="horizontal">
 
         <TextView
+            android:textSize="14sp"
+            android:fontFamily="@font/montserrat"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="50dp"
             android:gravity="center"
             android:text="Faltas"
-            android:textColor="@color/black" />
+            android:textColor="@color/white" />
     </LinearLayout>
 
     <LinearLayout
@@ -64,6 +49,8 @@
         android:paddingBottom="20dp">
 
         <TextView
+            android:textSize="14sp"
+            android:fontFamily="@font/montserrat"
             android:id="@+id/text_nomeTurma"
             android:layout_width="match_parent"
             android:layout_height="25dp"
@@ -114,16 +101,21 @@
         android:gravity="center"
         android:orientation="vertical"
         android:paddingLeft="50dp"
+        android:paddingTop="120dp"
         android:paddingRight="50dp">
 
         <Button
             android:id="@+id/buttonBack"
             android:layout_width="150dp"
             android:layout_height="45dp"
-            android:layout_margin="30dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/corners"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/corners_blue"
+            android:fontFamily="@font/montserrat"
+            android:gravity="center"
             android:text="Voltar"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"

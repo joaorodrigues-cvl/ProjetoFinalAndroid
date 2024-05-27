@@ -9,13 +9,13 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="200dp"
+        android:layout_width="300dp"
         android:layout_height="100dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_gravity="left"
+        android:src="@drawable/logo_header_branco"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+        />
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -23,7 +23,7 @@
         android:layout_width="0dp"
         android:layout_height="350dp"
         android:layout_marginEnd="32dp"
-        android:background="@color/white"
+        android:background="@drawable/corners_bottomright"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/recyclerView"
@@ -35,7 +35,7 @@
         android:layout_height="47dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
-        android:background="@color/white"
+        android:background="@drawable/corners_topleft"
         android:gravity="center"
         android:text="Módulo"
         android:fontFamily="@font/montserrat"
@@ -51,7 +51,7 @@
         android:layout_height="47dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
-        android:background="@color/white"
+        android:background="@drawable/corners_topright"
         android:gravity="center"
         android:text="Nota"
         android:fontFamily="@font/montserrat"
@@ -65,7 +65,7 @@
         android:layout_width="0dp"
         android:layout_height="350dp"
         android:layout_marginStart="32dp"
-        android:background="@color/white"
+        android:background="@drawable/corners_bottomleft"
         app:layout_constraintEnd_toStartOf="@+id/recyclerView2"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -73,13 +73,13 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textSize="14sp"
         android:fontFamily="@font/montserrat"
-        android:text="Módulos"
+        android:gravity="center"
+        android:text="Lista de Módulos do Curso"
         android:textColor="@color/white"
-        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
@@ -87,11 +87,15 @@
     <Button
         android:id="@+id/buttonBack"
         android:layout_width="150dp"
-        android:layout_height="35dp"
-        android:layout_marginBottom="50dp"
-        android:background="@drawable/corners"
-        android:backgroundTint="@color/azul"
+        android:layout_height="45dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/corners_blue"
+        android:fontFamily="@font/montserrat"
+        android:gravity="center"
         android:text="Voltar"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

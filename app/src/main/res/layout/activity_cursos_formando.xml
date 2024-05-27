@@ -10,10 +10,10 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="100dp"
-        android:layout_height="60dp"
-        android:layout_gravity="left"
-        android:src="@drawable/logo"
+        android:layout_width="300sp"
+        android:layout_height="100sp"
+        android:paddingTop="20sp"
+        app:srcCompat="@drawable/logo_header_branco"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,6 +22,7 @@
         android:layout_width="0dp"
         android:layout_height="50sp"
         android:fontFamily="@font/montserrat"
+        android:textSize="14sp"
         android:gravity="center"
         android:text="Cursos"
         android:textColor="@color/white"
@@ -32,11 +33,14 @@
     <Button
         android:id="@+id/buttonCursosFormandoBack"
         android:layout_width="150dp"
-        android:layout_height="30dp"
-        android:layout_marginBottom="32dp"
-        android:background="@drawable/corners"
-        android:backgroundTint="@color/azul"
+        android:layout_height="45dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/corners_blue"
+        android:fontFamily="@font/montserrat"
+        android:gravity="center"
         android:text="Voltar"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -49,7 +53,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
-        android:background="@color/white"
+        android:background="@drawable/corners"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView13" />

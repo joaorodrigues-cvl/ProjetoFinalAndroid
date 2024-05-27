@@ -17,9 +17,10 @@
     android:background="@color/roxo">
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:src="@drawable/logo"
+        android:layout_width="300sp"
+        android:layout_height="100sp"
+        android:paddingTop="20sp"
+        app:srcCompat="@drawable/logo_header_branco"
         android:layout_gravity="start"
         android:layout_marginTop="10dp"
         android:layout_weight="0.5"/>
@@ -35,8 +36,10 @@
         android:layout_height="20dp"
         android:layout_gravity="right|center"
         android:layout_weight="0.5"
+        android:textSize="12sp"
         android:background="@drawable/quadrado_azul"
         android:text="Logout"
+        android:textColor="@color/white"
         android:layout_marginEnd="10dp"/>
 
 </LinearLayout>
@@ -63,8 +66,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Administrador"
-            android:fontFamily="@font/montserrat_thin"
+            android:fontFamily="@font/montserrat"
+            android:textStyle="italic"
             android:textSize="20sp"
+            android:textColor="@color/azul"
             android:layout_marginLeft="10sp"/>
 
     </LinearLayout>
@@ -73,7 +78,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="40dp"
         android:gravity="center">
 
         <Button
@@ -108,15 +112,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:gravity="center">
 
         <Button
+            android:id="@+id/faltasAdminID"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:background="@drawable/quadrado_azul"
             android:gravity="center"
-            android:text="Utilizador"
+            android:text="Turmas"
             android:fontFamily="@font/montserrat"
             android:textSize="15sp"
             android:textColor="@color/white"/>
@@ -138,11 +143,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:gravity="center">
 
         <Button
-            android:id="@+id/faltasAdminID"
+
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:background="@drawable/quadrado_rosa"
@@ -152,7 +157,7 @@
             android:textColor="@color/white"
             android:textSize="15sp" />
 
-        <Button
+        <!--<Button
             android:id="@+id/buttonTurmasID"
             android:layout_width="150dp"
             android:layout_height="150dp"
@@ -162,7 +167,7 @@
             android:gravity="center"
             android:text="Turmas"
             android:textColor="@color/white"
-            android:textSize="15sp" />
+            android:textSize="15sp" />-->
 
     </LinearLayout>
 

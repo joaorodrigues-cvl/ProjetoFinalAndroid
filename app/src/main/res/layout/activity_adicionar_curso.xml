@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#201544"
+
     android:orientation="vertical"
     tools:context=".cursos.AdicionarCursoActivity">
 
@@ -23,47 +24,29 @@
             app:srcCompat="@drawable/logo_header_branco" />
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20sp"
-        android:paddingBottom="10dp">
 
         <TextView
-            android:id="@+id/text_welcome_user"
+            android:fontFamily="@font/montserrat"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="bottom"
-            android:text="Bem-vindo Administrador"
-            android:textColor="@color/white" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#FFFFFF"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="50sp"
             android:gravity="center"
             android:text="Adicionar Curso"
-            android:textColor="@color/black" />
-    </LinearLayout>
+            android:textColor="@color/white" />
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
-        android:paddingTop="50dp"
         android:paddingLeft="50dp"
+        android:paddingTop="20dp"
         android:paddingRight="50dp"
         >
 
         <TextView
+            android:textSize="14sp"
+            android:fontFamily="@font/montserrat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Nome"
@@ -71,23 +54,26 @@
             />
 
         <EditText
+            android:fontFamily="@font/montserrat"
             android:padding="5dp"
             android:id="@+id/edit_nome_curso"
             android:layout_width="match_parent"
             android:layout_height="35sp"
             android:hint="Introduza o nome do curso"
             android:background="@drawable/corners"
-            android:textSize="14dp"
+            android:textSize="14sp"
             />
         <TextView
+            android:textSize="14sp"
+            android:fontFamily="@font/montserrat"
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity=""
             android:text="Descrição"
             android:textColor="@color/white" />
 
         <EditText
+            android:fontFamily="@font/montserrat"
             android:padding="5dp"
             android:id="@+id/edit_descricao_curso"
             android:layout_width="match_parent"
@@ -96,22 +82,25 @@
             android:hint="Descrição do curso"
             android:background="@drawable/corners"
             android:layout_marginBottom="15dp"
-            android:textSize="14dp"
+            android:textSize="14sp"
             />
         <TextView
+            android:textSize="14sp"
+            android:fontFamily="@font/montserrat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Total horas"
             android:textColor="@color/white" />
 
         <EditText
+            android:fontFamily="@font/montserrat"
             android:padding="5dp"
             android:id="@+id/edit_horas_curso"
             android:layout_width="match_parent"
             android:layout_height="35sp"
             android:hint="Introduza o total de horas do curso"
             android:background="@drawable/corners"
-            android:textSize="14dp"
+            android:textSize="14sp"
 
             />
     </LinearLayout>
@@ -122,33 +111,33 @@
         android:paddingLeft="50dp"
         android:paddingRight="50dp"
         android:gravity="center"
+        android:paddingTop="50dp"
         >
 
         <Button
-            android:layout_margin="20dp"
             android:id="@+id/btn_gravar_curso"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#20A000"
-            android:textColor="@color/white"
-            android:textAllCaps="false"
+            android:layout_width="150dp"
+            android:layout_height="45dp"
+            android:background="@drawable/corners_green"
             android:text="Gravar"
-            android:textSize="20dp"
-            app:cornerRadius="4dp"
-
-            />
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/montserrat"
+            android:textSize="18sp"
+            android:textAllCaps="false"/>
         <Button
             android:id="@+id/buttonBack"
             android:layout_width="150dp"
             android:layout_height="45dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/quadrado_azul"
+            android:background="@drawable/corners_blue"
             android:text="Voltar"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            android:textColor="#FFFFFF"/>
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:fontFamily="@font/montserrat"
+            android:textSize="18sp"
+            android:textAllCaps="false"/>
     </LinearLayout>
 
 </LinearLayout>

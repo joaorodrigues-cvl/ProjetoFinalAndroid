@@ -14,7 +14,7 @@
         android:id="@+id/logoCores"
         android:layout_width="303dp"
         android:layout_height="180dp"
-        android:src="@drawable/logo"
+        android:src="@drawable/logo_header_branco"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="-3dp" />
 
@@ -24,7 +24,7 @@
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:layout_marginBottom="28dp"
-        android:hint="User"
+        android:hint="Utilizador"
         android:inputType="text"
         android:maxLines="1"
         android:padding="15dp"
@@ -53,12 +53,13 @@
         />
 
     <Button
+        android:textAllCaps="false"
         android:id="@+id/button_submit"
         android:layout_width="121dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:gravity="center"
-        android:text="Submit"
+        android:text="Entrar"
         android:fontFamily="@font/montserrat"
         android:textSize="20sp"
         android:layout_marginTop="60sp"
