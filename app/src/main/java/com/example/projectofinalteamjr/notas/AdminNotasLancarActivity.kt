@@ -82,8 +82,6 @@ class AdminNotasLancarActivity : AppCompatActivity() {
                             Toast.LENGTH_LONG
                         ).show()
 
-                        startActivity(Intent(this@AdminNotasLancarActivity, MenuAdminActivity::class.java))
-
                     } else {
 
                         // Fazer Toast
