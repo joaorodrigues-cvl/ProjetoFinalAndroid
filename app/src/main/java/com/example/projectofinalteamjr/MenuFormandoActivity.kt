@@ -47,7 +47,7 @@ class MenuFormandoActivity : AppCompatActivity() {
         }
         binding.getCursosFormando.setOnClickListener {
 
-            myApi.getCursosFormando(4).enqueue(object : Callback<List<Cursos>> {
+            myApi.getCursosFormando(3).enqueue(object : Callback<List<Cursos>> {
                 override fun onResponse(
                     call: Call<List<Cursos>>,
                     response: Response<List<Cursos>>
@@ -186,7 +186,7 @@ class MenuFormandoActivity : AppCompatActivity() {
         }
         binding.getInfoFormando.setOnClickListener {
 
-            myApi.getUserInfo(4).enqueue(object : Callback<User> {
+            myApi.getUserInfo(3).enqueue(object : Callback<User> {
                 override fun onResponse(
                     call: Call<User>,
                     response: Response<User>
