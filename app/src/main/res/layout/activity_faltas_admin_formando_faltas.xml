@@ -20,37 +20,22 @@
             android:layout_width="300sp"
             android:layout_height="100sp"
             android:paddingTop="20sp"
-            app:srcCompat="@drawable/logo_header_branco" />
+            app:srcCompat="@drawable/logo_header_branco"  />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20sp"
-        android:paddingBottom="10dp">
-
-        <TextView
-            android:id="@+id/text_welcome_user"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="bottom"
-            android:text="Bem-vindo Administrador"
-            android:textColor="@color/white" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#FFFFFF"
         android:orientation="horizontal">
 
         <TextView
+            android:textSize="14sp"
+            android:fontFamily="@font/montserrat"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="50dp"
             android:gravity="center"
             android:text="Lançar faltas do Formando"
-            android:textColor="@color/black" />
+            android:textColor="@color/white" />
     </LinearLayout>
 
     <LinearLayout
@@ -59,16 +44,20 @@
         android:gravity="center"
         android:orientation="vertical"
         android:paddingLeft="50dp"
-        android:paddingTop="50dp"
+
         android:paddingRight="50dp">
 
         <TextView
+            android:textSize="14sp"
+            android:fontFamily="@font/montserrat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Turma"
             android:textColor="@color/white" />
 
         <TextView
+            android:textSize="14sp"
+            android:fontFamily="@font/montserrat"
             android:id="@+id/TV_nomeTurma"
             android:layout_width="match_parent"
             android:layout_height="35dp"
@@ -86,6 +75,8 @@
             android:textColor="@color/white" />
 
         <TextView
+            android:textSize="14sp"
+            android:fontFamily="@font/montserrat"
             android:id="@+id/TV_nomeFormando"
             android:layout_width="match_parent"
             android:layout_height="35dp"
@@ -94,13 +85,16 @@
             android:padding="5dp" />
 
         <TextView
+            android:textSize="14sp"
+            android:fontFamily="@font/montserrat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:text="Módulo"
             android:textColor="@color/white" />
 
         <TextView
+            android:textSize="14sp"
+            android:fontFamily="@font/montserrat"
             android:id="@+id/TV_nomeModulo"
             android:layout_width="match_parent"
             android:layout_height="35dp"
@@ -131,16 +125,19 @@
             android:orientation="vertical">
 
             <TextView
+                android:textSize="14sp"
+                android:fontFamily="@font/montserrat"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:text="Horas"
                 android:textColor="@color/white" />
 
             <EditText
+                android:textSize="14sp"
+                android:fontFamily="@font/montserrat"
                 android:id="@+id/edit_faltaHoras"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
-
                 android:background="@drawable/corners"
                 android:gravity="center" />
         </LinearLayout>
@@ -152,12 +149,16 @@
             android:orientation="vertical">
 
             <TextView
+                android:textSize="14sp"
+                android:fontFamily="@font/montserrat"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:text="Justificação"
                 android:textColor="@color/white" />
 
             <EditText
+                android:textSize="14sp"
+                android:fontFamily="@font/montserrat"
                 android:id="@+id/edit_justicacao"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
@@ -183,6 +184,7 @@
             android:gravity="center">
 
             <TextView
+                android:fontFamily="@font/montserrat"
                 android:id="@+id/TV_datepicker"
                 android:layout_width="120dp"
                 android:layout_height="20dp"
@@ -198,6 +200,8 @@
                 android:textStyle="bold" />
 
             <Button
+                android:textSize="12sp"
+                android:fontFamily="@font/montserrat"
                 android:id="@+id/btn_datepicker"
                 android:layout_width="120dp"
                 android:layout_height="25dp"
@@ -215,12 +219,15 @@
         android:layout_height="100dp"
         android:gravity="center"
         android:orientation="horizontal"
-        android:paddingLeft="50dp"
-        android:paddingRight="50dp">
+        android:layout_marginTop="110dp"
+      >
 
         <Button
+            android:fontFamily="@font/montserrat"
+            android:textSize="18sp"
+            android:textAllCaps="false"
             android:id="@+id/buttonBack"
-            android:layout_width="130dp"
+            android:layout_width="150dp"
             android:layout_height="45dp"
             android:background="@drawable/corners_blue"
             android:text="Voltar"
@@ -231,8 +238,11 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent" />
         <Button
+            android:textAllCaps="false"
+            android:fontFamily="@font/montserrat"
+            android:textSize="18sp"
             android:id="@+id/buttonGravarFalta"
-            android:layout_width="130dp"
+            android:layout_width="150dp"
             android:layout_height="45dp"
             android:backgroundTint="#20A000"
             android:background="@drawable/corners"

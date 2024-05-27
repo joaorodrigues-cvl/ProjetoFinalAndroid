@@ -23,35 +23,18 @@ tools:context=".faltasAdministrador.FaltasAdminVisualizarFormandoListActivity">
         app:srcCompat="@drawable/logo_header_branco" />
 </LinearLayout>
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="20sp"
-    android:paddingBottom="10dp">
+
+
+
 
     <TextView
-        android:id="@+id/text_welcome_user"
+        android:fontFamily="@font/montserrat"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="bottom"
-        android:text="Bem-vindo Administrador"
-        android:textColor="@color/white" />
-
-</LinearLayout>
-
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="#FFFFFF"
-    android:orientation="horizontal">
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="50dp"
         android:gravity="center"
         android:text="Visualizar Faltas - Selecionar Formando"
-        android:textColor="@color/black" />
-</LinearLayout>
+        android:textColor="@color/white" />
+
 
 <LinearLayout
     android:layout_width="match_parent"
@@ -65,6 +48,8 @@ tools:context=".faltasAdministrador.FaltasAdminVisualizarFormandoListActivity">
     >
 
     <TextView
+        android:textSize="14sp"
+        android:fontFamily="@font/montserrat"
         android:id="@+id/text_nomeTurma"
         android:layout_marginBottom="20dp"
         android:layout_width="match_parent"
@@ -75,11 +60,13 @@ tools:context=".faltasAdministrador.FaltasAdminVisualizarFormandoListActivity">
         />
 
     <ListView
+        android:fontFamily="@font/montserrat"
         android:id="@+id/LV_formandosTurma"
         android:layout_width="match_parent"
         android:layout_height="310dp"
         android:background="@drawable/corners"
         android:divider="@color/white"
+
         />
 
 </LinearLayout>
@@ -93,13 +80,16 @@ tools:context=".faltasAdministrador.FaltasAdminVisualizarFormandoListActivity">
     android:paddingRight="50dp">
 
     <Button
-        android:layout_margin="30dp"
+        android:layout_margin="80dp"
         android:id="@+id/buttonBack"
         android:layout_width="150dp"
         android:layout_height="45dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/quadrado_azul"
+        android:background="@drawable/corners_blue"
         android:text="Voltar"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:fontFamily="@font/montserrat"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

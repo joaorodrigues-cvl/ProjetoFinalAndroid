@@ -23,34 +23,20 @@
             app:srcCompat="@drawable/logo_header_branco" />
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20sp"
-        android:paddingBottom="10dp">
-
-        <TextView
-            android:id="@+id/text_welcome_user"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="bottom"
-            android:text="Bem-vindo Administrador"
-            android:textColor="@color/white" />
-
-    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#FFFFFF"
         android:orientation="horizontal">
 
         <TextView
+            android:textSize="14sp"
+            android:fontFamily="@font/montserrat"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="50dp"
             android:gravity="center"
             android:text="Detalhes do Curso"
-            android:textColor="@color/black" />
+            android:textColor="@color/white" />
     </LinearLayout>
 
     <LinearLayout
@@ -59,21 +45,25 @@
         android:gravity="center"
         android:orientation="vertical"
         android:paddingLeft="50dp"
-        android:paddingTop="50dp"
-        android:paddingRight="50dp">
+        android:paddingRight="50dp"
+        android:paddingBottom="20dp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
             android:text="Nome"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/edit_nome_curso"
             android:layout_width="match_parent"
             android:layout_height="35sp"
             android:background="@drawable/corners"
+            android:fontFamily="@font/montserrat"
             android:padding="5dp"
+            android:textSize="14sp"
 
             />
 
@@ -81,9 +71,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-
+            android:fontFamily="@font/montserrat"
             android:text="Descrição"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/edit_descricao_curso"
@@ -91,16 +82,20 @@
             android:layout_height="100sp"
             android:layout_marginBottom="15dp"
             android:background="@drawable/corners"
+            android:fontFamily="@font/montserrat"
             android:gravity="top"
             android:padding="5dp"
+            android:textSize="14sp"
 
             />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
             android:text="Total horas"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/edit_horas_curso"
@@ -108,7 +103,9 @@
             android:layout_height="35sp"
             android:layout_marginBottom="5dp"
             android:background="@drawable/corners"
+            android:fontFamily="@font/montserrat"
             android:padding="5dp"
+            android:textSize="14sp"
 
             />
     </LinearLayout>
@@ -124,14 +121,15 @@
 
         <Button
             android:id="@+id/btn_modulosCurso"
-            android:layout_margin="12dp"
-            android:background="@drawable/corners"
             android:layout_width="150dp"
             android:layout_height="30dp"
+            android:layout_margin="12dp"
+            android:background="@drawable/corners"
+            android:fontFamily="@font/montserrat"
+            android:gravity="center"
             android:text="Módulos do Curso"
             android:textAllCaps="false"
-            android:gravity="center"
-            />
+            android:textSize="14sp" />
 
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -157,12 +155,17 @@
         android:paddingRight="50dp">
 
         <Button
+            android:textAllCaps="false"
             android:id="@+id/buttonBack"
             android:layout_width="150dp"
             android:layout_height="45dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/quadrado_azul"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/corners_blue"
+            android:fontFamily="@font/montserrat"
+            android:gravity="center"
             android:text="Voltar"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"

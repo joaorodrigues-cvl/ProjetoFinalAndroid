@@ -11,17 +11,23 @@
     <Button
         android:id="@+id/buttonDetalhesCursoFormandoBack"
         android:layout_width="150dp"
-        android:layout_height="30dp"
-        android:layout_marginBottom="32dp"
-        android:background="@drawable/corners"
-        android:backgroundTint="@color/azul"
+        android:layout_height="45dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/corners_blue"
+        android:fontFamily="@font/montserrat"
+        android:gravity="center"
         android:text="Voltar"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
+        android:textSize="14sp"
+        android:fontFamily="@font/montserrat"
         android:id="@+id/totalhoras_curso_formando_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,6 +42,8 @@
         app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
     <TextView
+        android:textSize="14sp"
+        android:fontFamily="@font/montserrat"
         android:id="@+id/textView14"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -50,6 +58,8 @@
         app:layout_constraintTop_toBottomOf="@+id/descricao_curso_formando_id" />
 
     <TextView
+        android:textSize="14sp"
+        android:fontFamily="@font/montserrat"
         android:id="@+id/textView15"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -64,6 +74,8 @@
         app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
     <TextView
+        android:textSize="14sp"
+        android:fontFamily="@font/montserrat"
         android:id="@+id/nome_curso_formando_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -77,6 +89,8 @@
         app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
     <TextView
+        android:textSize="14sp"
+        android:fontFamily="@font/montserrat"
         android:id="@+id/textView16"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -92,6 +106,8 @@
         app:layout_constraintTop_toBottomOf="@+id/nome_curso_formando_id" />
 
     <TextView
+        android:textSize="14sp"
+        android:fontFamily="@font/montserrat"
         android:id="@+id/descricao_curso_formando_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -106,6 +122,8 @@
         app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
     <TextView
+        android:textSize="14sp"
+        android:fontFamily="@font/montserrat"
         android:id="@+id/textView17"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -134,15 +152,17 @@
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="100dp"
-        android:layout_height="60dp"
-        android:layout_gravity="left"
-        android:src="@drawable/logo"
+        android:layout_width="300sp"
+        android:layout_height="100sp"
+        android:paddingTop="20sp"
+        app:srcCompat="@drawable/logo_header_branco"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+
         android:id="@+id/textView18"
+        android:textSize="14sp"
         android:layout_width="0dp"
         android:layout_height="50sp"
         android:fontFamily="@font/montserrat"
