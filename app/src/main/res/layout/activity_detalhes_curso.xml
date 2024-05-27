@@ -121,12 +121,13 @@
 
         <Button
             android:id="@+id/btn_modulosCurso"
-            android:layout_width="150dp"
+            android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:layout_margin="12dp"
-            android:background="@drawable/corners"
+            android:layout_marginBottom="20dp"
+            android:background="@color/azul"
             android:fontFamily="@font/montserrat"
             android:gravity="center"
+            android:textColor="@color/white"
             android:text="Módulos do Curso"
             android:textAllCaps="false"
             android:textSize="14sp" />
@@ -140,6 +141,7 @@
             android:layout_marginBottom="10dp"
             android:clickable="true"
             app:backgroundTint="@color/rosa"
+            android:background="@drawable/customshape"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:srcCompat="@drawable/img" />

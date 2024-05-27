@@ -84,6 +84,8 @@ class SelecionarModuloActivity : AppCompatActivity() {
                             "Modulo adicionado com sucesso",
                             Toast.LENGTH_LONG
                         ).show()
+                        val intent: Intent = Intent(this@SelecionarModuloActivity, MenuAdminActivity::class.java)
+                        startActivity(intent)
 
                     } else {
 

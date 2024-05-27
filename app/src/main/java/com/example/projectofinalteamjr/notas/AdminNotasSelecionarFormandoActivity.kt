@@ -52,7 +52,7 @@ class AdminNotasSelecionarFormandoActivity : AppCompatActivity() {
         val listaUserIDFormando = ArrayList<Int>()
         val listaFormandoTurmaID = ArrayList<Int>()
 
-        for (formando in listaFormandos){
+        for (formando in listaFormandos) {
             listaNomesFormandos.add(formando.formandoNome)
             listaUserIDFormando.add(formando.userID)
             listaFormandoTurmaID.add(formando.formandoTurmaID)
@@ -64,7 +64,7 @@ class AdminNotasSelecionarFormandoActivity : AppCompatActivity() {
         val arrayAdapterNomesFormandos =
             ArrayAdapter(this, android.R.layout.simple_list_item_1, listaNomesFormandos)
 
-        binding.LVFormandosTurma.adapter=arrayAdapterNomesFormandos
+        binding.LVFormandosTurma.adapter = arrayAdapterNomesFormandos
 
 
         binding.LVFormandosTurma.setOnItemClickListener { parent, view, position, id ->
@@ -83,7 +83,10 @@ class AdminNotasSelecionarFormandoActivity : AppCompatActivity() {
 
                         // Intent:
 
-                        val i: Intent = Intent(this@AdminNotasSelecionarFormandoActivity, AdminNotasSelecionarModulosActivity::class.java)
+                        val i: Intent = Intent(
+                            this@AdminNotasSelecionarFormandoActivity,
+                            AdminNotasSelecionarModulosActivity::class.java
+                        )
                         i.putExtra("listaModulosFormando", modulos as Serializable)
                         i.putExtra("nomeFormando", formandoNome)
                         i.putExtra("formandoTurmaID", formandoTurmaID)
@@ -118,9 +121,9 @@ class AdminNotasSelecionarFormandoActivity : AppCompatActivity() {
             })
         }
 
-binding.buttonBack.setOnClickListener {
-    finish()
-}
+        binding.buttonBack.setOnClickListener {
+            finish()
+        }
 
     }
 }

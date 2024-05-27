@@ -10,39 +10,39 @@
     tools:context=".MenuAdminActivity"
     android:background="@color/white">
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:background="@color/roxo">
-
-    <ImageView
-        android:layout_width="300sp"
-        android:layout_height="100sp"
-        android:paddingTop="20sp"
-        app:srcCompat="@drawable/logo_header_branco"
-        android:layout_gravity="start"
-        android:layout_marginTop="10dp"
-        android:layout_weight="0.5"/>
-
-    <Space
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="@integer/material_motion_duration_long_1"/>
+        android:orientation="horizontal"
+        android:background="@color/roxo">
 
-    <Button
-        android:id="@+id/buttonLogout"
-        android:layout_width="wrap_content"
-        android:layout_height="20dp"
-        android:layout_gravity="right|center"
-        android:layout_weight="0.5"
-        android:textSize="12sp"
-        android:background="@drawable/quadrado_azul"
-        android:text="Logout"
-        android:textColor="@color/white"
-        android:layout_marginEnd="10dp"/>
+        <ImageView
+            android:layout_width="300sp"
+            android:layout_height="100sp"
+            android:paddingTop="20sp"
+            app:srcCompat="@drawable/logo_header_branco"
+            android:layout_gravity="start"
+            android:layout_marginTop="10dp"
+            android:layout_weight="0.5"/>
 
-</LinearLayout>
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="@integer/material_motion_duration_long_1"/>
+
+        <Button
+            android:id="@+id/buttonLogout"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_gravity="right|center"
+            android:layout_weight="0.5"
+            android:textSize="12sp"
+            android:background="@drawable/quadrado_azul"
+            android:text="Logout"
+            android:textColor="@color/white"
+            android:layout_marginEnd="10dp"/>
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -50,16 +50,16 @@
         android:layout_gravity="left"
         android:layout_marginTop="20dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/montserrat"
-        android:text="Bemvind@"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/montserrat"
+            android:text="Bemvind@"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
 
         <TextView
@@ -116,7 +116,7 @@
         android:gravity="center">
 
         <Button
-            android:id="@+id/buttonTurmasID"
+            android:id="@+id/turmasAdminID"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:background="@drawable/quadrado_azul"

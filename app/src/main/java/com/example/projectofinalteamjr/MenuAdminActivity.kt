@@ -263,7 +263,7 @@ class MenuAdminActivity : AppCompatActivity() {
 
         }
 
-        binding.buttonTurmasID.setOnClickListener {
+        binding.turmasAdminID.setOnClickListener {
 
             myApi.getTurmas().enqueue(object : Callback<List<Turmas>> {
                 override fun onResponse(
