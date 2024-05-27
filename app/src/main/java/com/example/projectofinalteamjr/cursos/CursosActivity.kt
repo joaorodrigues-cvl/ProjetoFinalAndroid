@@ -43,6 +43,10 @@ class CursosActivity : AppCompatActivity() {
                 return view
             }
         }
+        binding.imageView2.setOnClickListener{
+            val intent: Intent = Intent(this@CursosActivity, MenuAdminActivity::class.java)
+            startActivity(intent)
+        }
 
         binding.nomeCursosID.adapter = arrayAdapterNomesCursos
 

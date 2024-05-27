@@ -98,7 +98,7 @@ class MenuAdminActivity : AppCompatActivity() {
             })
         }
 
-        binding.turmasAdminID.setOnClickListener {
+        binding.faltasAdminID.setOnClickListener {
 
 
             myApi.getTurmas().enqueue(object : Callback<List<Turmas>> {

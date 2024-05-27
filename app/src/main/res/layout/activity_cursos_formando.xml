@@ -31,6 +31,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <Button
+        android:textAllCaps="false"
         android:id="@+id/buttonCursosFormandoBack"
         android:layout_width="150dp"
         android:layout_height="45dp"

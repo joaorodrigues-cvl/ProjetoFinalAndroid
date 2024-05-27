@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.projectofinalteamjr.MainActivity
 import com.example.projectofinalteamjr.MenuAdminActivity
 import com.example.projectofinalteamjr.api.Curso
 import com.example.projectofinalteamjr.api.CursosActions
@@ -21,6 +22,11 @@ class AdicionarCursoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(binding.root)
+
+        binding.imageView2.setOnClickListener{
+            val intent: Intent = Intent(this@AdicionarCursoActivity, MenuAdminActivity::class.java)
+            startActivity(intent)
+        }
 
         binding.btnGravarCurso.setOnClickListener {
             val nome = binding.editNomeCurso.text.toString()
