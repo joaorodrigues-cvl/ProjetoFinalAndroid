@@ -116,7 +116,7 @@
         android:gravity="center">
 
         <Button
-            android:id="@+id/faltasAdminID"
+            android:id="@+id/buttonTurmasID"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:background="@drawable/quadrado_azul"
@@ -147,7 +147,7 @@
         android:gravity="center">
 
         <Button
-
+            android:id="@+id/faltasAdminID"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:background="@drawable/quadrado_rosa"

@@ -66,12 +66,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Formando"
+            android:layout_marginLeft="10sp"
             android:fontFamily="@font/montserrat"
-            android:textStyle="italic"
-            android:textSize="20sp"
+            android:text="João Pias"
             android:textColor="@color/azul"
-            android:layout_marginLeft="10sp"/>
+            android:textSize="20sp"
+            android:textStyle="italic" />
 
     </LinearLayout>
 
@@ -127,25 +127,6 @@
             android:textSize="15sp" />
 
         <Button
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginLeft="20dp"
-            android:background="@drawable/quadrado_roxo"
-            android:gravity="center"
-            android:text="Percurso Académico"
-            android:fontFamily="@font/montserrat"
-            android:textSize="15sp"
-            android:textColor="@color/white"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="30dp"
-        android:gravity="center">
-
-        <Button
             android:id="@+id/getInfoFormando"
             android:layout_width="150dp"
             android:layout_height="150dp"
@@ -154,7 +135,17 @@
             android:gravity="center"
             android:text="Informações Pessoais"
             android:textColor="@color/white"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            android:layout_marginLeft="20dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        android:gravity="center">
 
     </LinearLayout>
 
