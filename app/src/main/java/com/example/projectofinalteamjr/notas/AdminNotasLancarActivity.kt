@@ -78,11 +78,9 @@ class AdminNotasLancarActivity : AppCompatActivity() {
                     if (response.isSuccessful) {
                         Toast.makeText(
                             applicationContext,
-                            "Avaliacao submetida com sucesso",
+                            "Avaliação submetida com sucesso",
                             Toast.LENGTH_LONG
                         ).show()
-
-                        startActivity(Intent(this@AdminNotasLancarActivity, MenuAdminActivity::class.java))
 
                     } else {
 
